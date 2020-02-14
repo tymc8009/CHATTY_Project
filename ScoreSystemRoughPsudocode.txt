@@ -1,0 +1,12 @@
+score(userpreference, restaurant):
+    if userrating exists
+        score = userrating
+    else 
+        score = restaurant rating
+        
+    if restaurantCatagory = userCatagory
+        score *= some weight
+        
+    score -= distance
+    
+    
