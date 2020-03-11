@@ -49,17 +49,21 @@
                         required="required">
                       </div>
                       <div class="form-group">
-                        <p>Password:
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" name="email" placeholder="youremail@email.com">
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password:</label>
                         <input type="password" class="form-control" id="password" placeholder="password"
-                          required="required"></p>
+                          required="required" onclick="">
                           <label for="Confirm_password"> Confirm Password: </label>
                           <input type="password" class="form-control" id="Confirm_password" placeholder="password"
                             required="required" onchange="checkPasswords();">
                           <p id="warning" style="visibility:hidden;color:Red">Passwords must match</p>
                         </div>
                         <div class="form-group">
-                            <label for="zip">zip:</label>
-                            <input type="number" class="form-control" name="zip">
+                            <label for="zip">zip code:</label>
+                            <input type="text" class="form-control" name="zip">
                         </div>
 
                   </div>
