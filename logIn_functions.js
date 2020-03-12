@@ -1,9 +1,23 @@
-function loadifSignedIn(condition){
+function loadifSignedIn(condition)//set condition to 'true' for profile button 'false' for sign in and log in
+{
   console.log("test");
   var nav = document.getElementById("navigation");//make sure to rename the navbar to navigation
+  var navChildren = nav.childNodes;
+  navChildren["5"].setAttribute("id","navbarNavDropdown");
    nav.style.backgroundColor = "rgb(30,201,110)";
-   if(true){
+   if(condition=="false"){
      nav.innerHTML += "<button type=\"button\" class=\"btn btn-outline-light\" data-toggle=\"modal\" data-target=\"#signup\"> Sign up </button>"
+     +"<div class=\"dropdown\" id=\"log_in_dropdown\"><button type=\"button\" class=\"btn btn-outline-light dropdown-toggle\" data-toggle=\"dropdown\">log in</button>"
+     +"<div class=\"dropdown-menu dropdown-menu-right\" style=\"background-color=rgb(30,201,110)\">"
+     +" <div class=\"form-group\" style=\"background-color=rgb(30,201,110)\">"
+     +"     <label for=\"Log-in-Username\">User Name: </label>"
+     +"                 <input type=\"text\" class=\"form-control\" id=\"log-in-Username\" placeholder=\"Name\""
+     +"                   required=\"required\">"
+     +"  </div><div class=\"form-group\">"
+     +"                   <label for=\"log-in-password\">Password:</label>"
+     +"                   <input type=\"password\" class=\"form-control\" id=\"log-in-password\" placeholder=\"password\" required=\"required\" onclick=\"\">"
+     +"<button type=\"button\" class=\"btn btn-outline-dark\" style=\"backgroundColor:rgb(30,201,110)\" onclick=\"log_in()\">log in </button>"
+     +"</div></div></div>"
      +"<div class=\"modal fade\" id=\"signup\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalCenterTitle\" aria-hidden=\"true\">"
      + "       <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">"
      +"           <div class=\"modal-content\">"
@@ -31,6 +45,8 @@ function loadifSignedIn(condition){
      +"             </div></div>"
      +"             <div class=\"modal-footer\">"
      +"               <button type=\"button\" class=\"btn btn-secondary\" onclick=\"verify()\">sign up</button> </div></div></div>";
+   } else if(condition=="true"){
+      nav.innerHTML += "<img src=\"https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png\" class=\"rounded-circle\" id=\"profile_photo\" width=\"50\" onclick=\"alert(\"wow\");\" height=\"50\" style=\"margin:0px 20px\">"
    }
 }
 
@@ -83,5 +99,18 @@ function verify(){
   if(noEmpties){
     $('#signup').modal('toggle');
 
+  }
+}
+
+
+function log_in(){
+  var uName = document.getElementById("log-in-Username");
+  var password = document.getElementById("log-in-password");
+  if(uName.value==""){
+    uName.style.borderColor="red";
+    $("log_in_dropdown").dropdown(toggle);
+  }
+   if(password.value==""){
+    password.style.borderColor="red";
   }
 }
