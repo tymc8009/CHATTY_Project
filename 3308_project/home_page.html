@@ -161,65 +161,427 @@
 
 
     <div class="sidenav" style="background-color: rgb(218, 31, 18);">
-      <h3> Recent Visits </h3>
-      <p> visit 1 </p>
-      <p> visit 2 </p>
+      <h3> Jump To </h3>
+        <button class="btn"><a href="#fav_jump"> Favorites</a></button>
+        <br>
+        <button class="btn"><a href="#italian_jump"> Italian</a></button>
+        <br>
+        <button class="btn"><a href="#mex_jump"> Mexican</a></button>
+        <br>
+        <button class="btn"><a href="#chinese_jump"> Chinese</a></button>
+        <br>
+        <button class="btn"><a href="#breakfast_jump"> Breakfast</a></button>
     </div>
 
-  <div class = "container" style = "padding-left: 15%">
-    <div class = "container">
-      <h1> Favorites </h1>
-      <div class="card-group">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
+
+
+  <div class="container" style = "padding-left: 15%">
+    <a id="fav_jump">
+    <h1 id="fav_header"> Favorites </h1>
+        <div class="carousel slide" data-ride="carousel" id="demo">
+            <ul class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#demo"></li>
+                <li data-slide-to="1" data-target="#demo"></li>
+                <li data-slide-to="2" data-target="#demo"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card-group">
+                        <div class="card" >
+                            <div class="card-body" id="favorite1">
+                                
+                                <h4>1</h4>
+                                <p>I like hiking because it taught me to appreciate the nature and the world.</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card"  >
+                            <div class="card-body"id="favorite2">
+                                
+                                <h4>2</h4>
+                                <p>I like taking road trip because I could see different part of the country and
+                                    people.</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="favorite3">
+                                
+                                <h4>3</h4>
+                                <p>I like flying because it is fun to see everything from the sky!</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-body" id="favorite4">
+                                <h4>4</h4>
+                                <p>Why not?</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="favorite5">
+                                <h4>5</h4>
+                                <p>Finding the inner peace</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="favorite6">
+                                <h4>6</h4>
+                                <p>It gives me energy!</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" data-slide="prev" href="#demo" style="width:10%;height:270px">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" data-slide="next" href="#demo"style="width:10%;height:270px">
+                <span class="carousel-control-next-icon"></span>
+            </a>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
+      <br>
+      <a id="mex_jump">
+      <h1 id= " Mex_header"> Mexican </h1>
+      <div class="carousel slide" data-ride="carousel" id="mex">
+            <ul class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#demo"></li>
+                <li data-slide-to="1" data-target="#demo"></li>
+                <li data-slide-to="2" data-target="#demo"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card-group">
+                        <div class="card" >
+                            <div class="card-body" id="Mexican1">
+                                
+                                <h4>1</h4>
+                                <p>I like hiking because it taught me to appreciate the nature and the world.</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card"  >
+                            <div class="card-body"id="Mexican2">
+                                
+                                <h4>2</h4>
+                                <p>I like taking road trip because I could see different part of the country and
+                                    people.</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="Mexican3">
+                                
+                                <h4>3</h4>
+                                <p>I like flying because it is fun to see everything from the sky!</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-body" id="Mexican4">
+                                <h4>4</h4>
+                                <p>Why not?</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="Mexican5">
+                                <h4>5</h4>
+                                <p>Finding the inner peace</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="Mexican6">
+                                <h4>6</h4>
+                                <p>It gives me energy!</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" data-slide="prev" href="#mex" style="width:10%;height:270px">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" data-slide="next" href="#mex"style="width:10%;height:270px">
+                <span class="carousel-control-next-icon"></span>
+            </a>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
+        <br>
+        <a id="italian_jump">
+      <h1 id= " italian_header"> Italian </h1>
+      <div class="carousel slide" data-ride="carousel" id="italian">
+            <ul class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#demo"></li>
+                <li data-slide-to="1" data-target="#demo"></li>
+                <li data-slide-to="2" data-target="#demo"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card-group">
+                        <div class="card" >
+                            <div class="card-body" id="Italian1">
+                                
+                                <h4>1</h4>
+                                <p>I like hiking because it taught me to appreciate the nature and the world.</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card"  >
+                            <div class="card-body"id="Italian2">
+                                
+                                <h4>2</h4>
+                                <p>I like taking road trip because I could see different part of the country and
+                                    people.</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="Italian3">
+                                
+                                <h4>3</h4>
+                                <p>I like flying because it is fun to see everything from the sky!</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-body" id="Italian4">
+                                <h4>4</h4>
+                                <p>Why not?</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="Italian5">
+                                <h4>5</h4>
+                                <p>Finding the inner peace</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="Italian6">
+                                <h4>6</h4>
+                                <p>It gives me energy!</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" data-slide="prev" href="#italian" style="width:10%;height:270px">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" data-slide="next" href="#italian"style="width:10%;height:270px">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+        <br>
+        <a id="chinese_jump">
+      <h1 id= " chinese_header"> Chinese </h1>
+      <div class="carousel slide" data-ride="carousel" id="chinese">
+            <ul class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#demo"></li>
+                <li data-slide-to="1" data-target="#demo"></li>
+                <li data-slide-to="2" data-target="#demo"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card-group">
+                        <div class="card" >
+                            <div class="card-body" id="Chinese1">
+                                
+                                <h4>1</h4>
+                                <p>I like hiking because it taught me to appreciate the nature and the world.</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card"  >
+                            <div class="card-body"id="Chinese2">
+                                
+                                <h4>2</h4>
+                                <p>I like taking road trip because I could see different part of the country and
+                                    people.</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="Chinese3">
+                                
+                                <h4>3</h4>
+                                <p>I like flying because it is fun to see everything from the sky!</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-body" id="Chinese4">
+                                <h4>4</h4>
+                                <p>Why not?</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="Chinese5">
+                                <h4>5</h4>
+                                <p>Finding the inner peace</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="Chinese6">
+                                <h4>6</h4>
+                                <p>It gives me energy!</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" data-slide="prev" href="#chinese" style="width:10%;height:270px">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" data-slide="next" href="#chinese"style="width:10%;height:270px">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+        <br>
+        <a id="breakfast_jump">
+      <h1 id= " breakfast_header"> Breakfast </h1>
+      <div class="carousel slide" data-ride="carousel" id="breakfast">
+            <ul class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#demo"></li>
+                <li data-slide-to="1" data-target="#demo"></li>
+                <li data-slide-to="2" data-target="#demo"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card-group">
+                        <div class="card" >
+                            <div class="card-body" id="Breakfast1">
+                                
+                                <h4>1</h4>
+                                <p>I like hiking because it taught me to appreciate the nature and the world.</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card"  >
+                            <div class="card-body"id="Breakfast2">
+                                
+                                <h4>2</h4>
+                                <p>I like taking road trip because I could see different part of the country and
+                                    people.</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="Breakfast3">
+                                
+                                <h4>3</h4>
+                                <p>I like flying because it is fun to see everything from the sky!</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                    add_circle
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-body" id="Breakfast4">
+                                <h4>4</h4>
+                                <p>Why not?</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="Breakfast5">
+                                <h4>5</h4>
+                                <p>Finding the inner peace</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body" id="Breakfast6">
+                                <h4>6</h4>
+                                <p>It gives me energy!</p>
+                                <i class="btn material-icons" style="color:dodgerblue; font-size: 1.8em" onclick="addCard(this.parentElement.id)">
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" data-slide="prev" href="#breakfast" style="width:10%;height:270px">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" data-slide="next" href="#breakfast"style="width:10%;height:270px">
+                <span class="carousel-control-next-icon"></span>
+            </a>
         </div>
     </div>
-  </div>
-  <div class = "container">
-    <h1> More? </h1>
-    <div class="card-group">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
+
 
 
 
