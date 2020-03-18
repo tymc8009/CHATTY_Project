@@ -1,11 +1,15 @@
+var testcolors = ["#FF750F","#E84B0E","#FF381B","#E80E17"]
+
+
 function loadifSignedIn(condition)//set condition to 'true' for profile button 'false' for sign in and log in
 {
   console.log("test");
   var nav = document.getElementById("navigation");//make sure to rename the navbar to navigation
   var navChildren = nav.childNodes;
   navChildren["5"].setAttribute("id","navbarNavDropdown");
-   nav.style.backgroundColor = "rgb(30,201,110)";
-   if(condition=="false"){
+   nav.style.backgroundColor ="#E84B0E";
+   nav.setAttribute("class","navbar navbar-expand-lg navbar-dark");
+   if(condition=="true"){
      nav.innerHTML += "<button type=\"button\" class=\"btn btn-outline-light\" data-toggle=\"modal\" data-target=\"#signup\"> Sign up </button>"
      +"<div class=\"dropdown\" id=\"log_in_dropdown\"><button type=\"button\" class=\"btn btn-outline-light dropdown-toggle\" data-toggle=\"dropdown\">log in</button>"
      +"<div class=\"dropdown-menu dropdown-menu-right\" style=\"background-color=rgb(30,201,110)\">"
