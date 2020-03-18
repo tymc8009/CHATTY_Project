@@ -9,15 +9,15 @@ function loadifSignedIn(condition)//set condition to 'true' for profile button '
      nav.innerHTML += "<button type=\"button\" class=\"btn btn-outline-light\" data-toggle=\"modal\" data-target=\"#signup\"> Sign up </button>"
      +"<div class=\"dropdown\" id=\"log_in_dropdown\"><button type=\"button\" class=\"btn btn-outline-light dropdown-toggle\" data-toggle=\"dropdown\">log in</button>"
      +"<div class=\"dropdown-menu dropdown-menu-right\" style=\"background-color=rgb(30,201,110)\">"
-     +" <div class=\"form-group\" style=\"background-color=rgb(30,201,110)\">"
+     +" <form><div class=\"form-group\" style=\"background-color=rgb(30,201,110)\">"
      +"     <label for=\"Log-in-Username\">User Name: </label>"
      +"                 <input type=\"text\" class=\"form-control\" id=\"log-in-Username\" placeholder=\"Name\""
      +"                   required=\"required\">"
      +"  </div><div class=\"form-group\">"
      +"                   <label for=\"log-in-password\">Password:</label>"
      +"                   <input type=\"password\" class=\"form-control\" id=\"log-in-password\" placeholder=\"password\" required=\"required\" onclick=\"\">"
-     +"<button type=\"button\" class=\"btn btn-outline-dark\" style=\"backgroundColor:rgb(30,201,110)\" onclick=\"log_in()\">log in </button>"
-     +"</div></div></div>"
+     +"<button type=\"submit\" class=\"form-control btn-outline-dark\" style=\"backgroundColor:rgb(30,201,110)\" onclick=\"log_in()\">log in </button>"
+     +"</form></div></div></div>"
      +"<div class=\"modal fade\" id=\"signup\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalCenterTitle\" aria-hidden=\"true\">"
      + "       <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">"
      +"           <div class=\"modal-content\">"
@@ -106,9 +106,15 @@ function verify(){
 function log_in(){
   var uName = document.getElementById("log-in-Username");
   var password = document.getElementById("log-in-password");
+  var test = document.getElementById("log_in_dropdown")
   if(uName.value==""){
     uName.style.borderColor="red";
-    $("log_in_dropdown").dropdown(toggle);
+  //  setTimeout(() => {$('#log_in_dropdown').dropdown('toggle');
+//                      test.setAttribute("class", "dropdown show")
+  //                    test.childNodes[1].setAttribute("aria-expanded",'true')}, 100);
+  } else {
+     console.log("oof");
+      $('#log_in_dropdown').dropdown('dispose');
   }
    if(password.value==""){
     password.style.borderColor="red";
