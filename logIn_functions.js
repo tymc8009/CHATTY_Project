@@ -12,7 +12,7 @@ function loadifSignedIn(logged_in)//set condition to 'true' for profile button '
   var navChildren = nav.childNodes;
   navChildren["5"].setAttribute("id","navbarNavDropdown");
    nav.style.backgroundColor ="#E84B0E";
-   nav.setAttribute("class","navbar navbar-expand-lg navbar-dark");
+   nav.setAttribute("class","navbar navbar-expand-lg navbar-dark fixed-top");
    nav.innerHTML += "<div id='login-elements'>";
    nav = document.getElementById('login-elements');
    if(logged_in=="false"){

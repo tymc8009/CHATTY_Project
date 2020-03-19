@@ -7,6 +7,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="../logIn_functions.js"></script>
   <style>
       .sidenav {
         position: fixed;
@@ -67,8 +68,8 @@
 
   </style>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(218, 31, 18);">
+<body onload="loadifSignedIn('false')">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(218, 31, 18);" id="navigation">
         <a class="navbar-brand" href="#">FoodFinder</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -91,71 +92,7 @@
             <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
           </form>
 
-          <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#signup"> Sign up </button>
-
-          <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="signup title" style="text-align:center">Sign Up</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="form-group">
-                      <label for="Username">User Name: </label>
-                      <input type="text" class="form-control" name="Username" placeholder="Name"
-                        required="required">
-                      </div>
-                      <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" class="form-control" name="email" placeholder="youremail@email.com">
-                      </div>
-                      <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" id="password" placeholder="password"
-                          required="required" onclick="">
-                          <label for="Confirm_password"> Confirm Password: </label>
-                          <input type="password" class="form-control" id="Confirm_password" placeholder="password"
-                            required="required" onchange="checkPasswords();">
-                          <p id="warning" style="visibility:hidden;color:Red">Passwords must match</p>
-                        </div>
-                        <div class="form-group">
-                            <label for="zip">zip code:</label>
-                            <input type="text" class="form-control" name="zip">
-                        </div>
-
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-    </nav>
-
-
-
-<script>
-  function checkPasswords(){
-        var pass = document.getElementById("password").value;
-
-        var pass2 = document.getElementById("Confirm_password").value;
-        var warn = document.getElementById("warning");
-        console.log(pass==pass2);
-        if(pass===pass2){
-          warn.style.visibility="hidden";
-        } else {
-
-        warn.style.visibility="visible";
-      }
-
-  }
-</script>
+        </nav>
 
 
 
