@@ -4,17 +4,19 @@ var testcolors = ["#FF750F","#E84B0E","#FF381B","#E80E17"]
 function loadifSignedIn(logged_in)//set condition to 'true' for profile button 'false' for sign in and log in
 {
   console.log("test");
-  var replace = document.getElementById("login-elements");
+  var replace = document.getElementById("log_in_dropdown");
   if(replace!=null){
     replace.remove();
+    var replacesign = document.getElementById("signup");
+      if(replacesign!=null){
+      replacesign.remove();
+    }
   }
   var nav = document.getElementById("navigation");//make sure to rename the navbar to navigation
   var navChildren = nav.childNodes;
   navChildren["5"].setAttribute("id","navbarNavDropdown");
    nav.style.backgroundColor ="#E84B0E";
    nav.setAttribute("class","navbar navbar-expand-lg navbar-dark fixed-top");
-   nav.innerHTML += "<div id='login-elements'>";
-   nav = document.getElementById('login-elements');
    if(logged_in=="false"){
      nav.innerHTML += "<div class=\"dropdown\" id=\"log_in_dropdown\"><button type=\"button\" class=\"btn btn-outline-light dropdown-toggle\" data-toggle=\"dropdown\">log in</button>"
      +"<div class=\"dropdown-menu dropdown-menu-right px-1\" style=\"background-color:#E84B0E;color:white\">"
@@ -27,8 +29,8 @@ function loadifSignedIn(logged_in)//set condition to 'true' for profile button '
      +"                   <input type=\"password\" class=\"form-control\" id=\"log-in-password\" placeholder=\"password\" required=\"required\" onclick=\"\">"
      +"</div><div style='margin:auto'><button type=\"submit\" class=\"btn btn-outline-light\" style=\"backgroundColor:rgb(30,201,110)\" onclick=\"logIn()\">log in </button></div>"
      +"</form><div class='dropdown-divider'></div><p> New here? </p<>"
-     +"<button type=\"button\" class=\"btn btn-outline-light\" data-toggle=\"modal\" data-target=\"#signup\"> Sign up </button></div></div>"
-     +"<div class=\"modal fade\" id=\"signup\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalCenterTitle\" aria-hidden=\"true\">"
+     +"<button type=\"button\" class=\"btn btn-outline-light\" data-toggle=\"modal\" data-target=\"#signup\"> Sign up </button></div></div>";
+     document.body.innerHTML +="<div class=\"modal fade\" id=\"signup\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalCenterTitle\" aria-hidden=\"true\">"
      + "       <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">"
      +"           <div class=\"modal-content\">"
      +"             <div class=\"modal-header\">"
@@ -65,7 +67,6 @@ function loadifSignedIn(logged_in)//set condition to 'true' for profile button '
        + "<div class='dropdown-divider'></div> <button type=\"button\" class=\"btn btn-outline-light\" id=\"log_Out_Button\" onclick=\"logOut()\"> log out </button> "
        + "</div>";
       // drop down with profile settings and log out
-
    }
 }
 
