@@ -9,7 +9,7 @@ function loadifSignedIn(condition)//set condition to 'true' for profile button '
   navChildren["5"].setAttribute("id","navbarNavDropdown");
    nav.style.backgroundColor ="#E84B0E";
    nav.setAttribute("class","navbar navbar-expand-lg navbar-dark");
-   if(condition=="true"){
+   if(condition=="false"){
      nav.innerHTML += "<button type=\"button\" class=\"btn btn-outline-light\" data-toggle=\"modal\" data-target=\"#signup\"> Sign up </button>"
      +"<div class=\"dropdown\" id=\"log_in_dropdown\"><button type=\"button\" class=\"btn btn-outline-light dropdown-toggle\" data-toggle=\"dropdown\">log in</button>"
      +"<div class=\"dropdown-menu dropdown-menu-right\" style=\"background-color=rgb(30,201,110)\">"
@@ -51,6 +51,8 @@ function loadifSignedIn(condition)//set condition to 'true' for profile button '
      +"               <button type=\"button\" class=\"btn btn-secondary\" onclick=\"verify()\">sign up</button> </div></div></div>";
    } else if(condition=="true"){
       nav.innerHTML += "<img src=\"https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png\" class=\"rounded-circle\" id=\"profile_photo\" width=\"50\" onclick=\"alert(\"wow\");\" height=\"50\" style=\"margin:0px 20px\">"
+      // drop down with profile settings and log out
+
    }
 }
 
