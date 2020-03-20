@@ -30,7 +30,7 @@ function loadifSignedIn(logged_in)//set condition to 'true' for profile button '
      +"</div><div style='margin:auto'><button type=\"submit\" class=\"btn btn-outline-light\" style=\"backgroundColor:rgb(30,201,110)\" onclick=\"logIn()\">log in </button></div>"
      +"</form><div class='dropdown-divider'></div><p> New here? </p<>"
      +"<button type=\"button\" class=\"btn btn-outline-light\" data-toggle=\"modal\" data-target=\"#signup\"> Sign up </button></div></div>";
-     document.body.innerHTML +="<div class=\"modal fade\" id=\"signup\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalCenterTitle\" aria-hidden=\"true\">"
+     document.body.innerHTML +="<div class=\"modal fade\" id=\"signup\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"sign_up_model_from_JS\" aria-hidden=\"true\">"
      + "       <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">"
      +"           <div class=\"modal-content\">"
      +"             <div class=\"modal-header\">"
