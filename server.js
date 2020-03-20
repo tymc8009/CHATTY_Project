@@ -6,14 +6,6 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 var pgp = require('pg-promise')();
 
-/**********************
- Database Connection information
- host: This defines the ip address of the server hosting our database.  We'll be using localhost and run our database on our local machine (i.e. can't be access via the Internet)
- port: This defines what port we can expect to communicate to our database.  We'll use 5432 to talk with PostgreSQL
- database: This is the name of our specific database.  From our previous lab, we created the football_db database, which holds our football data tables
- user: This should be left as postgres, the default user account created when PostgreSQL was installed
- password: This the password for accessing the database.  You'll need to set a password USING THE PSQL TERMINAL THIS IS NOT A PASSWORD FOR POSTGRES USER ACCOUNT IN LINUX!
- **********************/
 const dbConfig = {
     host: 'chattyinstance.cfkrsgnujhka.us-east-2.rds.amazonaws.com',
     port: 5432,
@@ -23,10 +15,56 @@ const dbConfig = {
 };
 
 var db = pgp(dbConfig);
-
+app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/'));
-app.get('/', function(request, response){
-    response.sendFile('/view/home.html', { root: __dirname});
+
+app.get('/', function(req, res){
+    res.sendFile('/view/home.html', { root: __dirname});
 });
+
+
+app.post('/view/home.html/login', function(req, res){
+    var user_name = req.body.loginUsername;
+    var password = req.body.loginPassword;
+    query = "select * from account where username = '"+ user_name + "' AND password ='" +password+"';";
+    console.log(query);
+    db.any(query)
+        .then(function (rows) {
+            if(rows.length>0){
+                res.redirect('/view/home_success.html')
+            }else{
+                res.redirect('/view/home.html', onerror("wrong"))
+            }
+        })
+        .catch(function (err) {
+            // display error message in case an error
+            console.log('error', err);
+        })
+    // Problem: need to address failures;
+
+});
+app.post('/view/home.html/signup', function(req, res){
+    var username = req.body.username;
+    var email = req.body.email;
+    var password = req.body.password;
+    var zip = req.body.zip;
+    query1 = "INSERT INTO customer (\"username\", \"emailAddress\",\"zip\") VALUES ('"+username+"','"+password+"','"+zip+"');";
+    query2 = "INSERT INTO account(\"username\", \"password\") VALUES ('"+username+"','"+password+"');";
+    console.log(query1);
+    console.log(query2);
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(query1),
+            // Problem: Need to solve when username already exist in the customer table.
+            task.any(query2),
+            res.redirect('/view/home.html')
+        ]);
+
+        // Problem: need to address failures;
+    })
+});
+
+
 app.listen(5678);
 console.log('5678 is the magic port');
