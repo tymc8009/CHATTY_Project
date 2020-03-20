@@ -15,15 +15,39 @@ const dbConfig = {
 };
 
 var db = pgp(dbConfig);
+
+
+///////////////////////////////////////////
+//
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/'));
+///////////////////////////////////////////
+//
+app.locals.logged_in = "false";
+
+var log_in_variables = express();
+log_in_variables.get('/', function (req, res, next){
+    console.log(app.locals.logged_in);
+    res.locals.logged_in = app.locals.logged_in;
+    next();
+})
+
+
+app.use(express.static(__dirname + '/'), log_in_variables);
+
+
+
 
 app.get('/', function(req, res){
-    res.sendFile('/view/home.html', { root: __dirname});
+    res.render('../view/home'
+    );
 });
 
+app.get('/view/profilePage', function(req, res){
+  res.render('../view/profilePage',{ root: __dirname});
+});
 
-app.post('/view/home.html/login', function(req, res){
+app.post('/login', function(req, res){
+    console.log(req.originalUrl);
     var user_name = req.body.loginUsername;
     var password = req.body.loginPassword;
     query = "select * from account where username = '"+ user_name + "' AND password ='" +password+"';";
@@ -31,9 +55,12 @@ app.post('/view/home.html/login', function(req, res){
     db.any(query)
         .then(function (rows) {
             if(rows.length>0){
-                res.redirect('/view/home_success.html')
+                console.log("e");
+                app.locals.logged_in = "true";
+                res.render('../view/profile');
             }else{
-                res.redirect('/view/home.html', onerror("wrong"))
+                console.log("ee");
+                res.redirect('../view/home', onerror("wrong"))
             }
         })
         .catch(function (err) {
@@ -43,7 +70,7 @@ app.post('/view/home.html/login', function(req, res){
     // Problem: need to address failures;
 
 });
-app.post('/view/home.html/signup', function(req, res){
+app.post('/view/home/signup', function(req, res){
     var username = req.body.username;
     var email = req.body.email;
     var password = req.body.password;
@@ -58,7 +85,7 @@ app.post('/view/home.html/signup', function(req, res){
             task.any(query1),
             // Problem: Need to solve when username already exist in the customer table.
             task.any(query2),
-            res.redirect('/view/home.html')
+            res.redirect('/view/home')
         ]);
 
         // Problem: need to address failures;

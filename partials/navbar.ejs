@@ -1,0 +1,70 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #E84B0E;" id="navigation">
+    <a class="navbar-brand" href="#">FoodFinder</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+         <ul class="navbar-nav">
+                 <li class="nav-item active">
+                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#">Suggestions</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="../../view/profilePage">Profile</a>
+                 </li>
+             </ul>
+    </div>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <div class="dropdown" id="log_in_dropdown">
+     <%
+     var element = '';
+     if(logged_in){
+         if(logged_in=='false')
+         {
+           element += '<button type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown">log in</button>'
++ "<div class=\"dropdown-menu dropdown-menu-right px-1\" style=\"background-color:#E84B0E;color:white\">"
+           + " <form action=\"/login\" method=\"post\"><div class=\"form-group\">"
+                               +"     <label for=\"loginUsername\">User Name: </label>"
+                               +"                 <input type=\"text\" class=\"form-control\" id=\"loginUsername\" name=\"loginUsername\" placeholder=\"Name\""
+                               +"                   required=\"required\">"
+                               +"  </div><div class=\"form-group\">"
+                               +"                   <label for=\"loginPassword\">Password:</label>"
+                               +"                   <input type=\"password\" class=\"form-control\" id=\"loginPassword\" name=\"loginPassword\" placeholder=\"password\" required=\"required\">"
+                               +"</div><div style='margin:auto'><button type=\"submit\" id=\"loginsubmit\" class=\"btn btn-outline-light\" style=\"backgroundColor:rgb(30,201,110)\">log in </button></div>"
+                               +"</form><div class='dropdown-divider'></div><p> New here? </p>"
+                               +"<button type=\"button\" class=\"btn btn-outline-light\" data-toggle=\"modal\" data-target=\"#signup\" onclick='console.log(origional.ip)'> Sign up </button></div>";
+            } else if(logged_in=='true') {
+            element  += "<img src=\"https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png\" class=\"rounded-circle\" id=\"profile_photo\" width=\"38px\" height=\"38px\" data-toggle=\"dropdown\" height=\"50\" style=\"margin:0px 20px\">"
+                           + "<div class=\"dropdown-menu dropdown-menu-right px-1\" style=\"background-color:#E84B0E;color:white\">"
+                           + "<b class=\"dropdown-header font-weight-bold\" style='color:#cccccc' id=\"navbar_username_text\"> <img src=\"https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png\" id=\"profile_photo_small\" width=\"25\" height=\"25\">  default username</b>" //replace text with username from database
+
+                           + "<a class='nav-link' style='color:#eeeeee' href="/*link to profile settings page*/ + "#" + " id='profile_settings_link'> profile settings </a>"
+                           + "<div class='dropdown-divider'></div> <button type=\"button\" class=\"btn btn-outline-light\" id=\"log_Out_Button\" onclick=\"\"> log out </button> "
+                           + "</div>";
+            }
+            %>
+
+            <%- element %>
+            <%
+     } else{
+        console.log("oops");
+     } %>
+
+
+
+      </div>
+  </nav>
+
+ <% if(logged_in){
+         if(logged_in=='false') { %>
+        <%-  include('sign_up_modal'); %>
+ <% }   } else{
+        console.log("oops");
+     }
+ %>

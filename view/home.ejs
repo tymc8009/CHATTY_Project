@@ -64,32 +64,8 @@
         }
     </style>
 </head>
-<body onload="loadifSignedIn('false')">
-<nav id="navigation">
-    <a class="navbar-brand" href="../view/home.html">FoodFinder</a>
-    <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
-            class="navbar-toggler"
-            data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="../view/home.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Suggestions</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../view/profilePage.html">Profile</a>
-            </li>
-        </ul>
-    </div>
-    <form class="form-inline">
-        <input aria-label="Search" class="form-control mr-sm-2" placeholder="Search" type="search">
-        <a class="btn btn-outline-light my-2 my-sm-0" href="../view/searchResult.html">Search</a>
-    </form>
-</nav>
+<body>
+<%- include('../partials/navbar');-%>
 
 <div class="sidenav" style="background-color: #E84B0E; padding-top: 40px">
     <a class="btn btn-link" href="#fav_jump" style="font-size: 20px"> Favorites</a>
