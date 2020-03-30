@@ -29,6 +29,11 @@ function log_in_variables(req, res, next){
     console.log("log in variables middleware",req.cookies);
     if(req.cookies.logged_in){
         res.locals.logged_in = req.cookies.logged_in;
+        if(req.cookies.logged_in=="true") // resets logged in timer
+        {
+            res.clearCookie("logged_in");
+            res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
+        }
     } else {
         res.locals.logged_in = "false";
         res.cookie("logged_in","false");
@@ -81,7 +86,7 @@ app.post('/login', function(req, res){
     // Problem: need to address failures;
 
 });
-app.post('/view/home/signup', function(req, res){
+app.post('/signup', function(req, res){
     var username = req.body.username;
     var email = req.body.email;
     var password = req.body.password;
@@ -96,7 +101,7 @@ app.post('/view/home/signup', function(req, res){
             task.any(query1),
             // Problem: Need to solve when username already exist in the customer table.
             task.any(query2),
-            res.redirect('/view/home')
+            res.redirect('/')
         ]);
 
         // Problem: need to address failures;
