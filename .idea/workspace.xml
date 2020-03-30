@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="834d1d3f-a49d-4158-9830-c07b8c19d619" name="Default Changelist" comment="" />
+    <list default="true" id="834d1d3f-a49d-4158-9830-c07b8c19d619" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CHATTY_Project.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3308_project/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/3308_project/home_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/home_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/History.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/History.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/lib/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/lib/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/lib/express.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/lib/express.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/lib/middleware/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/lib/middleware/init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/lib/middleware/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/lib/middleware/query.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/lib/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/lib/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/lib/response.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/lib/response.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/lib/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/lib/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/lib/router/layer.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/lib/router/layer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/lib/router/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/lib/router/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/lib/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/lib/view.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/lib/view.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/navbar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/partials/navbar.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,26 +39,155 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  <component name="ProjectId" id="1ZP2E0cIN1GD0GT2EExN6mOvAE5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="C:/Program Files/nodejs/node.exe" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="node server.js" />
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="NodeJSConfigurationType" path-to-node="node" path-to-js-file="$PROJECT_DIR$/server.js">
+      <method v="2" />
+    </configuration>
+    <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" path-to-node="C:/Program Files/nodejs/node" nameIsGenerated="true" path-to-js-file="server.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.server.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="834d1d3f-a49d-4158-9830-c07b8c19d619" name="Default Changelist" comment="" />
+      <created>1584726293334</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584726293334</updated>
+      <workItem from="1584726295512" duration="26339000" />
+      <workItem from="1585515574345" duration="11984000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="634" y="349" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584729416790">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="634" y="349" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584729416790" />
+    <state x="1435" y="549" key="FileChooserDialogImpl" timestamp="1584729412485">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1435" y="549" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584729412485" />
+    <state width="646" height="192" key="GridCell.Tab.0.bottom" timestamp="1585527058895">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="646" height="192" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585527058895" />
+    <state width="646" height="192" key="GridCell.Tab.0.center" timestamp="1585527058895">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="646" height="192" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585527058895" />
+    <state width="646" height="192" key="GridCell.Tab.0.left" timestamp="1585527058895">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="646" height="192" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585527058895" />
+    <state width="646" height="192" key="GridCell.Tab.0.right" timestamp="1585527058895">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="646" height="192" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585527058895" />
+    <state width="457" height="266" key="GridCell.Tab.1.bottom" timestamp="1585527011378">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="457" height="266" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
+    <state width="457" height="266" key="GridCell.Tab.1.center" timestamp="1585527011378">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="457" height="266" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
+    <state width="457" height="266" key="GridCell.Tab.1.left" timestamp="1585527011378">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="457" height="266" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
+    <state width="457" height="266" key="GridCell.Tab.1.right" timestamp="1585527011378">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="457" height="266" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
+    <state width="457" height="266" key="GridCell.Tab.2.bottom" timestamp="1585527011378">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="457" height="266" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
+    <state width="457" height="266" key="GridCell.Tab.2.center" timestamp="1585527011378">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="457" height="266" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
+    <state width="457" height="266" key="GridCell.Tab.2.left" timestamp="1585527011378">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="457" height="266" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
+    <state width="457" height="266" key="GridCell.Tab.2.right" timestamp="1585527011378">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="457" height="266" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
+    <state width="457" height="266" key="GridCell.Tab.3.bottom" timestamp="1585527011378">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="457" height="266" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
+    <state width="457" height="266" key="GridCell.Tab.3.center" timestamp="1585527011378">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="457" height="266" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
+    <state width="457" height="266" key="GridCell.Tab.3.left" timestamp="1585527011378">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="457" height="266" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
+    <state width="457" height="266" key="GridCell.Tab.3.right" timestamp="1585527011378">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="457" height="266" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
+    <state x="774" y="324" key="SettingsEditor" timestamp="1584728803428">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="774" y="324" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584728803428" />
+    <state x="661" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1585515578347">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="661" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585515578347" />
+    <state x="1249" y="440" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584738603127">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1249" y="440" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584738603127" />
+    <state x="537" y="497" key="jetbrains.nodejs.interpreters-dialog" timestamp="1584729414166">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="537" y="497" key="jetbrains.nodejs.interpreters-dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584729414166" />
+    <state x="841" y="439" width="672" height="493" key="run.anything.popup" timestamp="1584728971941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="841" y="439" width="672" height="493" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584728971941" />
   </component>
 </project>

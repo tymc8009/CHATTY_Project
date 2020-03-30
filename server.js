@@ -1,9 +1,10 @@
 var express = require('express'); //Ensure our express framework has been added
 var app = express();
 var bodyParser = require('body-parser'); //Ensure our body-parser tool has been added
+var cookieParser = require('cookie-parser');
 app.use(bodyParser.json());              // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
-
+app.use(cookieParser())
 var pgp = require('pg-promise')();
 
 const dbConfig = {
@@ -18,54 +19,64 @@ var db = pgp(dbConfig);
 
 
 ///////////////////////////////////////////
-//
+//  log in stuff
+
 app.set('view engine', 'ejs');
-///////////////////////////////////////////
-//
-app.locals.logged_in = "false";
+app.locals.log_in_length = 10; // specifies how long the server keeps you logged in (measured in minutes)
+// middleware function that sets the value of logged_in to the cookie
+// will run ANYTIME a request is made
+function log_in_variables(req, res, next){
+    console.log("log in variables middleware",req.cookies);
+    if(req.cookies.logged_in){
+        res.locals.logged_in = req.cookies.logged_in;
+    } else {
+        res.locals.logged_in = "false";
+        res.cookie("logged_in","false");
+    }
 
-var log_in_variables = express();
-log_in_variables.get('/', function (req, res, next){
-    console.log(app.locals.logged_in);
-    res.locals.logged_in = app.locals.logged_in;
+    res.locals.current_site = req.originalUrl;
     next();
-})
+}
 
 
-app.use(express.static(__dirname + '/'), log_in_variables);
+app.use(log_in_variables);
 
-
+///////////////////////////////////////////////////////
 
 
 app.get('/', function(req, res){
+    console.log("rendering");
     res.render('../view/home'
     );
 });
 
 app.get('/view/profilePage', function(req, res){
+    console.log("rendering");
   res.render('../view/profilePage',{ root: __dirname});
 });
 
 app.post('/login', function(req, res){
-    console.log(req.originalUrl);
+    console.log(req.body.currSite);
     var user_name = req.body.loginUsername;
     var password = req.body.loginPassword;
-    query = "select * from account where username = '"+ user_name + "' AND password ='" +password+"';";
+    var c = req.body.currSite;
+    var query = "select * from account where username = '"+ user_name + "' AND password ='" +password+"';";
     console.log(query);
     db.any(query)
-        .then(function (rows) {
+        .then(function (rows, c) {
+            console.log("test");
             if(rows.length>0){
                 console.log("e");
-                app.locals.logged_in = "true";
-                res.render('../view/profile');
+                res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
+                res.redirect(req.body.currSite);
             }else{
                 console.log("ee");
-                res.redirect('../view/home', onerror("wrong"))
             }
         })
         .catch(function (err) {
             // display error message in case an error
             console.log('error', err);
+            return
         })
     // Problem: need to address failures;
 
@@ -92,6 +103,9 @@ app.post('/view/home/signup', function(req, res){
     })
 });
 
-
+app.get("/logout",function (req,res) {
+    res.cookie("logged_in","false");
+    res.redirect('/');
+});
 app.listen(5678);
 console.log('5678 is the magic port');
