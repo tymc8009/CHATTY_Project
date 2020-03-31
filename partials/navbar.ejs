@@ -27,10 +27,16 @@ if(current_site) //sets the associated nav item active
                  <li class=<%- current[1] %>>
                      <a class="nav-link" href="#">Suggestions</a>
                  </li>
-                 <li class=<%- current[2]%>>
-                     <a class="nav-link" href="../../view/profilePage">Profile</a>
-                 </li>
-             </ul>
+             <%
+             var profile_link = "";
+             if(logged_in){
+                 if(logged_in=="true"){
+                     profile_link += "<li class= "+ current[2] + "><a class=\"nav-link\" href=\"../../view/profilePage\">Profile</a></li>";
+
+                 }
+             } %>
+             <%- profile_link %>
+         </ul>
     </div>
     <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
