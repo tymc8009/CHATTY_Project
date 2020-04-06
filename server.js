@@ -22,17 +22,19 @@ var db = pgp(dbConfig);
 //  log in stuff
 
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/'));
 app.locals.log_in_length = 10; // specifies how long the server keeps you logged in (measured in minutes)
 // middleware function that sets the value of logged_in to the cookie
 // will run ANYTIME a request is made
 function log_in_variables(req, res, next){
-    console.log("log in variables middleware",req.cookies);
+    //onsole.log("log in variables middleware",req.cookies);
     if(req.cookies.logged_in){
         res.locals.logged_in = req.cookies.logged_in;
         if(req.cookies.logged_in=="true") // resets logged in timer
         {
             res.clearCookie("logged_in");
             res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
+            res.cookie("User", req.cookies.User)
         }
     } else {
         res.locals.logged_in = "false";
@@ -46,11 +48,18 @@ function log_in_variables(req, res, next){
 
 app.use(log_in_variables);
 
+app.get("/getUserdata", function(req, res){
+    //console.log(req)
+    var query = "select * from  customer where username = '"+ req.cookies.User + "';";
+    db.any(query).then(function (rows) {
+        return res.json(rows[0]);
+    })
+});
 ///////////////////////////////////////////////////////
 
 
 app.get('/', function(req, res){
-    console.log("rendering");
+    console.log("rendering homepage");
     res.render('../view/home'
     );
 });
@@ -61,21 +70,23 @@ app.get('/view/profilePage', function(req, res){
 });
 
 app.post('/login', function(req, res){
-    console.log(req.body.currSite);
-    var user_name = req.body.loginUsername;
-    var password = req.body.loginPassword;
+    console.log("logging in");
+    var user_name = req.loginUsername;
+    var password = req.loginPassword;
     var c = req.body.currSite;
+    console.log(req.query);
     var query = "select * from account where username = '"+ user_name + "' AND password ='" +password+"';";
     console.log(query);
     db.any(query)
         .then(function (rows, c) {
-            console.log("test");
             if(rows.length>0){
-                console.log("e");
+                console.log("wowee");
                 res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
-                res.redirect(req.body.currSite);
+                res.cookie("User", rows[0].username, {maxAge:60000*app.locals.log_in_length});
+                res.redirect(c)
             }else{
-                console.log("ee");
+                console.log("wwwwwww");
+                return "test";
             }
         })
         .catch(function (err) {
@@ -91,7 +102,7 @@ app.post('/signup', function(req, res){
     var email = req.body.email;
     var password = req.body.password;
     var zip = req.body.zip;
-    query1 = "INSERT INTO customer (\"username\", \"emailAddress\",\"zip\") VALUES ('"+username+"','"+password+"','"+zip+"');";
+    query1 = "INSERT INTO customer (\"username\", \"emailAddress\",\"zip\") VALUES ('"+username+"','"+emailAddress+"','"+zip+"');";
     query2 = "INSERT INTO account(\"username\", \"password\") VALUES ('"+username+"','"+password+"');";
     console.log(query1);
     console.log(query2);

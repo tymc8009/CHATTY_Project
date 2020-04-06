@@ -2,13 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="834d1d3f-a49d-4158-9830-c07b8c19d619" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/js/accountFunctions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/partials/navbar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/partials/navbar.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/sign_up_modal.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/partials/sign_up_modal.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/home.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/home.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -23,7 +34,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="C:/Program Files/nodejs/node.exe" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Lab_website_3-master" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -34,13 +45,21 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\salee_zb2of6i\github\CHATTY\resources\js" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="node server.js" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.server.js">
     <configuration default="true" type="NodeJSConfigurationType" path-to-node="node" path-to-js-file="$PROJECT_DIR$/server.js">
+      <method v="2" />
+    </configuration>
+    <configuration name="accountFunctions.js" type="NodeJSConfigurationType" temporary="true" path-to-node="node" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/resources/js/accountFunctions.js" working-dir="$PROJECT_DIR$/resources/js">
       <method v="2" />
     </configuration>
     <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" path-to-node="C:/Program Files/nodejs/node" nameIsGenerated="true" path-to-js-file="server.js" working-dir="$PROJECT_DIR$">
@@ -49,6 +68,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Node.js.server.js" />
+        <item itemvalue="Node.js.accountFunctions.js" />
       </list>
     </recent_temporary>
   </component>
@@ -63,7 +83,8 @@
       <option name="presentableId" value="Default" />
       <updated>1584726293334</updated>
       <workItem from="1584726295512" duration="26339000" />
-      <workItem from="1585515574345" duration="20325000" />
+      <workItem from="1585515574345" duration="22998000" />
+      <workItem from="1586195264654" duration="15096000" />
     </task>
     <servers />
   </component>
@@ -75,26 +96,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="634" y="349" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584729416790" />
-    <state x="1435" y="549" key="FileChooserDialogImpl" timestamp="1584729412485">
+    <state x="1435" y="549" key="FileChooserDialogImpl" timestamp="1586203466325">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1435" y="549" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584729412485" />
-    <state width="948" height="93" key="GridCell.Tab.0.bottom" timestamp="1585617908912">
+    <state x="1435" y="549" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586203466325" />
+    <state width="646" height="69" key="GridCell.Tab.0.bottom" timestamp="1586213182130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="948" height="93" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585617908912" />
-    <state width="948" height="93" key="GridCell.Tab.0.center" timestamp="1585617908912">
+    <state width="646" height="69" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586213182130" />
+    <state width="646" height="69" key="GridCell.Tab.0.center" timestamp="1586213182129">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="948" height="93" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585617908912" />
-    <state width="948" height="93" key="GridCell.Tab.0.left" timestamp="1585617908912">
+    <state width="646" height="69" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586213182129" />
+    <state width="646" height="69" key="GridCell.Tab.0.left" timestamp="1586213182129">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="948" height="93" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585617908912" />
-    <state width="948" height="93" key="GridCell.Tab.0.right" timestamp="1585617908912">
+    <state width="646" height="69" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586213182129" />
+    <state width="646" height="69" key="GridCell.Tab.0.right" timestamp="1586213182129">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="948" height="93" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585617908912" />
+    <state width="646" height="69" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586213182129" />
     <state width="457" height="266" key="GridCell.Tab.1.bottom" timestamp="1585527011378">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -147,10 +168,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="774" y="324" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584728803428" />
-    <state x="661" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1585515578347">
+    <state x="661" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1586195266388">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585515578347" />
+    <state x="661" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586195266388" />
     <state x="1249" y="440" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584738603127">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -163,17 +184,5 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="841" y="439" width="672" height="493" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584728971941" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server.js</url>
-          <line>70</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
