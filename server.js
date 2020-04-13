@@ -34,29 +34,51 @@ function log_in_variables(req, res, next){
         {
             res.clearCookie("logged_in");
             res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
-            res.cookie("User", req.cookies.User)
+            res.cookie("User", req.cookies.User);
+            var query = `select * from customer where username = '${req.cookies.User}'`;
+            db.any(query).then(function(rows){
+                res.locals.user = rows[0];
+                res.locals.current_site = req.originalUrl;
+                next();
+            })
+        } else {
+            res.locals.current_site = req.originalUrl;
+            next();
         }
     } else {
         res.locals.logged_in = "false";
         res.cookie("logged_in","false");
+        res.locals.current_site = req.originalUrl;
+        next();
     }
 
-    res.locals.current_site = req.originalUrl;
-    next();
+
 }
 
+/* inputs a username and returns a json object of the values stored in the database */
+function getCustomerJSON(username)
+{
+    var query = `select * from customer where username = '${username}'`;
+    return db.any(query).then(function(rows){
+        if(rows.length>0)
+        return rows[0];
+        else return null;
+    })
+}
 
 app.use(log_in_variables);
+app.get("/getUser", function(req,res){
+    if(req.query == null){
+        res.redirect("/");
+    }
+    else res.send(getCustomerJSON(req.query));
+})
 
-app.get("/getUserdata", function(req, res){
-    //console.log(req)
-    var query = "select * from  customer where username = '"+ req.cookies.User + "';";
-    db.any(query).then(function (rows) {
-        return res.json(rows[0]);
-    })
-});
 ///////////////////////////////////////////////////////
-
+app.get("/test", function(req,res) {
+    console.log("test");
+    res.send( "boom");
+})
 
 app.get('/', function(req, res){
     console.log("rendering homepage");
@@ -71,23 +93,19 @@ app.get('/view/profilePage', function(req, res){
 
 app.post('/login', function(req, res){
     console.log("logging in");
-    var user_name = req.loginUsername;
-    var password = req.loginPassword;
-    var c = req.body.currSite;
-    console.log(req.query);
+    var user_name = req.body.loginUsername;
+    var password = req.body.loginPassword;
+    //var c = req.body.currSite;
+    console.log(req);
     var query = "select * from account where username = '"+ user_name + "' AND password ='" +password+"';";
     console.log(query);
     db.any(query)
         .then(function (rows, c) {
             if(rows.length>0){
-                console.log("wowee");
                 res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
                 res.cookie("User", rows[0].username, {maxAge:60000*app.locals.log_in_length});
-                res.redirect(c)
-            }else{
-                console.log("wwwwwww");
-                return "test";
             }
+            res.send(rows[0]);
         })
         .catch(function (err) {
             // display error message in case an error
@@ -98,11 +116,12 @@ app.post('/login', function(req, res){
 
 });
 app.post('/signup', function(req, res){
+    console.log(req.body);
     var username = req.body.username;
     var email = req.body.email;
     var password = req.body.password;
     var zip = req.body.zip;
-    query1 = "INSERT INTO customer (\"username\", \"emailAddress\",\"zip\") VALUES ('"+username+"','"+emailAddress+"','"+zip+"');";
+    query1 = "INSERT INTO customer (\"username\", \"emailAddress\",\"zip\") VALUES ('"+username+"','"+email+"','"+zip+"');";
     query2 = "INSERT INTO account(\"username\", \"password\") VALUES ('"+username+"','"+password+"');";
     console.log(query1);
     console.log(query2);
@@ -110,17 +129,20 @@ app.post('/signup', function(req, res){
     db.task('get-everything', task => {
         return task.batch([
             task.any(query1),
-            // Problem: Need to solve when username already exist in the customer table.
-            task.any(query2),
-            res.redirect('/')
+            task.any(query2)
         ]);
+    }).then(function(){
+            res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
+            res.cookie("User", req.body.username, {maxAge:60000*app.locals.log_in_length});
+            res.redirect('/profilepage')
+    });
 
         // Problem: need to address failures;
-    })
 });
 
 app.get("/logout",function (req,res) {
     res.cookie("logged_in","false");
+    res.clearCookie("user");
     res.redirect('/');
 });
 app.listen(5678);

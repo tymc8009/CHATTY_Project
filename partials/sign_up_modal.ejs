@@ -1,5 +1,5 @@
 <div class='modal fade' id='signup' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
-        <form action='/signup' method='post'>
+        <form action='/signup' method='post' id="signup_form_form">
             <div class='modal-dialog modal-dialog-centered' role='document'>
                <div class='modal-content'>
                  <div class='modal-header'>
@@ -11,8 +11,9 @@
                 <div class='modal-body' >
                     <div class='form-group' id='signup_form'>
                          <label for='Username' id="testerThing">User Name: </label>
-                        <input type='text' class='form-control' name='username' id="signup-username" placeholder='Name' required='required' onfocusout="signUpTest()">
-                       <label for='email'>Email address</label>
+                        <input type='text' class='form-control' name='username' id="signup-username" placeholder='Name' required='required' onfocusout="testUsername(this.value)">
+                        <p id='user-warning' style='color:Red'></p>
+                        <label for='email'>Email address</label>
                        <input type='email' class='form-control' name='email' placeholder='youremail@email.com'>
                        <label for='password'>Password:</label>
                        <input type='password' class='form-control' id='password' name = 'password' placeholder='password' required='required' onclick=''>
@@ -25,9 +26,10 @@
                     </div>
                 </div>
                  <div class='modal-footer'>
-                   <button type='submit' class='btn btn-secondary' onclick='verify()'>sign up</button>
+                   <button type="button" class='btn btn-secondary' onclick='verify_signin()'>sign up</button>
                   </div>
               </div>
               </div>
               </form>
             </div>
+<script src="/resources/js/accountFunctions.js"></script>

@@ -56,14 +56,20 @@ if(current_site) //sets the associated nav item active
                                +"  </div><div class=\"form-group\">"
                                +"                   <label for=\"loginPassword\">Password:</label>"
                                +"                   <input type=\"password\" class=\"form-control\" id=\"loginPassword\" name=\"loginPassword\" placeholder=\"password\" required=\"required\">"
-             +"<input name='currSite' class='form-control' hidden value=\"" + current_site + "\">"
-                               +"</div></form><div style='margin:auto'><button type=\"btn\" id=\"loginsubmit\" class=\"btn btn-outline-light\" style=\"backgroundColor:rgb(30,201,110)\" onclick=\"login_test()\">log in </button></div>"
+             +"<p id=\"login_warning\"></p>"
+                               +"</div><div style='margin:auto'><button type=\"button\" id=\"loginsubmit\" class=\"btn btn-outline-light\" style=\"backgroundColor:rgb(30,201,110)\" onclick=\"log_in()\">log in </button></div></form>"
                                +"<div class='dropdown-divider'></div><p> New here? </p>"
                                +"<button type=\"button\" class=\"btn btn-outline-light\" data-toggle=\"modal\" data-target=\"#signup\"> Sign up </button></div>";
             } else if(logged_in=='true') {
-            element  += "<img src=\"https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png\" class=\"rounded-circle\" id=\"profile_photo\" width=\"38px\" height=\"38px\" data-toggle=\"dropdown\" height=\"50\" style=\"margin:0px 20px\">"
+             var profilephoto = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
+             if(user){
+                 if(user.profileimg != null){
+                     profilephoto = user.profileimg;
+                 }
+             }
+            element  += "<img src=\""+profilephoto+"\" class=\"rounded-circle\" id=\"profile_photo\" width=\"38px\" height=\"38px\" data-toggle=\"dropdown\" height=\"50\" style=\"margin:0px 20px\">"
                            + "<div class=\"dropdown-menu dropdown-menu-right px-1\" style=\"background-color:#E84B0E;color:white\">"
-                           + "<b class=\"dropdown-header font-weight-bold\" style='color:#cccccc' id=\"navbar_username_text\"> <img src=\"https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png\" id=\"profile_photo_small\" width=\"25\" height=\"25\">  default username</b>" //replace text with username from database
+                           + "<b class=\"dropdown-header font-weight-bold\" style='color:#cccccc' id=\"navbar_username_text\"> <img src=\""+profilephoto+"\" id=\"profile_photo_small\" width=\"25\" height=\"25\"> "+ user.username+"</b>" //replace text with username from database
 
                            + "<a class='nav-link' style='color:#eeeeee' href="/*link to profile settings page*/ + "#" + " id='profile_settings_link'> profile settings </a>"
                            + "<div class='dropdown-divider'></div> <form action='/logout'><button type=\"submit\" class=\"btn btn-outline-light\" id=\"log_Out_Button\"> log out </button> </form>"
