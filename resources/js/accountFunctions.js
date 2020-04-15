@@ -1,14 +1,4 @@
-function signUpTest(){
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function() {
-       if (this.readyState == 4 && this.status == 200) {
-        console.log("response",this.responseText);
-      }
-    }
-    var username = document.getElementById("signup-username").value;
-    request.open("GET", "userinfo.php?q="+username+"&pass=chatty2020", true);
-    request.send();
-}
+
 function verify_signin(){
     var signupForm = document.getElementById("signup_form");
     var children = signupForm.childNodes;
@@ -38,22 +28,17 @@ function verify_signin(){
     noEmpties = noEmpties && checkPasswords();
     document.getElementById("user-warning").innerHTML = "";
     if(noEmpties){
-        $.get("/getUser", document.getElementById("signup-username").value).then(function(data){
-            console.log(data.value);
-            console.log(data==null);
-            if(data.username != undefined){
+        var usernameJSON = {username:document.getElementById("signup-username").value}
+        $.get("/getUser",usernameJSON).then(function (data) {
+            console.log(data);
+            if (data.length != 0) {
                 document.getElementById("user-warning").innerHTML = "Username already taken";
             } else {
-                console.log("submitting");
                 document.getElementById("signup_form_form").submit();
             }
         });
 
     }
-}
-
-function hi(){
-    console.log("hi");
 }
 
 function log_in(){
@@ -71,11 +56,13 @@ function log_in(){
   });
 }
 
-function testUsername(input){
-    $.get("/getUser", input).then(function(data){
-            if(data != null){
-
-            }
+function testUsername() {
+    var usernameJSON = {username:document.getElementById("signup-username").value}
+    $.get("/getUser",usernameJSON).then(function (data) {
+        console.log(data);
+        if (data.length != 0) {
+            document.getElementById("user-warning").innerHTML = "Username already taken";
+        } else {
+        }
     });
-
 }

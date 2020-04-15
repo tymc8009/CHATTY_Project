@@ -55,23 +55,26 @@ function log_in_variables(req, res, next){
 
 }
 
-/* inputs a username and returns a json object of the values stored in the database */
-function getCustomerJSON(username)
-{
+/* inputs a username and returns a json object of the values stored in the database
     var query = `select * from customer where username = '${username}'`;
-    return db.any(query).then(function(rows){
-        if(rows.length>0)
-        return rows[0];
-        else return null;
+    console.log(query);
+    db.any(query).then(function(rows){
+
     })
-}
+*/
 
 app.use(log_in_variables);
 app.get("/getUser", function(req,res){
+    console.log(req.query)
     if(req.query == null){
         res.redirect("/");
+    } else {
+        var query = `select * from customer where username = '${req.query.username}'`;
+        console.log(query);
+        db.any(query).then(function(rows){
+            res.send(rows);
+        })
     }
-    else res.send(getCustomerJSON(req.query));
 })
 
 ///////////////////////////////////////////////////////
