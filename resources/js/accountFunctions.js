@@ -34,11 +34,35 @@ function verify_signin(){
             if (data.length != 0) {
                 document.getElementById("user-warning").innerHTML = "Username already taken";
             } else {
-                document.getElementById("signup_form_form").submit();
+                var emailJSON = {email: document.getElementById("signup-email").value};
+                $.get("/getEmail", emailJSON).then(function (data) {
+                    console.log(data);
+                    if (data.length != 0) {
+                        document.getElementById("email-warning").innerHTML = "Email in use";
+                    } else {
+                        document.getElementById("signup_form_form").submit();
+                    }
+                });
             }
         });
 
     }
+}
+function checkPasswords(){
+    var pass = document.getElementById("password").value;
+
+    var pass2 = document.getElementById("Confirm_password").value;
+    var warn = document.getElementById("warning");
+    console.log(pass==pass2);
+    if(pass===pass2){
+        warn.style.visibility="hidden";
+        return true;
+    } else {
+
+        warn.style.visibility="visible";
+        return false;
+    }
+
 }
 
 function log_in(){
@@ -63,6 +87,21 @@ function testUsername() {
         if (data.length != 0) {
             document.getElementById("user-warning").innerHTML = "Username already taken";
         } else {
+            document.getElementById("user-warning").innerHTML = "";
         }
     });
+}
+
+
+function testEmail() {
+    var emailJSON = {email:document.getElementById("signup-email").value}
+    $.get("/getEmail", emailJSON).then(function (data) {
+        console.log(data);
+        if (data.length != 0) {
+            document.getElementById("email-warning").innerHTML = "Email in use";
+        } else {
+            document.getElementById("email-warning").innerHTML = "";
+        }
+    });
+
 }
