@@ -148,5 +148,27 @@ app.get("/logout",function (req,res) {
     res.clearCookie("user");
     res.redirect('/');
 });
+
+app.get("/results", function (req,res) {
+    console.log("rendering");
+    var search_query = req.query.search_query;
+    var db_query = "select * from restaurant where \"restaurantName\" like '%" + search_query + "%';";
+    db.any(db_query)
+        .then(function (info) {
+            res.render('../view/searchResult',{
+                my_title: "Result Page",
+                data: info
+            })
+        })
+        .catch(function (err) {
+            // display error message in case an error
+            console.log('error', err);
+            response.render('../view/home', {
+                title: 'Home Page',
+                data: ''
+            })
+        })
+});
+
 app.listen(5678);
 console.log('5678 is the magic port');

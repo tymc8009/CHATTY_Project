@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="834d1d3f-a49d-4158-9830-c07b8c19d619" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -25,31 +43,38 @@
   <component name="ProjectId" id="1ZP2E0cIN1GD0GT2EExN6mOvAE5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DBE.Init.BalloonShown" value="true" />
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Lab_website_3-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Program Files/nodejs/node.exe" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_interpreter_path" value="$PROJECT_DIR$/../../../../Program Files/nodejs/node" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="database.main" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\actro\github\CHATTY_Project\3308_project" />
+      <recent name="C:\Users\actro\github\CHATTY_Project\FoodFinder" />
       <recent name="C:\Users\salee_zb2of6i\github\CHATTY\resources\js" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+    <configuration default="true" type="JetRunConfigurationType">
       <module name="CHATTY_Project" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
@@ -62,7 +87,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <module name="CHATTY_Project" />
       <option name="filePath" />
       <option name="vmParameters" />
@@ -96,6 +121,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/server.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.server.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -110,37 +143,63 @@
       <workItem from="1584726295512" duration="26339000" />
       <workItem from="1585515574345" duration="22998000" />
       <workItem from="1586195264654" duration="32078000" />
+      <workItem from="1587343784424" duration="11923000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="634" y="349" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584729416790">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="742" y="579" key="#SQL_Dialects" timestamp="1587349176665">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="742" y="579" key="#SQL_Dialects/0.0.2560.1400@0.0.2560.1400" timestamp="1587349176665" />
+    <state x="845" y="470" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587349700159">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="634" y="349" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584729416790" />
-    <state x="1435" y="549" key="FileChooserDialogImpl" timestamp="1586203466325">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="845" y="470" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1587349700159" />
+    <state x="976" y="356" key="#server.js" timestamp="1587344280217">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="976" y="356" key="#server.js/0.0.2560.1400@0.0.2560.1400" timestamp="1587344280217" />
+    <state x="1913" y="739" key="FileChooserDialogImpl" timestamp="1587344350740">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1435" y="549" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586203466325" />
-    <state width="669" height="433" key="GridCell.Tab.0.bottom" timestamp="1586980909347">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1913" y="739" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1587344350740" />
+    <state width="1782" height="266" key="GridCell.Tab.0.bottom" timestamp="1587355190221">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="669" height="433" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586980909347" />
-    <state width="669" height="433" key="GridCell.Tab.0.center" timestamp="1586980909347">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1782" height="266" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1587355190221" />
+    <state width="1782" height="266" key="GridCell.Tab.0.center" timestamp="1587355190221">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="669" height="433" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586980909347" />
-    <state width="669" height="433" key="GridCell.Tab.0.left" timestamp="1586980909346">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1782" height="266" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1587355190221" />
+    <state width="1782" height="266" key="GridCell.Tab.0.left" timestamp="1587355190221">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="669" height="433" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586980909346" />
-    <state width="669" height="433" key="GridCell.Tab.0.right" timestamp="1586980909347">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1782" height="266" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1587355190221" />
+    <state width="1782" height="266" key="GridCell.Tab.0.right" timestamp="1587355190221">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="669" height="433" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586980909347" />
+    <state width="1782" height="266" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1587355190221" />
     <state width="457" height="266" key="GridCell.Tab.1.bottom" timestamp="1585527011378">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -189,10 +248,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="457" height="266" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
-    <state x="774" y="324" key="SettingsEditor" timestamp="1584728803428">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1032" y="436" width="998" height="813" key="SettingsEditor" timestamp="1587349343325">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="774" y="324" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584728803428" />
+    <state x="1032" y="436" width="998" height="813" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1587349343325" />
     <state x="661" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1586195266388">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -201,10 +261,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1249" y="440" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586978222182" />
-    <state x="537" y="497" key="jetbrains.nodejs.interpreters-dialog" timestamp="1584729414166">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="716" y="669" key="jetbrains.nodejs.interpreters-dialog" timestamp="1587344356545">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="537" y="497" key="jetbrains.nodejs.interpreters-dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584729414166" />
+    <state x="716" y="669" key="jetbrains.nodejs.interpreters-dialog/0.0.2560.1400@0.0.2560.1400" timestamp="1587344356545" />
     <state x="841" y="439" width="672" height="493" key="run.anything.popup" timestamp="1584728971941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
