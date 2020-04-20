@@ -27,7 +27,7 @@ app.locals.log_in_length = 10; // specifies how long the server keeps you logged
 // middleware function that sets the value of logged_in to the cookie
 // will run ANYTIME a request is made
 function log_in_variables(req, res, next){
-    //onsole.log("log in variables middleware",req.cookies);
+    console.log("log in variables middleware",);
     if(req.cookies.logged_in){
         res.locals.logged_in = req.cookies.logged_in;
         if(req.cookies.logged_in=="true") // resets logged in timer
@@ -75,13 +75,27 @@ app.get("/getUser", function(req,res){
             res.send(rows);
         })
     }
-})
+});
+
+app.get("/getEmail", function(req,res){
+    console.log(req.query)
+    if(req.query == null){
+        res.redirect("/");
+    } else {
+        var query = "SELECT * FROM customer WHERE emailAddress='"+req.query.email+"'";
+        console.log(query);
+        db.any(query).then(function(rows){
+            res.send(rows);
+        })
+    }
+});
 
 ///////////////////////////////////////////////////////
+// useless get function, can be used to test $.get requests
 app.get("/test", function(req,res) {
     console.log("test");
     res.send( "boom");
-})
+});
 
 app.get('/', function(req, res){
     console.log("rendering homepage");
@@ -124,7 +138,7 @@ app.post('/signup', function(req, res){
     var email = req.body.email;
     var password = req.body.password;
     var zip = req.body.zip;
-    query1 = "INSERT INTO customer (\"username\", \"emailAddress\",\"zip\") VALUES ('"+username+"','"+email+"','"+zip+"');";
+    query1 = "INSERT INTO customer (\"username\", \"emailaddress\",\"zip\") VALUES ('"+username+"','"+email+"','"+zip+"');";
     query2 = "INSERT INTO account(\"username\", \"password\") VALUES ('"+username+"','"+password+"');";
     console.log(query1);
     console.log(query2);
