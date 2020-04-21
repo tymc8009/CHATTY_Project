@@ -4,40 +4,37 @@ function verify_signin(){
     var children = signupForm.childNodes;
     var notAzip = /^\d{5}(?:[-\s]\d{4})?$/g; // source: https://stackoverflow.com/questions/2577236/regex-for-zip-code
     var noEmpties = true;
-    var zip = children[children.length -2];
-    console.log(zip.tagName, zip.value, zip.value.match(notAzip));
-    if(zip.value=="" || zip.value.match(notAzip)==null){
-        console.log("if");
-        zip.style.borderColor="red";
-        noEmpties=false;
-    } else {
-        zip.style.borderColor="grey";
-        noEmpties=true;
-    }
-    for(var i=0; i<children.length-2; i++){
+    var zip = document.getElementById("zip");
+    noEmpties = (zip.value!="" && notAzip.test(zip.value));
+    warn(zip,noEmpties,"invalid zip")
+    for(var i=0; i<children.length-4; i++){
         if(children[i].tagName=="INPUT"){
             if(children[i].value==""){
                 children[i].style.borderColor="red";
                 noEmpties=false;
             } else{
 
-                children[i].style.borderColor="grey";
+                children[i].style.borderColor="#1aaa1a";;
             }
         }
     }
-    noEmpties = noEmpties && checkPasswords();
+    noEmpties = checkPasswords() && noEmpties;
+    noEmpties = validatePasswordRequirements(document.getElementById("password")) && noEmpties;
     document.getElementById("user-warning").innerHTML = "";
+    document.getElementById("email-warning").innerText = "";
     if(noEmpties){
         var usernameJSON = {username:document.getElementById("signup-username").value}
         $.get("/getUser",usernameJSON).then(function (data) {
             console.log(data);
             if (data.length != 0) {
+                document.getElementById("signup-username").style.borderColor = "red";
                 document.getElementById("user-warning").innerHTML = "Username already taken";
             } else {
                 var emailJSON = {email: document.getElementById("signup-email").value};
                 $.get("/getEmail", emailJSON).then(function (data) {
                     console.log(data);
                     if (data.length != 0) {
+                        document.getElementById("signup-email").style.borderColor = "red";
                         document.getElementById("email-warning").innerHTML = "Email in use";
                     } else {
                         document.getElementById("signup_form_form").submit();
@@ -48,20 +45,41 @@ function verify_signin(){
 
     }
 }
+
+function validatePasswordRequirements(input){
+    console.log("validating requrements");
+    var requirements = /([A-Z]+.*[a-z]+)|([a-z]+.*[A-Z])/;
+    var passwordtext = input.previousElementSibling;
+
+    passwordtext.innerHTML = "password:";
+    console.log(/[\d]/.test(input.value));
+    if(!requirements.test(input.value)){
+        passwordtext.innerHTML += ` <br><span style="color:red">password must contain both upper and lower case letters</span>`;
+        input.style.borderColor="red";
+        return requirements.test(input.value);
+    } else if(input.value.length < 8) {
+        passwordtext.innerHTML += ` <br><span style="color:red">password must have at least 8 characters</span>`;
+        input.style.borderColor="red";
+        return false;
+    } else if(/[\d]/.test(input.value) == false){
+        passwordtext.innerHTML += ` <br><span style="color:red">password must contain a number</span>`;
+        input.style.borderColor="red";
+        return false;
+    } else {
+        passwordtext.innerHTML += ` <span style="color:#2EEE2E">&#10003</span>`
+        input.style.borderColor= "#2EEE2E";
+    }
+
+    console.log(requirements.test(input.value));
+    return requirements.test(input.value);
+}
+
 function checkPasswords(){
     var pass = document.getElementById("password").value;
 
-    var pass2 = document.getElementById("Confirm_password").value;
-    var warn = document.getElementById("warning");
-    console.log(pass==pass2);
-    if(pass===pass2){
-        warn.style.visibility="hidden";
-        return true;
-    } else {
-
-        warn.style.visibility="visible";
-        return false;
-    }
+    var pass2 = document.getElementById("Confirm_password");
+    warn(pass2,pass==pass2.value, "Passwords must match");
+    return pass==pass2
 
 }
 
@@ -84,24 +102,37 @@ function testUsername() {
     var usernameJSON = {username:document.getElementById("signup-username").value}
     $.get("/getUser",usernameJSON).then(function (data) {
         console.log(data);
-        if (data.length != 0) {
-            document.getElementById("user-warning").innerHTML = "Username already taken";
-        } else {
-            document.getElementById("user-warning").innerHTML = "";
-        }
+        var input = document.getElementById("signup-username")
+        warn(input,data.length==0,"Username already taken")
     });
 }
 
 
 function testEmail() {
-    var emailJSON = {email:document.getElementById("signup-email").value}
-    $.get("/getEmail", emailJSON).then(function (data) {
-        console.log(data);
-        if (data.length != 0) {
-            document.getElementById("email-warning").innerHTML = "Email in use";
-        } else {
-            document.getElementById("email-warning").innerHTML = "";
-        }
-    });
 
+    var emailJSON = {email:document.getElementById("signup-email").value}
+    if(/@./.test(document.getElementById("signup-email").value))
+    {
+        $.get("/getEmail", emailJSON).then(function (data) {
+            console.log(data)
+            warn(document.getElementById("signup-email"), data.length == 0, "email in use")
+        });
+    } else {
+         warn(document.getElementById("signup-email"), false, "")
+
+    }
+
+}
+
+function warn(input, condition, warning){
+    if(condition){
+        input.style.borderColor = "#2EEE2E";
+        input.nextElementSibling.innerHTML = "";
+    } else {
+        input.style.borderColor = "red";
+        input.nextElementSibling.innerHTML = warning;
+    }
+    if(input.value == ""){
+        input.style.borderColor = "red";
+    }
 }
