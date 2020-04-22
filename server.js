@@ -165,8 +165,13 @@ app.get("/logout",function (req,res) {
 
 app.get("/results", function (req,res) {
     console.log("rendering");
-    var search_query = req.query.search_query;
-    var db_query = "select * from restaurant where \"restaurantName\" like '%" + search_query + "%';";
+    var temp = req.query.search_query;
+    // capitalize the search query
+    var search_query = temp.toUpperCase();
+    var db_query = "select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img " +
+                   "from restaurant left join restaurantcategory " +
+                   "on restaurant.categoryid=restaurantcategory.categoryid " +
+                   "where \"restaurantName\" like '%" + search_query + "%';";
     db.any(db_query)
         .then(function (info) {
             res.render('../view/searchResult',{

@@ -48,10 +48,20 @@
               var card = '';
               data.forEach(function(item){
                   var ranId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                  var default_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                  if (item.logo_img != null) {
+                      default_img = item.logo_img;
+                  }
+                  else if (item.category_img != null) {
+                      default_img = item.category_img;
+                  }
                   card += '<div class="card" id="'+ranId+'"><div class="card-body">' +
-                          '<img class="card-img-left" src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"' +
-                          'alt="Card image" height="200px"><div class="details">' +
-                          '<h4>' + item.restaurantName + '</h4></div></div></div>';
+                          '<img class="card-img-left" src=' + default_img +
+                          ' alt="Card image" height="200px" width="250px"><div class="details">' +
+                          '<h4>' + item.restaurantName + '</h4>' +
+                          '<h6>Phone number: ' + item.phonenumber + '</h6>' +
+                          '<h6>Address: ' + item.address + '</h6>' +
+                          '<h6>' + item.description + '</h6>' + '</div></div></div>';
               }); %>
           <%- card %>
           <% } %>
