@@ -85,11 +85,24 @@ app.get("/getEmail", function(req,res){
         var query = "SELECT * FROM customer WHERE emailAddress='"+req.query.email+"'";
         console.log(query);
         db.any(query).then(function(rows){
+            console.log("rows",rows);
             res.send(rows);
         })
     }
 });
-
+app.get("/verifyEmail", function (req,res) {
+    console.log(req.query)
+    if(req.query == null){
+        res.redirect("/");
+    } else {
+        var query = "SELECT * FROM customer WHERE emailAddress='"+req.query.email+"'";
+        console.log(query);
+        db.any(query).then(function(rows){
+            console.log("rows",rows);
+            res.send(rows);
+        })
+    }
+});
 ///////////////////////////////////////////////////////
 // useless get function, can be used to test $.get requests
 app.get("/test", function(req,res) {
@@ -103,7 +116,11 @@ app.get('/', function(req, res){
     );
 });
 
-app.get('/view/profilePage', function(req, res){
+app.get('/view/profilePage',function(req,res){
+    res.redirect("/profilePage");
+});
+
+app.get('/profilePage', function(req, res){
     console.log("rendering");
   res.render('../view/profilePage',{ root: __dirname});
 });
@@ -133,7 +150,7 @@ app.post('/login', function(req, res){
 
 });
 app.post('/signup', function(req, res){
-    console.log(req.body);
+    console.log("signing up");
     var username = req.body.username;
     var email = req.body.email;
     var password = req.body.password;
@@ -145,8 +162,8 @@ app.post('/signup', function(req, res){
 
     db.task('get-everything', task => {
         return task.batch([
-            task.any(query1),
-            task.any(query2)
+            task.any(query2),
+            task.any(query1)
         ]);
     }).then(function(){
             res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
