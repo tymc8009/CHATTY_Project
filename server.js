@@ -86,33 +86,42 @@ app.get("/test", function(req,res) {
 // home page
 app.get('/home', function(req, res){
     console.log("rendering homepage");
-    var query = 'select * from restaurant where zip = 80007';
-    db.any(query)
-        .then(function (rows){
+    var query1 = 'select * from restaurant where categoryid = 9';
+    var query2 = 'select * from restaurant where categoryid = 10';
+    var query3 = 'select * from restaurant where categoryid = 2';
+    var query4 = 'select * from restaurant where categoryid = 13';
+    var query5 = 'select * from restaurant where categoryid = 1';
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(query1),
+            task.any(query2),
+            task.any(query3),
+            task.any(query4),
+            task.any(query5)
+        ]);
+    })
+        .then(data => {
             res.render('pages/home',{
-                    my_title: "Home page",
-                    data: rows,
-                    // restaurantid: '',
-                    // restaurantName: '',
-                    // categroy: '',
-                    // city: '',
-                    // state: '',
-                    // zip: '',
-                    // description: '',
-                    // price: '',
-                    // phonenumber: '',
-                    // logo_img: '',
-                    // menu: ''
-                })
-            console.log(rows);
+                my_title: "Home page",
+                result_1: data[0], // mexican
+                result_2: data[1], // italian
+                result_3: data[2], // chinese
+                result_4: data[3], // breakfast
+                result_5: data[4]  // American
             })
-        .catch(function (err) {
-
-        }
-    );
+        })
+        .catch(err => {
+            console.log('error', err);
+            res.render('pages/home',{
+                my_title: "Home page",
+                result_1: '',
+                result_2: '',
+                result_3: '',
+                result_4: '',
+                result_5: ''
+            })
+        });
 });
-
-app.post()
 
 app.get('/view/profilePage', function(req, res){
     console.log("rendering");
