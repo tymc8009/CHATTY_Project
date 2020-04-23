@@ -303,7 +303,7 @@ app.get("/results", function (req,res) {
 
 app.get('/restaurant_info', function(req,res) {
     var id = req.query.id;
-    var query = "select * from restaurant where restaurantid =" + id;
+    var query = "select * from restaurant where \'restaurantid\' =" + id;
 
     db.any(query)
         .then(data=> {

@@ -20,29 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="834d1d3f-a49d-4158-9830-c07b8c19d619" name="Default Changelist" comment="Merge remote-tracking branch 'origin/Tiancheng' into Yibo&#10;&#10;# Conflicts:&#10;#&#9;partials/navbar.ejs&#10;#&#9;partials/sign_up_modal.ejs&#10;#&#9;resources/js/accountFunctions.js&#10;#&#9;server.js">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/00020794-9f0a-4e94-a98e-63d3072728b2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3308_project/home_page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodFinder/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodFinder/template.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RestaurantTemplate/restaurantpage.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RestaurantTemplate/restaurantpage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home_page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/partials/navbar.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/partials/postmodel.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/partials/sign_up_modal.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/accountFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/accountFunctions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurantpage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/searchResult.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/search_result.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/specRunner.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/community.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/home.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/profilePage.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/searchResult.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/pages/home.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/pages/home.ejs" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,71 +46,6 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="customer: table" type="69fad909:PgImplModel$LocalTable" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="post: table" type="69fad909:PgImplModel$LocalTable" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="restaurantcategory: table" type="69fad909:PgImplModel$LocalTable" />
       </path>
     </expand>
     <select />
@@ -160,7 +78,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path" value="$PROJECT_DIR$/../../../../Program Files/nodejs/node" />
+    <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
@@ -279,11 +197,12 @@
       <workItem from="1586195264654" duration="32078000" />
       <workItem from="1587070762602" duration="155000" />
       <workItem from="1587078354715" duration="5326000" />
+      <workItem from="1587618222296" duration="117000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
