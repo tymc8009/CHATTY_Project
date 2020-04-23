@@ -20,7 +20,7 @@ function loadifSignedIn(logged_in)//set condition to 'true' for profile button '
    if(logged_in=="false"){
      nav.innerHTML += "<div class=\"dropdown\" id=\"log_in_dropdown\"><button type=\"button\" class=\"btn btn-outline-light dropdown-toggle\" data-toggle=\"dropdown\">log in</button>"
      +"<div class=\"dropdown-menu dropdown-menu-right px-1\" style=\"background-color:#E84B0E;color:white\">"
-     +" <form action=\"/view/home.html/login\" method=\"post\"><div class=\"form-group\">"
+     +" <form action=\"/FoodFinder/home.html/login\" method=\"post\"><div class=\"form-group\">"
      +"     <label for=\"loginUsername\">User Name: </label>"
      +"                 <input type=\"text\" class=\"form-control\" id=\"loginUsername\" name=\"loginUsername\" placeholder=\"Name\""
      +"                   required=\"required\">"
@@ -31,7 +31,7 @@ function loadifSignedIn(logged_in)//set condition to 'true' for profile button '
      +"</form><div class='dropdown-divider'></div><p> New here? </p<>"
      +"<button type=\"button\" class=\"btn btn-outline-light\" data-toggle=\"modal\" data-target=\"#signup\"> Sign up </button></div></div>";
      document.body.innerHTML +="<div class=\"modal fade\" id=\"signup\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalCenterTitle\" aria-hidden=\"true\">"
-     + "       <form action=\"/view/home.html/signup\" method=\"post\">"
+     + "       <form action=\"/FoodFinder/home.html/signup\" method=\"post\">"
      + "       <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">"
      +"           <div class=\"modal-content\">"
      +"             <div class=\"modal-header\">"

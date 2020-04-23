@@ -83,6 +83,67 @@ app.get("/test", function(req,res) {
     res.send( "boom");
 })
 
+app.get("/community", function(req,res) {
+    var query = 'SELECT * from restaurant as r JOIN restaurantcategory as c ON r.categoryid = c.categoryid LIMIT 5';
+    var query2 = 'SELECT *,TO_CHAR(posttime, \'yyyy-mm-dd hh:mm:ss\') as time from post as p JOIN customer as c ON p.customerid = c.customerid order by posttime DESC' ;
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(query),
+            task.any(query2)
+        ]);
+})
+.then(info => {
+        res.render('../view/community',{
+            my_title: 'Community',
+            data: info[0],
+            post: info[1],
+        })
+    })
+.catch(err => {
+        // display error message in case an error
+        console.log('error', err);
+    response.render('../view/community', {
+        my_title: 'Community',
+        data: '',
+        post: ''
+    })
+});
+
+})
+
+app.post("/insertpost", function(req,res) {
+    var message = req.body.message;
+    var username = req.cookies.User; // user name itself
+    var query = 'SELECT * from restaurant as r JOIN restaurantcategory as c ON r.categoryid = c.categoryid LIMIT 5';
+    var insert = "INSERT INTO post(customerid, postcontent)\n" +
+        "SELECT customerid as id,'"+message+"'\n" +
+        "from customer where username = '"+username+"';";
+    var query2 = 'SELECT *,TO_CHAR(posttime, \'yyyy-mm-dd hh:mm:ss\') as time from post as p JOIN customer as c ON p.customerid = c.customerid order by posttime DESC' ;
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(query),
+            task.any(insert),
+            task.any(query2)
+        ]);
+})
+.then(info => {
+        res.render('../view/community',{
+            my_title: 'Community',
+            data: info[0],
+            post: info[2],
+        })
+    })
+.catch(err => {
+        // display error message in case an error
+        console.log('error', err);
+    response.render('../view/community', {
+        my_title: 'Community',
+        data: '',
+        post: ''
+    })
+});
+
+})
 app.get('/', function(req, res){
     console.log("rendering homepage");
     res.render('../view/home'
@@ -124,8 +185,8 @@ app.post('/signup', function(req, res){
     var email = req.body.email;
     var password = req.body.password;
     var zip = req.body.zip;
-    query1 = "INSERT INTO customer (\"username\", \"emailAddress\",\"zip\") VALUES ('"+username+"','"+email+"','"+zip+"');";
-    query2 = "INSERT INTO account(\"username\", \"password\") VALUES ('"+username+"','"+password+"');";
+    query2 = "INSERT INTO customer (\"username\", \"emailAddress\",\"zip\") VALUES ('"+username+"','"+email+"','"+zip+"');";
+    query1 = "INSERT INTO account(\"username\", \"password\") VALUES ('"+username+"','"+password+"');";
     console.log(query1);
     console.log(query2);
 
@@ -137,7 +198,7 @@ app.post('/signup', function(req, res){
     }).then(function(){
             res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
             res.cookie("User", req.body.username, {maxAge:60000*app.locals.log_in_length});
-            res.redirect('/profilepage')
+        res.redirect('/profilepage')
     });
 
         // Problem: need to address failures;
@@ -148,5 +209,35 @@ app.get("/logout",function (req,res) {
     res.clearCookie("user");
     res.redirect('/');
 });
+
+
+app.get("/results", function (req,res) {
+    console.log("rendering");
+    var temp = req.query.search_query;
+    // capitalize the search query
+    var search_query = temp.toUpperCase();
+    var db_query = "select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img " +
+        "from restaurant left join restaurantcategory " +
+        "on restaurant.categoryid=restaurantcategory.categoryid " +
+        "where \"restaurantName\" like '%" + search_query + "%';";
+    db.any(db_query)
+        .then(function (info) {
+            res.render('../view/searchResult',{
+                my_title: "Result Page",
+                data: info
+            })
+        })
+        .catch(function (err) {
+            // display error message in case an error
+            console.log('error', err);
+            response.render('../view/home', {
+                title: 'Home Page',
+                data: ''
+            })
+        })
+});
+
+});
+
 app.listen(5678);
 console.log('5678 is the magic port');
