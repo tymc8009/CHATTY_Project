@@ -176,11 +176,11 @@ app.get('/', function(req, res){
 });
 app.get('/home', function(req, res){
     console.log("rendering homepage");
-    var query1 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 9';
-    var query2 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 10';
-    var query3 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 2';
-    var query4 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 13';
-    var query5 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 1';
+    var query1 = 'select * from restaurant where categoryid = 9';
+    var query2 = 'select * from restaurant where categoryid = 10';
+    var query3 = 'select * from restaurant where categoryid = 2';
+    var query4 = 'select * from restaurant where categoryid = 13';
+    var query5 = 'select * from restaurant where categoryid = 1';
     db.task('get-everything', task => {
         return task.batch([
             task.any(query1),
@@ -212,10 +212,40 @@ app.get('/home', function(req, res){
             })
         });
 });
-app.get('/profilePage', function(req, res){
+
+//profile page
+app.get('/view/profilePage', function(req, res){
     // console.log("rendering");
-  res.render('../view/pages/profilePage',{ root: __dirname});
+  res.redirect('/profilePage');
 });
+
+app.get('/profilePage', function(req,res) {
+
+    var customer = 'Select restaurant."restaurantName", restaurant.restaurantid, restaurant.description, savelist.lasttimevisited, review.comment from savelist inner join review on review.reviewid = savelist.reviewid inner join restaurant on restaurant.restaurantid = savelist.restaurantid inner join customer on customer.customerid = savelist.customerid where customer.username = ' + '\''+ req.cookies.User+ '\'';
+
+
+db.task('get-everything', task=>{
+    return task.batch ([
+      task.any(customer)
+    ]);
+  })
+  .then(data=> {
+    res.render('../view/pages/profilePage', {
+      data: data
+    })
+  })
+});
+app.post('/profilePage', function(req,res){
+    var pic = req.customer.profilePic;
+    var bio = req.customer.bio;
+    //query = UPDATE customer SET profileimg = pic WHERE req.cookies.User;
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(query)
+        ]);
+});
+
 
 app.post('/login', function(req, res){
     console.log("logging in");

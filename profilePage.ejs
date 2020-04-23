@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatty FoodFinder </title>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper  .min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .sidenav {
+            position: fixed;
+            left: 0;
+            height: 100%;
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+            padding-right: 0;
+            padding-left: 0;
+            width: 13%;
+        }
+
+        .sidenav .btn-link {
+            color: white;
+            font-size: 18px;
+        }
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        /* Style the counter cards */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+            padding: 16px;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+
+        /* Responsive columns - one column layout (vertical) on small screens */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+
+    </style>
+</head>
+<style>
+    #saved {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+        max-width: 20rem;
+        background-color: #E84B0E;
+        color: white;
+    }
+
+    .jumbotron {
+        padding: 2rem 1rem
+    }
+
+    .btn {
+        background-color: #E84B0E;
+        color: white;
+    }
+
+    h3 {
+        text-align: center;
+    }
+</style>
+<body>
+<%- include('../partials/navbar'); -%>
+
+<div class="container" style="padding-top: 66px">
+    <div class="row">
+        <div class="col-3" style="text-align: center">
+            <div class="card-body">
+                <%
+                    var profilepic = "../resources/img/anonymous-user.png";
+                    if(user.profileimg != null){
+                        profilepic = user.profileimg;
+                    }
+                %>
+                <img class="rounded-circle" height="200" id="display-pic" src= <%- profilepic %>
+                     width="200">
+                <br>
+                <a href = "#setting_modal" class="btn btn-secondary" id="setting" data-toggle="modal">Settings</a>
+            </div>
+        </div>
+        <div class="col-9" style="top:0">
+            <div class="jumbotron" style="background-color:transparent !important;">
+                <div class="container">
+                    <% if(user.firstname == null){
+                        var firstname = "Bio";
+                        var lastname = " ";
+                    }
+                    else{
+                        var firstname = user.firstname;
+                        var lastname = user.lastname;
+                    }
+                    var name = firstname +" " + lastname;
+                    %>
+                    <h1 class="display-8"><%- name %></h1>
+                    <p class="lead" id = "display-bio">User has no bio yet</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="saved">
+        <h3>Saved List</h3>
+        <div class="card-group">
+            <%
+            var card = '';
+                if(data){
+                    console.log(data);
+                    data.forEach(function(customer){
+                        var time = customer[0].lasttimevistied;
+                        if(customer[0].lasttimevisited == null){
+                            var time = "Last Time Visited Unknown";
+                        }
+                        card += '<div class="card text-white mb-3; card text-center">' + 
+                                '<div class="card-header">' + time + '</div>' +
+                                '<div class="card-body">' + 
+                                '<h5 class="card-title">' + customer[0].restaurantName + '</h5>' +
+                                '<p class="card-text">' + customer[0].description + '</p>' +
+                                '</div></div>';
+
+                    }); }%>
+            <%- card %>
+        </div>
+    </div>
+            <!-- <div class="card text-white mb-3; card text-center">
+                <div class="card-header">Time Stamp</div>
+                <div class="card-body">
+                    <h5 class="card-title">Restauraunt Name</h5>
+                    <p class="card-text">Description</p>
+                </div>
+            </div> -->
+</div>
+    <div id="reviews" style="padding-top: 5%">
+        <h3>Your Reviews</h3>
+
+        <%
+        var card2 = '';
+        if(data){
+
+            data.forEach(function(customer){
+                card2 += '<div class="card text-center" style="width: 50rem;">' +
+                        '<div class="card-body">' + 
+                        '<h5 class="card-title">' + customer[0].restaurantName + '</h5>' +
+                        '<p class="card-text">' + customer[0].comment + '</p>' +
+                        '<a class="btn btn-danger" href="/restaurant_info?id=' + customer[0].restaurantid +' " >Link to Restauraunt</a>'
+                        '</div></div>';
+            });
+             }%>
+            <%-card2%>
+
+
+        <!-- <div class="card text-center" style="width: 50rem;">
+            <div class="card-body">
+                <h5 class="card-title">Restauraunt Name</h5>
+                <p class="card-text">Your Review</p>
+                <a class="btn btn-danger" href="#">Link to Restauraunt</a>
+            </div>
+        </div> -->
+
+    </div>
+
+<div class="modal" tabindex="-1" role="dialog" id = "setting_modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Settings</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Profile Picture:</label>
+                        <input type="file" class="form-control-file" id="profilePicture">
+                    </div>
+                    <div class="form-group">
+                        <label>Bio:</label>
+                        <textarea class="form-control" id="bio" rows="3" placeholder="Enter your bio here"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="saveChanges()">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/resources/js/settings.js"></script>
+</body>
+</html>
