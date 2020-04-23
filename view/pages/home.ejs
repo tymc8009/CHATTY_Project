@@ -68,7 +68,7 @@
 <%- include('../partials/navbar'); -%>
 
 <div class="sidenav" style="background-color: #E84B0E; padding-top: 40px">
-    <a class="btn btn-link" href="#fav_jump" style="font-size: 20px"> Favorites</a>
+    <a class="btn btn-link" href="#american_jump" style="font-size: 20px"> American</a>
     <br>
     <a class="btn btn-link" href="#italian_jump" style="color:beige"> Italian</a>
     <br>
@@ -80,9 +80,9 @@
 </div>
 
 
-<div class="container" style="padding-top: 66px;">
-    <a id="fav_jump">
-        <h2 id="fav_header"> Favorites </h2>
+<div class="container" style="padding-top: 66px; padding-left: 15%">
+    <a id="american_jump">
+        <h2 id="fav_header"> American </h2>
         <div class="carousel slide" data-ride="carousel" id="demo">
             <ul class="carousel-indicators">
                 <li class="active" data-slide-to="0" data-target="#demo"></li>
@@ -93,42 +93,78 @@
                 <div class="carousel-item active">
                     <div class="card-group">
                         <div class="card" >
-                            <a href="../view/restaurantpage.html" style="color:black">
-                            <img alt="Card image"
-                                 class="card-img-left"
-                                 height="200px"
-                                 src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
-                            style="width: 100%">
-                            <div class="card-body" id="Favorite1">
-                                <h4 >Restaurant</h4>
-                                <p>Description</p>
-                            </div>
+                            <% if(result_5) {
+                                var american_id = result_5[0].restaurantid;
+                                if(result_5[0].logo_img == null){
+                                    var american_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                }
+                                else{
+                                    var american_img = result_5[0].logo_img;
+                                }
+                                var american_restaurant = result_5[0].restaurantName;
+                                var american_description = result_5[0].description;
+                            }
+                            %>
+                            <a href ="/restaurant_info?id+ <%- american_id %> " style="color:black">
+                                <img alt="Card image"
+                                     class="card-img-left"
+                                     height="200px"
+                                     src= <%- american_img%>
+                                     style="width: 100%">
+                                <div class="card-body" id="Favorite1">
+                                    <h4 > <%- american_restaurant %> </h4>
+                                    <p> <%- american_description %></p>
+                                </div>
                             </a>
                         </div>
-                       <div class="card" >
-                            <a href="../view/restaurantpage.html" style="color:black">
-                            <img alt="Card image"
-                                 class="card-img-left"
-                                 height="200px"
-                                 src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
-                            style="width: 100%">
-                            <div class="card-body" id="Favorite2">
-                                <h4 >Restaurant</h4>
-                                <p>Description</p>
-                            </div>
+                        <div class="card" >
+                            <% if(result_5) {
+                                var american_id1 = result_5[1].restaurantid;
+                                if(result_5[1].logo_img == null){
+                                    var american_img1 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                }
+                                else{
+                                    var american_img1 = result_5[1].logo_img;
+                                }
+                                var american_restaurant1 = result_5[1].restaurantName;
+                                var american_description1 = result_5[1].description;
+                            }
+                            %>
+                            <a href ="/restaurant_info?id+ <%- american_id1 %> " style="color:black">
+                                <img alt="Card image"
+                                     class="card-img-left"
+                                     height="200px"
+                                     src= <%- american_img1 %>
+                                     style="width: 100%">
+                                <div class="card-body" id="Favorite1">
+                                    <h4 > <%- american_restaurant1 %></h4>
+                                    <p> <%- american_description1 %></p>
+                                </div>
                             </a>
                         </div>
-                       <div class="card" >
-                            <a href="../view/restaurantpage.html" style="color:black">
-                            <img alt="Card image"
-                                 class="card-img-left"
-                                 height="200px"
-                                 src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
-                            style="width: 100%">
-                            <div class="card-body" id="Favorite3">
-                                <h4 >Restaurant</h4>
-                                <p>Description</p>
-                            </div>
+                        <div class="card" >
+                            <% if(result_5) {
+                                var american_id2 = result_5[2].restaurantid;
+                                if(result_5[2].logo_img == null){
+                                    var american_img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                }
+                                else{
+                                    var american_img2 = result_5[2].logo_img;
+                                }
+                                var american_restaurant2 = result_5[2].restaurantName;
+                                var american_description2 = result_5[2].description;
+                            }
+                            %>
+                            <a href ="/restaurant_info?id+ <%- american_id2 %> " style="color:black">
+                                <img alt="Card image"
+                                     class="card-img-left"
+                                     height="200px"
+                                     src= <%- american_img2 %>
+                                     style="width: 100%">
+                                <div class="card-body" id="Favorite1">
+                                    <h4 > <%- american_restaurant2 %></h4>
+                                    <p> <%- american_description2 %></p>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -136,41 +172,77 @@
                 <div class="carousel-item">
                     <div class="card-group">
                         <div class="card" >
-                            <a href="../view/restaurantpage.html" style="color:black">
+                            <% if(result_5) {
+                                var american_id3 = result_5[3].restaurantid;
+                                if(result_5[3].logo_img == null){
+                                    var american_img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                }
+                                else{
+                                    var american_img3 = result_5[3].logo_img;
+                                }
+                                var american_restaurant3 = result_5[3].restaurantName;
+                                var american_description3 = result_5[3].description;
+                            }
+                            %>
+                            <a href ="/restaurant_info?id+ <%- american_id2 %> " style="color:black">
                                 <img alt="Card image"
                                      class="card-img-left"
                                      height="200px"
-                                     src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                     src= <%- american_img3 %>
                                      style="width: 100%">
-                                <div class="card-body" id="Favorite4">
-                                    <h4 >Restaurant</h4>
-                                    <p>Description</p>
+                                <div class="card-body" id="Favorite1">
+                                    <h4 > <%- american_restaurant3 %></h4>
+                                    <p> <%- american_description3 %></p>
                                 </div>
                             </a>
                         </div>
                         <div class="card" >
-                            <a href="../view/restaurantpage.html" style="color:black">
+                            <% if(result_5) {
+                                var american_id4 = result_5[4].restaurantid;
+                                if(result_5[4].logo_img == null){
+                                    var american_img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                }
+                                else{
+                                    var american_img4 = result_5[4].logo_img;
+                                }
+                                var american_restaurant4 = result_5[4].restaurantName;
+                                var american_description4 = result_5[4].description;
+                            }
+                            %>
+                            <a href ="/restaurant_info?id+ <%- american_id4 %> " style="color:black">
                                 <img alt="Card image"
                                      class="card-img-left"
                                      height="200px"
-                                     src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                     src= <%- american_img4 %>
                                      style="width: 100%">
-                                <div class="card-body" id="Favorite5">
-                                    <h4 >Restaurant</h4>
-                                    <p>Description</p>
+                                <div class="card-body" id="Favorite1">
+                                    <h4 > <%- american_restaurant4 %></h4>
+                                    <p> <%- american_description4 %></p>
                                 </div>
                             </a>
                         </div>
                         <div class="card" >
-                            <a href="../view/restaurantpage.html" style="color:black">
+                            <% if(result_5) {
+                                var american_id5 = result_5[5].restaurantid;
+                                if(result_5[5].logo_img == null){
+                                    var american_img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                }
+                                else{
+                                    var american_img5 = result_5[5].logo_img;
+                                }
+                                var american_restaurant5 = result_5[5].restaurantName;
+                                var american_description5 = result_5[5].description;
+                            }
+                            %>
+                            <a href ="/restaurant_info?id+ <%- american_id5 %> " style="color:black">
                                 <img alt="Card image"
                                      class="card-img-left"
                                      height="200px"
-                                     src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                     src= <%- american_img5 %>
                                      style="width: 100%">
-                                <div class="card-body" id="Favorite6">
-                                    <h4 >Restaurant</h4>
-                                    <p>Description</p>
+                                <div class="card-body" id="Favorite1">
+                                    <h4 > <%- american_restaurant5 %></h4>
+                                    <p> <%- american_description5 %></p>
                                 </div>
                             </a>
                         </div>
@@ -197,41 +269,77 @@
                     <div class="carousel-item active">
                         <div class="card-group">
                             <div class="card" >
-                                <a href="../view/restaurantpage.html" style="color:black">
+                                <% if(result_1) {
+                                    var mexican_id = result_1[0].restaurantid;
+                                    if(result_1[0].logo_img == null){
+                                        var img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    }
+                                    else{
+                                        var img = result_1[0].logo_img;
+                                    }
+                                    var restaurant_name = result_1[0].restaurantName;
+                                    var description = result_1[0].description;
+                                }
+                                %>
+                                <a href ="/restaurant_info?id+ <%- mexican_id %> " style="color:black">
                                     <img alt="Card image"
                                          class="card-img-left"
                                          height="200px"
-                                         src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                         src = <%- img %>
                                          style="width: 100%">
                                     <div class="card-body" id="mexican1">
-                                        <h4 >Restaurant</h4>
-                                        <p>Description</p>
+                                        <h4 id = "mexican1_name"><%- restaurant_name %></h4>
+                                        <p id = "mexican1_address"> <%- description %> </p>
                                     </div>
                                 </a>
                             </div>
                             <div class="card" >
-                                <a href="../view/restaurantpage.html" style="color:black">
+                                <% if(result_1) {
+                                    var mexican_id1 = result_1[1].restaurantid;
+                                    if(result_1[1].logo_img == null){
+                                        var img1 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    }
+                                    else{
+                                        var img1 = result_1[1].logo_img;
+                                    }
+                                    var restaurant_name1 = result_1[1].restaurantName;
+                                    var description1 = result_1[1].description;
+                                }
+                                %>
+                                <a href ="/restaurant_info?id+ <%- mexican_id1 %> " style="color:black">
                                     <img alt="Card image"
                                          class="card-img-left"
                                          height="200px"
-                                         src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                         src= <%- img1%>
                                          style="width: 100%">
                                     <div class="card-body" id="mexican2">
-                                        <h4 >Restaurant</h4>
-                                        <p>Description</p>
+                                        <h4><%- restaurant_name1%></h4>
+                                        <p><%- description1%></p>
                                     </div>
                                 </a>
                             </div>
                             <div class="card" >
-                                <a href="../view/restaurantpage.html" style="color:black">
+                                <% if(result_1) {
+                                    var mexican_id2 = result_1[2].restaurantid;
+                                    if(result_1[2].logo_img == null){
+                                        var img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    }
+                                    else{
+                                        var img2 = result_1[2].logo_img;
+                                    }
+                                    var restaurant_name2 = result_1[2].restaurantName;
+                                    var description2 = result_1[2].description;
+                                }
+                                %>
+                                <a href ="/restaurant_info?id+ <%- mexican_id2 %> " style="color:black">
                                     <img alt="Card image"
                                          class="card-img-left"
                                          height="200px"
-                                         src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                         src= <%- img2 %>
                                          style="width: 100%">
                                     <div class="card-body" id="mexican3">
-                                        <h4 >Restaurant</h4>
-                                        <p>Description</p>
+                                        <h4 ><%- restaurant_name2%></h4>
+                                        <p><%- description2 %></p>
                                     </div>
                                 </a>
                             </div>
@@ -239,42 +347,78 @@
                     </div>
                     <div class="carousel-item">
                         <div class="card-group">
+                            <% if(result_1) {
+                                var mexican_id3 = result_1[3].restaurantid;
+                                if(result_1[3].logo_img == null){
+                                    var img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                }
+                                else{
+                                    var img3 = result_1[3].logo_img;
+                                }
+                                var restaurant_name3 = result_1[3].restaurantName;
+                                var description3 = result_1[3].description;
+                            }
+                            %>
                             <div class="card" >
-                                <a href="../view/restaurantpage.html" style="color:black">
+                                <a href ="/restaurant_info?id+ <%- mexican_id3 %> " style="color:black">
                                     <img alt="Card image"
                                          class="card-img-left"
                                          height="200px"
-                                         src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                         src= <%- img3 %>
                                          style="width: 100%">
                                     <div class="card-body" id="mexican4">
-                                        <h4 >Restaurant</h4>
-                                        <p>Description</p>
+                                        <h4 > <%- restaurant_name3%></h4>
+                                        <p><%- description3 %></p>
                                     </div>
                                 </a>
                             </div>
                             <div class="card" >
-                                <a href="../view/restaurantpage.html" style="color:black">
+                                <% if(result_1) {
+                                    var mexican_id4 = result_1[4].restaurantid;
+                                    if(result_1[4].logo_img == null){
+                                        var img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    }
+                                    else{
+                                        var img4 = result_1[4].logo_img;
+                                    }
+                                    var restaurant_name4 = result_1[4].restaurantName;
+                                    var description4 = result_1[4].description;
+                                }
+                                %>
+                                <a href ="/restaurant_info?id+ <%- mexican_id4 %> " style="color:black">
                                     <img alt="Card image"
                                          class="card-img-left"
                                          height="200px"
-                                         src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                         src= <%- img4 %>
                                          style="width: 100%">
                                     <div class="card-body" id="mexican5">
-                                        <h4 >Restaurant</h4>
-                                        <p>Description</p>
+                                        <h4 ><%- restaurant_name4%></h4>
+                                        <p><%- description4%> </p>
                                     </div>
                                 </a>
                             </div>
                             <div class="card" >
-                                <a href="../view/restaurantpage.html" style="color:black">
+                                <% if(result_1) {
+                                    var mexican_id5 = result_1[5].restaurantid;
+                                    if(result_1[5].logo_img == null){
+                                        var img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    }
+                                    else{
+                                        var img5 = result_1[5].logo_img;
+                                    }
+                                    var restaurant_name5 = result_1[5].restaurantName;
+                                    var description5 = result_1[5].description;
+                                }
+                                %>
+                                <a href ="/restaurant_info?id+ <%- mexican_id5 %> " style="color:black">
                                     <img alt="Card image"
                                          class="card-img-left"
                                          height="200px"
-                                         src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                         src= <%- img5%>
                                          style="width: 100%">
                                     <div class="card-body" id="mexican6">
-                                        <h4 >Restaurant</h4>
-                                        <p>Description</p>
+                                        <h4 ><%- restaurant_name5%></h4>
+                                        <p><%- description5%></p>
                                     </div>
                                 </a>
                             </div>
@@ -301,41 +445,77 @@
                         <div class="carousel-item active">
                             <div class="card-group">
                                 <div class="card" >
-                                    <a href="../view/restaurantpage.html" style="color:black">
+                                    <% if(result_2) {
+                                        var italian_id = result_2[0].restaurantid;
+                                        if(result_2[0].logo_img == null){
+                                            var ital_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        }
+                                        else{
+                                            var ital_img = result_2[0].logo_img;
+                                        }
+                                        var ital_restaurant_name = result_2[0].restaurantName;
+                                        var ital_description = result_2[0].description;
+                                    }
+                                    %>
+                                    <a href ="/restaurant_info?id+ <%- italian_id %> " style="color:black">
                                         <img alt="Card image"
                                              class="card-img-left"
                                              height="200px"
-                                             src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                             src= <%- ital_img%>
                                              style="width: 100%">
                                         <div class="card-body" id="italian1">
-                                            <h4 >Restaurant</h4>
-                                            <p>Description</p>
+                                            <h4 ><%- ital_restaurant_name %></h4>
+                                            <p><%- ital_description%></p>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="card" >
-                                    <a href="../view/restaurantpage.html" style="color:black">
+                                    <% if(result_2) {
+                                        var italian_id1 = result_2[1].restaurantid;
+                                        if(result_2[1].logo_img == null){
+                                            var ital_img1 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        }
+                                        else{
+                                            var ital_img1 = result_2[1].logo_img;
+                                        }
+                                        var ital_restaurant_name1 = result_2[1].restaurantName;
+                                        var ital_description1 = result_2[1].description;
+                                    }
+                                    %>
+                                    <a href ="/restaurant_info?id+ <%- italian_id1 %> " style="color:black">
                                         <img alt="Card image"
                                              class="card-img-left"
                                              height="200px"
-                                             src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                             src= <%- ital_img1 %>
                                              style="width: 100%">
                                         <div class="card-body" id="italian2">
-                                            <h4 >Restaurant</h4>
-                                            <p>Description</p>
+                                            <h4 ><%- ital_restaurant_name1%></h4>
+                                            <p><%- ital_description1%></p>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="card" >
-                                    <a href="../view/restaurantpage.html" style="color:black">
+                                    <% if(result_2) {
+                                        var italian_id2 = result_2[2].restaurantid;
+                                        if(result_2[2].logo_img == null){
+                                            var ital_img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        }
+                                        else{
+                                            var ital_img2 = result_2[2].logo_img;
+                                        }
+                                        var ital_restaurant_name2 = result_2[2].restaurantName;
+                                        var ital_description2 = result_2[2].description;
+                                    }
+                                    %>
+                                    <a href ="/restaurant_info?id+ <%- italian_id2 %> " style="color:black">
                                         <img alt="Card image"
                                              class="card-img-left"
                                              height="200px"
-                                             src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                             src= <%- ital_img2%>
                                              style="width: 100%">
                                         <div class="card-body" id="italian3">
-                                            <h4 >Restaurant</h4>
-                                            <p>Description</p>
+                                            <h4 ><%- ital_restaurant_name2%></h4>
+                                            <p><%- ital_description2 %></p>
                                         </div>
                                     </a>
                                 </div>
@@ -344,41 +524,77 @@
                         <div class="carousel-item">
                             <div class="card-group">
                                 <div class="card" >
-                                    <a href="../view/restaurantpage.html" style="color:black">
+                                    <% if(result_2) {
+                                        var italian_id3 = result_2[3].restaurantid;
+                                        if(result_2[3].logo_img == null){
+                                            var ital_img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        }
+                                        else{
+                                            var ital_img3 = result_2[3].logo_img;
+                                        }
+                                        var ital_restaurant_name3 = result_2[3].restaurantName;
+                                        var ital_description3 = result_2[3].description;
+                                    }
+                                    %>
+                                    <a href ="/restaurant_info?id+ <%- italian_id3 %> " style="color:black">
                                         <img alt="Card image"
                                              class="card-img-left"
                                              height="200px"
-                                             src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                             src= <%- ital_img3 %>
                                              style="width: 100%">
                                         <div class="card-body" id="italian4">
-                                            <h4 >Restaurant</h4>
-                                            <p>Description</p>
+                                            <h4 ><%- ital_restaurant_name3%></h4>
+                                            <p><%- ital_description3 %></p>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="card" >
-                                    <a href="../view/restaurantpage.html" style="color:black">
+                                    <% if(result_2) {
+                                        var italian_id4 = result_2[4].restaurantid;
+                                        if(result_2[4].logo_img == null){
+                                            var ital_img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        }
+                                        else{
+                                            var ital_img4 = result_2[4].logo_img;
+                                        }
+                                        var ital_restaurant_name4 = result_2[4].restaurantName;
+                                        var ital_description4 = result_2[4].description;
+                                    }
+                                    %>
+                                    <a href ="/restaurant_info?id+ <%- italian_id4 %> " style="color:black">
                                         <img alt="Card image"
                                              class="card-img-left"
                                              height="200px"
-                                             src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                             src= <%- ital_img4 %>
                                              style="width: 100%">
                                         <div class="card-body" id="italian5">
-                                            <h4 >Restaurant</h4>
-                                            <p>Description</p>
+                                            <h4 ><%- ital_restaurant_name4 %></h4>
+                                            <p> <%- ital_description4 %></p>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="card" >
-                                    <a href="../view/restaurantpage.html" style="color:black">
+                                    <% if(result_2) {
+                                        var italian_id5 = result_2[5].restaurantid;
+                                        if(result_2[5].logo_img == null){
+                                            var ital_img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        }
+                                        else{
+                                            var ital_img5 = result_2[5].logo_img;
+                                        }
+                                        var ital_restaurant_name5 = result_2[5].restaurantName;
+                                        var ital_description5 = result_2[5].description;
+                                    }
+                                    %>
+                                    <a href ="/restaurant_info?id+ <%- italian_id5 %> " style="color:black">
                                         <img alt="Card image"
                                              class="card-img-left"
                                              height="200px"
-                                             src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                             src= <%- ital_img5 %>
                                              style="width: 100%">
                                         <div class="card-body" id="italian6">
-                                            <h4 >Restaurant</h4>
-                                            <p>Description</p>
+                                            <h4 ><%- ital_restaurant_name5%></h4>
+                                            <p><%- ital_description5 %></p>
                                         </div>
                                     </a>
                                 </div>
@@ -393,8 +609,8 @@
                     </a>
                 </div>
                 <br>
-                <a id="chinese_jump">
-                    <h2 id=" chinese_header"> Chinese </h2>
+                <a id="asian_jump">
+                    <h2 id=" chinese_header"> Asian </h2>
                     <div class="carousel slide" data-ride="carousel" id="chinese">
                         <ul class="carousel-indicators">
                             <li class="active" data-slide-to="0" data-target="#demo"></li>
@@ -405,84 +621,156 @@
                             <div class="carousel-item active">
                                 <div class="card-group">
                                     <div class="card" >
-                                        <a href="../view/restaurantpage.html" style="color:black">
+                                        <% if(result_3) {
+                                            var chinese_id = result_3[0].restaurantid;
+                                            if(result_3[0].logo_img == null){
+                                                var chinese_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            }
+                                            else{
+                                                var chinese_img = result_3[0].logo_img;
+                                            }
+                                            var chinese_restaurant_name = result_3[0].restaurantName;
+                                            var chinese_description = result_3[0].description;
+                                        }
+                                        %>
+                                        <a href ="/restaurant_info?id+ <%- chinese_id %> " style="color:black">
                                             <img alt="Card image"
                                                  class="card-img-left"
                                                  height="200px"
-                                                 src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                                 src= <%- chinese_img %>
                                                  style="width: 100%">
                                             <div class="card-body" id="chinese1">
-                                                <h4 >Restaurant</h4>
-                                                <p>Description</p>
+                                                <h4> <%- chinese_restaurant_name %></h4>
+                                                <p> <%- chinese_description %></p>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="card" >
-                                        <a href="../view/restaurantpage.html" style="color:black">
+                                        <% if(result_3) {
+                                            var chinese_id1 = result_3[1].restaurantid;
+                                            if(result_3[1].logo_img == null){
+                                                var chinese_img1 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            }
+                                            else{
+                                                var chinese_img1 = result_3[1].logo_img;
+                                            }
+                                            var chinese_restaurant_name1 = result_3[1].restaurantName;
+                                            var chinese_description1 = result_3[1].description;
+                                        }
+                                        %>
+                                        <a href ="/restaurant_info?id+ <%- chinese_id1 %> " style="color:black">
                                             <img alt="Card image"
                                                  class="card-img-left"
                                                  height="200px"
-                                                 src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                                 src= <%- chinese_img1%>
                                                  style="width: 100%">
                                             <div class="card-body" id="chinese2">
-                                                <h4 >Restaurant</h4>
-                                                <p>Description</p>
+                                                <h4 > <%- chinese_restaurant_name1%></h4>
+                                                <p><%- chinese_description1%></p>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="card" >
-                                        <a href="../view/restaurantpage.html" style="color:black">
+                                        <% if(result_3) {
+                                            var chinese_id2 = result_3[2].restaurantid;
+                                            if(result_3[2].logo_img == null){
+                                                var chinese_img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            }
+                                            else{
+                                                var chinese_img2 = result_3[2].logo_img;
+                                            }
+                                            var chinese_restaurant_name2 = result_3[2].restaurantName;
+                                            var chinese_description2 = result_3[2].description;
+                                        }
+                                        %>
+                                        <a href ="/restaurant_info?id+ <%- chinese_id2 %> " style="color:black">
                                             <img alt="Card image"
                                                  class="card-img-left"
                                                  height="200px"
-                                                 src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                                 src= <%- chinese_img2%>
                                                  style="width: 100%">
                                             <div class="card-body" id="chinese3">
-                                                <h4 >Restaurant</h4>
-                                                <p>Description</p>
+                                                <h4 > <%- chinese_restaurant_name2%></h4>
+                                                <p> <%- chinese_description2%></p>
                                             </div>
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="carousel-item">
+                            <div class="carousel-item" >
                                 <div class="card-group">
                                     <div class="card" >
-                                        <a href="../view/restaurantpage.html" style="color:black">
+                                        <% if(result_3) {
+                                            var chinese_id3 = result_3[3].restaurantid;
+                                            if(result_3[3].logo_img == null){
+                                                var chinese_img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            }
+                                            else{
+                                                var chinese_img3 = result_3[3].logo_img;
+                                            }
+                                            var chinese_restaurant_name3 = result_3[3].restaurantName;
+                                            var chinese_description3 = result_3[3].description;
+                                        }
+                                        %>
+                                        <a href ="/restaurant_info?id+ <%- chinese_id3 %> " style="color:black">
                                             <img alt="Card image"
                                                  class="card-img-left"
                                                  height="200px"
-                                                 src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                                 src= <%- chinese_img3%>
                                                  style="width: 100%">
                                             <div class="card-body" id="chinese4">
-                                                <h4 >Restaurant</h4>
-                                                <p>Description</p>
+                                                <h4 > <%- chinese_restaurant_name3%></h4>
+                                                <p> <%- chinese_description3%></p>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="card" >
-                                        <a href="../view/restaurantpage.html" style="color:black">
+                                        <% if(result_3) {
+                                            var chinese_id4 = result_3[4].restaurantid;
+                                            if(result_3[4].logo_img == null){
+                                                var chinese_img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            }
+                                            else{
+                                                var chinese_img4 = result_3[4].logo_img;
+                                            }
+                                            var chinese_restaurant_name4 = result_3[4].restaurantName;
+                                            var chinese_description4 = result_3[4].description;
+                                        }
+                                        %>
+                                        <a href ="/restaurant_info?id+ <%- chinese_id4 %> " style="color:black">
                                             <img alt="Card image"
                                                  class="card-img-left"
                                                  height="200px"
-                                                 src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                                 src= <%- chinese_img4%>
                                                  style="width: 100%">
                                             <div class="card-body" id="chinese5">
-                                                <h4 >Restaurant</h4>
-                                                <p>Description</p>
+                                                <h4 ><%-chinese_restaurant_name4%></h4>
+                                                <p> <%- chinese_description4%></p>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="card" >
-                                        <a href="../view/restaurantpage.html" style="color:black">
+                                        <% if(result_3) {
+                                            var chinese_id5 = result_3[5].restaurantid;
+                                            if(result_3[5].logo_img == null){
+                                                var chinese_img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            }
+                                            else{
+                                                var chinese_img5 = result_3[5].logo_img;
+                                            }
+                                            var chinese_restaurant_name5 = result_3[5].restaurantName;
+                                            var chinese_description5 = result_3[5].description;
+                                        }
+                                        %>
+                                        <a href ="/restaurant_info?id+ <%- chinese_id5 %> " style="color:black">
                                             <img alt="Card image"
                                                  class="card-img-left"
                                                  height="200px"
-                                                 src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                                 src= <%- chinese_img5%>
                                                  style="width: 100%">
                                             <div class="card-body" id="chinese6">
-                                                <h4 >Restaurant</h4>
-                                                <p>Description</p>
+                                                <h4 > <%- chinese_restaurant_name5%></h4>
+                                                <p> <%- chinese_description5%></p>
                                             </div>
                                         </a>
                                     </div>
@@ -511,41 +799,77 @@
                                 <div class="carousel-item active">
                                     <div class="card-group">
                                         <div class="card" >
-                                            <a href="../view/restaurantpage.html" style="color:black">
+                                            <% if(result_4) {
+                                                var break_id = result_4[0].restaurantid;
+                                                if(result_4[0].logo_img == null){
+                                                    var break_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                }
+                                                else{
+                                                    var break_img = result_4[0].logo_img;
+                                                }
+                                                var break_rest = result_4[0].restaurantName;
+                                                var break_desc = result_4[0].description;
+                                            }
+                                            %>
+                                            <a href ="/restaurant_info?id+ <%- break_id %> " style="color:black">
                                                 <img alt="Card image"
                                                      class="card-img-left"
                                                      height="200px"
-                                                     src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                                     src= <%- break_img %>
                                                      style="width: 100%">
                                                 <div class="card-body" id="breakfast1">
-                                                    <h4 >Restaurant</h4>
-                                                    <p>Description</p>
+                                                    <h4 > <%- break_rest %></h4>
+                                                    <p> <%- break_desc %></p>
                                                 </div>
                                             </a>
                                         </div>
                                         <div class="card" >
-                                            <a href="../view/restaurantpage.html" style="color:black">
+                                            <% if(result_4) {
+                                                var break_id1 = result_4[1].restaurantid;
+                                            }
+                                            if(result_4[1].logo_img == null){
+                                                var break_img1 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            }
+                                            else{
+                                                var break_img1 = result_4[1].logo_img;
+                                                var break_rest1 = result_4[1].restaurantName;
+                                                var break_desc1 = result_4[1].description;
+                                            }
+                                            %>
+                                            <a href ="/restaurant_info?id+ <%- break_id1 %> " style="color:black">
                                                 <img alt="Card image"
                                                      class="card-img-left"
                                                      height="200px"
-                                                     src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                                     src= <%- break_img1 %>
                                                      style="width: 100%">
-                                                <div class="card-body" id="breakfast2">
-                                                    <h4 >Restaurant</h4>
-                                                    <p>Description</p>
+                                                <div class="card-body" id="breakfast1">
+                                                    <h4 > <%- break_rest1 %></h4>
+                                                    <p> <%- break_desc1 %></p>
                                                 </div>
                                             </a>
                                         </div>
                                         <div class="card" >
-                                            <a href="../view/restaurantpage.html" style="color:black">
+                                            <% if(result_4) {
+                                                var break_id2 = result_4[2].restaurantid;
+                                                if(result_4[2].logo_img == null){
+                                                    var break_img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                }
+                                                else{
+                                                    var break_img2 = result_4[2].logo_img;
+                                                }
+                                                var break_rest2 = result_4[2].restaurantName;
+                                                var break_desc2 = result_4[2].description;
+                                            }
+                                            %>
+                                            <a href ="/restaurant_info?id+ <%- break_id2 %> " style="color:black">
                                                 <img alt="Card image"
                                                      class="card-img-left"
                                                      height="200px"
-                                                     src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                                     src= <%- break_img2 %>
                                                      style="width: 100%">
-                                                <div class="card-body" id="breakfast3">
-                                                    <h4 >Restaurant</h4>
-                                                    <p>Description</p>
+                                                <div class="card-body" id="breakfast1">
+                                                    <h4 > <%- break_rest2 %></h4>
+                                                    <p> <%- break_desc2 %></p>
                                                 </div>
                                             </a>
                                         </div>
@@ -554,41 +878,77 @@
                                 <div class="carousel-item">
                                     <div class="card-group">
                                         <div class="card" >
-                                            <a href="../view/restaurantpage.html" style="color:black">
+                                            <% if(result_4) {
+                                                var break_id3 = result_4[3].restaurantid;
+                                                if(result_4[3].logo_img == null){
+                                                    var break_img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                }
+                                                else{
+                                                    var break_img3 = result_4[3].logo_img;
+                                                }
+                                                var break_rest3 = result_4[3].restaurantName;
+                                                var break_desc3 = result_4[3].description;
+                                            }
+                                            %>
+                                            <a href ="/restaurant_info?id+ <%- break_id3 %> " style="color:black">
                                                 <img alt="Card image"
                                                      class="card-img-left"
                                                      height="200px"
-                                                     src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                                     src= <%- break_img3 %>
                                                      style="width: 100%">
-                                                <div class="card-body" id="breakfast4">
-                                                    <h4 >Restaurant</h4>
-                                                    <p>Description</p>
+                                                <div class="card-body" id="breakfast1">
+                                                    <h4 > <%- break_rest3 %></h4>
+                                                    <p> <%- break_desc3 %></p>
                                                 </div>
                                             </a>
                                         </div>
                                         <div class="card" >
-                                            <a href="../view/restaurantpage.html" style="color:black">
+                                            <% if(result_4) {
+                                                var break_id4 = result_4[4].restaurantid;
+                                                if(result_4[4].logo_img == null){
+                                                    var break_img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                }
+                                                else{
+                                                    var break_img4 = result_4[4].logo_img;
+                                                }
+                                                var break_rest4 = result_4[4].restaurantName;
+                                                var break_desc4 = result_4[4].description;
+                                            }
+                                            %>
+                                            <a href ="/restaurant_info?id+ <%- break_id4 %> " style="color:black">
                                                 <img alt="Card image"
                                                      class="card-img-left"
                                                      height="200px"
-                                                     src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                                     src= <%- break_img4 %>
                                                      style="width: 100%">
-                                                <div class="card-body" id="breakfast5">
-                                                    <h4 >Restaurant</h4>
-                                                    <p>Description</p>
+                                                <div class="card-body" id="breakfast1">
+                                                    <h4 > <%- break_rest4 %></h4>
+                                                    <p> <%- break_desc4 %></p>
                                                 </div>
                                             </a>
                                         </div>
                                         <div class="card" >
-                                            <a href="../view/restaurantpage.html" style="color:black">
+                                            <% if(result_4) {
+                                                var break_id5 = result_4[5].restaurantid;
+                                                if(result_4[5].logo_img == null){
+                                                    var break_img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                }
+                                                else{
+                                                    var break_img5 = result_4[5].logo_img;
+                                                }
+                                                var break_rest5 = result_4[5].restaurantName;
+                                                var break_desc5 = result_4[5].description;
+                                            }
+                                            %>
+                                            <a href ="/restaurant_info?id+ <%- break_id5 %> " style="color:black">
                                                 <img alt="Card image"
                                                      class="card-img-left"
                                                      height="200px"
-                                                     src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"
+                                                     src= <%- break_img5 %>
                                                      style="width: 100%">
-                                                <div class="card-body" id="breakfast6">
-                                                    <h4 >Restaurant</h4>
-                                                    <p>Description</p>
+                                                <div class="card-body" id="breakfast1">
+                                                    <h4 > <%- break_rest5 %></h4>
+                                                    <p> <%- break_desc5 %></p>
                                                 </div>
                                             </a>
                                         </div>
@@ -610,7 +970,7 @@
         </a>
     </a>
 </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 </body>
 
