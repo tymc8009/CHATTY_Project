@@ -123,6 +123,8 @@ app.get('/home', function(req, res){
         });
 });
 
+
+
 app.get('/view/profilePage', function(req, res){
     console.log("rendering");
   res.render('pages/profilePage',{ root: __dirname});
@@ -173,14 +175,13 @@ app.post('/signup', function(req, res){
             res.cookie("User", req.body.username, {maxAge:60000*app.locals.log_in_length});
             res.redirect('pages/profilepage')
     });
-
         // Problem: need to address failures;
 });
 
 app.get("/logout",function (req,res) {
     res.cookie("logged_in","false");
     res.clearCookie("user");
-    res.redirect('/');
+    res.redirect('/home');
 });
-app.listen(5678);
-console.log('5678 is the magic port');
+app.listen(1234);
+console.log('1234 is the magic port');
