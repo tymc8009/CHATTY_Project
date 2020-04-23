@@ -26,11 +26,9 @@
             width: 100%;
             margin-top: 30px
         }
-
         .card-img-left {
             float: left;
         }
-
         .details {
             float: right;
             width: 75%;
@@ -38,44 +36,54 @@
     </style>
 </head>
 <body>
-  <%- include('../partials/navbar'); -%>
-  <div class="container">
-      <br>
-      <div id="resultlist">
+<%- include('../partials/navbar'); -%>
+<div class="container">
+    <br>
+    <div id="resultlist">
 
-          <%
-          if (data) {
-              var card = '';
-              data.forEach(function(item){
-                  var ranId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-                  card += '<div class="card" id="'+ranId+'"><div class="card-body">' +
-                          '<img class="card-img-left" src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg"' +
-                          'alt="Card image" height="200px"><div class="details">' +
-                          '<h4>' + item.restaurantName + '</h4></div></div></div>';
-              }); %>
-          <%- card %>
-          <% } %>
+        <%
+        if (data) {
+            var card = '';
+            data.forEach(function(item){
+                var ranId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                var default_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                if (item.logo_img != null) {
+                    default_img = item.logo_img;
+                }
+                else if (item.category_img != null) {
+                    default_img = item.category_img;
+                }
+                card += '<div class="card" id="'+ranId+'"><div class="card-body">' +
+                        '<img class="card-img-left" src=' + default_img +
+                        ' alt="Card image" height="200px" width="250px"><div class="details">' +
+                        '<h4>' + item.restaurantName + '</h4>' +
+                        '<h6>Phone number: ' + item.phonenumber + '</h6>' +
+                        '<h6>Address: ' + item.address + '</h6>' +
+                        '<h6>' + item.description + '</h6>' + '</div></div></div>';
+            }); %>
+        <%- card %>
+        <% } %>
 
 
 
-          <!--<div class="card" id="01">
-              <div class="card-body">
-                  <img alt="Card image"
-                       class="card-img-left"
-                       height="200px" src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg">
-                  <div class="details">
-                      <h4>Sample Restaurant name</h4>
-                      <h6>Rating
-                      </h6>
-                      <h6>Phone number: </h6>
-                      <h6>Address: </h6>
-                      <h6>Description: </h6>
-                      <p><span style="display:inline-block; width: 20px;"></span>...............</p>
-                  </div>
-              </div>
-          </div>-->
-      </div>
+        <!--<div class="card" id="01">
+            <div class="card-body">
+                <img alt="Card image"
+                     class="card-img-left"
+                     height="200px" src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg">
+                <div class="details">
+                    <h4>Sample Restaurant name</h4>
+                    <h6>Rating
+                    </h6>
+                    <h6>Phone number: </h6>
+                    <h6>Address: </h6>
+                    <h6>Description: </h6>
+                    <p><span style="display:inline-block; width: 20px;"></span>...............</p>
+                </div>
+            </div>
+        </div>-->
+    </div>
 
-  </div>
+</div>
 </body>
 </html>

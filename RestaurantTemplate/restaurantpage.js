@@ -8,7 +8,7 @@ app.get('/restaurant_info/post', function(req,res) {
     return task.batch ([
       task.any(restaurant_id),
       task.any(location),
-      task.any(review)
+      task.any(review),
       task.any(phonenumber),
       task.any(hour)
     ]);
