@@ -35,7 +35,7 @@ function log_in_variables(req, res, next){
             res.clearCookie("logged_in");
             res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
             res.cookie("User", req.cookies.User);
-            var query = `select * from customer where username = '${req.cookies.User}'`;
+            var query = 'select * from customer where username = \''+req.cookies.User+'\'';
             db.any(query).then(function(rows){
                 res.locals.user = rows[0];
                 res.locals.current_site = req.originalUrl;
@@ -56,7 +56,7 @@ function log_in_variables(req, res, next){
 }
 
 /* inputs a username and returns a json object of the values stored in the database
-    var query = `select * from customer where username = '${username}'`;
+    var query = 'select * from customer where username = '${username}'';
     console.log(query);
     db.any(query).then(function(rows){
 
@@ -65,12 +65,12 @@ function log_in_variables(req, res, next){
 
 app.use(log_in_variables);
 app.get("/getUser", function(req,res){
-    console.log(req.query)
+    // console.log(req.query)
     if(req.query == null){
         res.redirect("/");
     } else {
-        var query = `select * from customer where username = '${req.query.username}'`;
-        console.log(query);
+        var query = 'select * from customer where username = \''+req.query.username+'\'';
+        // console.log(query);
         db.any(query).then(function(rows){
             res.send(rows);
         })
@@ -82,7 +82,32 @@ app.get("/test", function(req,res) {
     console.log("test");
     res.send( "boom");
 })
-
+app.get("/getEmail", function(req,res){
+    console.log(req.query)
+    if(req.query == null){
+        res.redirect("/");
+    } else {
+        var query = "SELECT emailAddress FROM customer WHERE emailAddress='"+req.query.email+"'";
+        console.log(query);
+        db.any(query).then(function(rows){
+            console.log("rows",rows);
+            res.send(rows);
+        })
+    }
+});
+app.get("/verifyEmail", function (req,res) {
+    console.log(req.query)
+    if(req.query == null){
+        res.redirect("/");
+    } else {
+        var query = "SELECT * FROM customer WHERE emailAddress='"+req.query.email+"'";
+        console.log(query);
+        db.any(query).then(function(rows){
+            console.log("rows",rows);
+            res.send(rows);
+        })
+    }
+});
 app.get("/community", function(req,res) {
     var query = 'SELECT * from restaurant as r JOIN restaurantcategory as c ON r.categoryid = c.categoryid LIMIT 5';
     var query2 = 'SELECT *,TO_CHAR(posttime, \'yyyy-mm-dd hh:mm:ss\') as time from post as p JOIN customer as c ON p.customerid = c.customerid order by posttime DESC' ;
@@ -93,7 +118,7 @@ app.get("/community", function(req,res) {
         ]);
 })
 .then(info => {
-        res.render('../view/community',{
+        res.render('../view/pages/community',{
             my_title: 'Community',
             data: info[0],
             post: info[1],
@@ -102,7 +127,7 @@ app.get("/community", function(req,res) {
 .catch(err => {
         // display error message in case an error
         console.log('error', err);
-    response.render('../view/community', {
+    response.render('../view/pages/community', {
         my_title: 'Community',
         data: '',
         post: ''
@@ -127,7 +152,7 @@ app.post("/insertpost", function(req,res) {
         ]);
 })
 .then(info => {
-        res.render('../view/community',{
+        res.render('../view/pages/community',{
             my_title: 'Community',
             data: info[0],
             post: info[2],
@@ -136,7 +161,7 @@ app.post("/insertpost", function(req,res) {
 .catch(err => {
         // display error message in case an error
         console.log('error', err);
-    response.render('../view/community', {
+    response.render('../view/pages/community', {
         my_title: 'Community',
         data: '',
         post: ''
@@ -146,13 +171,13 @@ app.post("/insertpost", function(req,res) {
 })
 app.get('/', function(req, res){
     console.log("rendering homepage");
-    res.render('../view/home'
+    res.render('../view/pages/home'
     );
 });
 
-app.get('/view/profilePage', function(req, res){
+app.get('/profilePage', function(req, res){
     console.log("rendering");
-  res.render('../view/profilePage',{ root: __dirname});
+  res.render('../view/pages/profilePage',{ root: __dirname});
 });
 
 app.post('/login', function(req, res){
@@ -160,14 +185,14 @@ app.post('/login', function(req, res){
     var user_name = req.body.loginUsername;
     var password = req.body.loginPassword;
     //var c = req.body.currSite;
-    console.log(req);
-    var query = "select * from account where username = '"+ user_name + "' AND password ='" +password+"';";
-    console.log(query);
+    // console.log(req);
+    var query = "select * from account where username ='"+ user_name + "' AND password ='" +password+"';";
+    // console.log(query);
     db.any(query)
-        .then(function (rows, c) {
+        .then(function (rows) {
             if(rows.length>0){
                 res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
-                res.cookie("User", rows[0].username, {maxAge:60000*app.locals.log_in_length});
+                // res.cookie("User", rows[0].username, {maxAge:60000*app.locals.log_in_length});
             }
             res.send(rows[0]);
         })
@@ -180,28 +205,30 @@ app.post('/login', function(req, res){
 
 });
 app.post('/signup', function(req, res){
-    console.log(req.body);
+    console.log("signing up");
     var username = req.body.username;
     var email = req.body.email;
     var password = req.body.password;
     var zip = req.body.zip;
-    query2 = "INSERT INTO customer (\"username\", \"emailAddress\",\"zip\") VALUES ('"+username+"','"+email+"','"+zip+"');";
-    query1 = "INSERT INTO account(\"username\", \"password\") VALUES ('"+username+"','"+password+"');";
+    var first = req.body.first_name;
+    var lastName = req.body.last_name;
+    query1 = "INSERT INTO customer (\"username\", \"emailaddress\",\"zip\",\"firstname\",\"lastname\") VALUES ('"+username+"','"+email+"','"+zip+"','"+first+"','"+lastName+"');";
+    query2 = "INSERT INTO account(\"username\", \"password\") VALUES ('"+username+"','"+password+"');";
     console.log(query1);
     console.log(query2);
 
     db.task('get-everything', task => {
         return task.batch([
-            task.any(query1),
-            task.any(query2)
+            task.any(query2),
+            task.any(query1)
         ]);
     }).then(function(){
-            res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
-            res.cookie("User", req.body.username, {maxAge:60000*app.locals.log_in_length});
+        res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
+        res.cookie("User", req.body.username, {maxAge:60000*app.locals.log_in_length});
         res.redirect('/profilepage')
     });
 
-        // Problem: need to address failures;
+    // Problem: need to address failures;
 });
 
 app.get("/logout",function (req,res) {
@@ -222,7 +249,7 @@ app.get("/results", function (req,res) {
         "where \"restaurantName\" like '%" + search_query + "%';";
     db.any(db_query)
         .then(function (info) {
-            res.render('../view/searchResult',{
+            res.render('../view/pages/searchResult',{
                 my_title: "Result Page",
                 data: info
             })
@@ -230,12 +257,54 @@ app.get("/results", function (req,res) {
         .catch(function (err) {
             // display error message in case an error
             console.log('error', err);
-            response.render('../view/home', {
+            response.render('../view/pages/home', {
                 title: 'Home Page',
                 data: ''
             })
         })
 });
+//
+// app.get('/restaurant_info/post', function(req,res) {
+//     var restaurant_id= //  get restaurant id
+//     var location = // location id select * ;
+//     var reviews = // reviews select* probably
+//     var phonenumber= // phone number select * from table;
+//     var hours = // hours select * from table;
+//         db.task('get-everything', task=>{
+//             return task.batch ([
+//                 task.any(restaurant_id),
+//                 task.any(location),
+//                 task.any(review),
+//                 task.any(phonenumber),
+//                 task.any(hour)
+//             ]);
+// })
+// .then(data=> {
+//         res.render('pages/restaurant_info', {
+//             my_title:"Restaurant information",
+//             data: data[0],
+//             restaurant:// data
+//             Location: //data
+//     Reviews: //data
+//         Phonenumbers: //data
+//             hours: // data
+//                 })
+// })
+// .catch(err=> {
+//         console.log('error',err);
+//     res.render('pages/restaurant_info/select_restaurant', {
+//         title:"Restaurant information",
+//         data: '',
+//         singleplayer:'',
+//         games_played:''
+//         restaurant:'',
+//         Location: '',
+//         Reviews: '',
+//         Phonenumbers: '',
+//         hours: '',
+//     })
+// });
+// });
 
 
 app.listen(5678);

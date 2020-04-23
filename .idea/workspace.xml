@@ -19,16 +19,118 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="834d1d3f-a49d-4158-9830-c07b8c19d619" name="Default Changelist" comment="">
+    <list default="true" id="834d1d3f-a49d-4158-9830-c07b8c19d619" name="Default Changelist" comment="Merge remote-tracking branch 'origin/Tiancheng' into Yibo&#10;&#10;# Conflicts:&#10;#&#9;partials/navbar.ejs&#10;#&#9;partials/sign_up_modal.ejs&#10;#&#9;resources/js/accountFunctions.js&#10;#&#9;server.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/partials/sign_up_modal.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/partials/sign_up_modal.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3308_project/home_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodFinder/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodFinder/template.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RestaurantTemplate/restaurantpage.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RestaurantTemplate/restaurantpage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/navbar.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/postmodel.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/sign_up_modal.ejs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/accountFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/accountFunctions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurantpage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchResult.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search_result.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/specRunner.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/community.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/home.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/profilePage.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/searchResult.ejs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="customer: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="post: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="restaurantcategory: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -73,8 +175,20 @@
       <recent name="C:\Users\salee_zb2of6i\github\CHATTY\resources\js" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <module name="CHATTY_Project" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
@@ -87,7 +201,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
       <module name="CHATTY_Project" />
       <option name="filePath" />
       <option name="vmParameters" />
@@ -130,6 +244,26 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@8cbde0d8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@8cbde0d8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@702ae33e" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -156,111 +290,66 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-169" y="257" width="1092" height="689" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586982513695">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-169" y="257" width="1092" height="689" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586982513695" />
-    <state x="1435" y="549" key="FileChooserDialogImpl" timestamp="1586982508566">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1435" y="549" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586982508566" />
-    <state width="1782" height="266" key="GridCell.Tab.0.bottom" timestamp="1587357787454">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1877" height="856" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587083860742" />
-    <state width="1782" height="266" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1587357787454" />
-    <state width="1782" height="266" key="GridCell.Tab.0.center" timestamp="1587357787454">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1877" height="856" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587083860741" />
-    <state width="1782" height="266" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1587357787454" />
-    <state width="1782" height="266" key="GridCell.Tab.0.left" timestamp="1587357787454">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1877" height="856" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587083860741" />
-    <state width="1782" height="266" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1587357787454" />
-    <state width="1782" height="266" key="GridCell.Tab.0.right" timestamp="1587357787454">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1877" height="856" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587083860742" />
-    <state width="1782" height="266" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1587357787454" />
-    <state width="457" height="266" key="GridCell.Tab.1.bottom" timestamp="1585527011378">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="457" height="266" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
-    <state width="457" height="266" key="GridCell.Tab.1.center" timestamp="1585527011378">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="457" height="266" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
-    <state width="457" height="266" key="GridCell.Tab.1.left" timestamp="1585527011378">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="457" height="266" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
-    <state width="457" height="266" key="GridCell.Tab.1.right" timestamp="1585527011378">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="457" height="266" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
-    <state width="457" height="266" key="GridCell.Tab.2.bottom" timestamp="1585527011378">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="457" height="266" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
-    <state width="457" height="266" key="GridCell.Tab.2.center" timestamp="1585527011378">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="457" height="266" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
-    <state width="457" height="266" key="GridCell.Tab.2.left" timestamp="1585527011378">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="457" height="266" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
-    <state width="457" height="266" key="GridCell.Tab.2.right" timestamp="1585527011378">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="457" height="266" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
-    <state width="457" height="266" key="GridCell.Tab.3.bottom" timestamp="1585527011378">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="457" height="266" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
-    <state width="457" height="266" key="GridCell.Tab.3.center" timestamp="1585527011378">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="457" height="266" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
-    <state width="457" height="266" key="GridCell.Tab.3.left" timestamp="1585527011378">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="457" height="266" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
-    <state width="457" height="266" key="GridCell.Tab.3.right" timestamp="1585527011378">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="457" height="266" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585527011378" />
-    <state x="1032" y="436" width="998" height="813" key="SettingsEditor" timestamp="1587349343325">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="774" y="324" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584728803428" />
-    <state x="1032" y="436" width="998" height="813" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1587349343325" />
-    <state x="661" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1586195266388">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="661" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586195266388" />
-    <state x="1249" y="440" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586978222182">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1249" y="440" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586978222182" />
-    <state x="716" y="669" key="jetbrains.nodejs.interpreters-dialog" timestamp="1587344356545">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="537" y="497" key="jetbrains.nodejs.interpreters-dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584729414166" />
-    <state x="716" y="669" key="jetbrains.nodejs.interpreters-dialog/0.0.2560.1400@0.0.2560.1400" timestamp="1587344356545" />
-    <state x="841" y="439" width="672" height="493" key="run.anything.popup" timestamp="1584728971941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="841" y="439" width="672" height="493" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584728971941" />
+    <state x="-169" y="257" width="1092" height="689" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
+    <state x="-169" y="257" width="1092" height="689" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" />
+    <state x="1435" y="549" key="FileChooserDialogImpl" />
+    <state x="1435" y="549" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1782" height="266" key="GridCell.Tab.0.bottom" />
+    <state width="1877" height="856" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1782" height="266" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" />
+    <state width="1782" height="266" key="GridCell.Tab.0.center" />
+    <state width="1877" height="856" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1782" height="266" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" />
+    <state width="1782" height="266" key="GridCell.Tab.0.left" />
+    <state width="1877" height="856" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1782" height="266" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" />
+    <state width="1782" height="266" key="GridCell.Tab.0.right" />
+    <state width="1877" height="856" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1782" height="266" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" />
+    <state width="457" height="266" key="GridCell.Tab.1.bottom" />
+    <state width="457" height="266" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" />
+    <state width="457" height="266" key="GridCell.Tab.1.center" />
+    <state width="457" height="266" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" />
+    <state width="457" height="266" key="GridCell.Tab.1.left" />
+    <state width="457" height="266" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" />
+    <state width="457" height="266" key="GridCell.Tab.1.right" />
+    <state width="457" height="266" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" />
+    <state width="457" height="266" key="GridCell.Tab.2.bottom" />
+    <state width="457" height="266" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" />
+    <state width="457" height="266" key="GridCell.Tab.2.center" />
+    <state width="457" height="266" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" />
+    <state width="457" height="266" key="GridCell.Tab.2.left" />
+    <state width="457" height="266" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" />
+    <state width="457" height="266" key="GridCell.Tab.2.right" />
+    <state width="457" height="266" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" />
+    <state width="457" height="266" key="GridCell.Tab.3.bottom" />
+    <state width="457" height="266" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" />
+    <state width="457" height="266" key="GridCell.Tab.3.center" />
+    <state width="457" height="266" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" />
+    <state width="457" height="266" key="GridCell.Tab.3.left" />
+    <state width="457" height="266" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" />
+    <state width="457" height="266" key="GridCell.Tab.3.right" />
+    <state width="457" height="266" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" />
+    <state x="1032" y="436" width="998" height="813" key="SettingsEditor" />
+    <state x="774" y="324" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" />
+    <state x="1032" y="436" width="998" height="813" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" />
+    <state x="661" y="343" key="com.intellij.ide.util.TipDialog" />
+    <state x="661" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" />
+    <state x="1249" y="440" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" />
+    <state x="1249" y="440" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" />
+    <state x="716" y="669" key="jetbrains.nodejs.interpreters-dialog" />
+    <state x="537" y="497" key="jetbrains.nodejs.interpreters-dialog/0.0.1920.1040@0.0.1920.1040" />
+    <state x="716" y="669" key="jetbrains.nodejs.interpreters-dialog/0.0.2560.1400@0.0.2560.1400" />
+    <state x="841" y="439" width="672" height="493" key="run.anything.popup" />
+    <state x="841" y="439" width="672" height="493" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" />
   </component>
 </project>
