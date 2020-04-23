@@ -20,10 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="834d1d3f-a49d-4158-9830-c07b8c19d619" name="Default Changelist" comment="Merge remote-tracking branch 'origin/Tiancheng' into Yibo&#10;&#10;# Conflicts:&#10;#&#9;partials/navbar.ejs&#10;#&#9;partials/sign_up_modal.ejs&#10;#&#9;resources/js/accountFunctions.js&#10;#&#9;server.js">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/00020794-9f0a-4e94-a98e-63d3072728b2.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHATTY_Project.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/pages/community.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/pages/community.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/pages/home.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/pages/home.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/pages/restaurantpage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/pages/restaurantpage.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/pages/searchResult.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/pages/searchResult.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/partials/navbar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/partials/navbar.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +51,17 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
+        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
+        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
       </path>
     </expand>
     <select />
@@ -70,6 +86,7 @@
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Program Files/nodejs/node.exe" />
@@ -93,8 +110,20 @@
       <recent name="C:\Users\salee_zb2of6i\github\CHATTY\resources\js" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <module name="CHATTY_Project" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
@@ -107,7 +136,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
       <module name="CHATTY_Project" />
       <option name="filePath" />
       <option name="vmParameters" />
@@ -166,6 +195,9 @@
       <workItem from="1587070762602" duration="155000" />
       <workItem from="1587078354715" duration="5326000" />
       <workItem from="1587618222296" duration="117000" />
+      <workItem from="1587619319459" duration="127000" />
+      <workItem from="1587620513410" duration="285000" />
+      <workItem from="1587673761198" duration="11822000" />
     </task>
     <servers />
   </component>
@@ -177,12 +209,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-169" y="257" width="1092" height="689" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587613808944" />

@@ -2,7 +2,15 @@
 <html lang="'en">
 
 <head>
-    <title>Chatty FoodFinder </title>
+    <title>Chatty FoodFinder Community</title>
+
+    <link href = "https://fonts.googleapis.com/icon?family=Material+Icons" rel = "stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <script crossorigin="anonymous"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" rel="stylesheet">
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -10,68 +18,11 @@
     <script crossorigin="anonymous"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
             src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script crossorigin="anonymous"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper  .min.js"></script>
+
     <script crossorigin="anonymous"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="../resources/js/template.js" type="text/javascript"></script>
-    <link href = "https://fonts.googleapis.com/icon?family=Material+Icons" rel = "stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-
-    <style>
-        .message {
-            white-space: normal;
-            word-break: break-word;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 160px;
-            overflow: auto;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 1px;
-            text-decoration: none;
-            display: block;
-        }
-
-        textarea:focus {
-            height: 10em;
-        }
-
-        .dropdown a:hover {
-            background-color: #ddd
-        }
-
-        .show {
-            display: block;
-        }
-
-        /* Set black background color, white text and some padding */
-        footer {
-            background-color: #555;
-            color: white;
-            padding: 15px;
-        }
-    </style>
 </head>
 <body>
 <%- include('../partials/navbar'); -%>
@@ -94,23 +45,29 @@
             <br><br>
             <%
             if (post) {
-                console.log(post)
                 var card = '';
                 post.forEach(function(item){
                     var time =item.time
                     var cardid = item.postid
+                    var dropdown = '</div></div>';
+                    if(user.customerid === item.customerid){
+                        dropdown =  '<div calss=\'col-1\'><div class="dropdown" id = '+cardid +'"_dropdown">' +
+                                '  <i type="button" class="btn material-icons dropdown" style="font-size:1.5em;padding-top: 10px" id = '+cardid +'"_dropdown_Post" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
+                                '    dehaze' +
+                                '  </i>' +
+                                '  <div class="dropdown-menu" aria-labelledby='+cardid +'"_dropdown_Post">' +
+                                '    <a class="dropdown-item" data-toggle="modal" data-target="#myModal" onclick="createmodal(this.parentElement.parentElement.parentElement.parentElement.parentElement.id,\''+item.username+'\')">Edit</a>\n' +
+                                // '    <a class="dropdown-item" onclick="deletepost(this.parentElement.parentElement.parentElement.parentElement.parentElement.id)">Delete</a>\n' +
+                                // '    <a class="dropdown-item" href="#">Comment</a>' +
+                                '  </div>' +
+                                '</div></div></div></div>'
+                    }
+
+
                     card += '<div class="card" id="'+cardid+'"><div class=\'row\'><div class=\'col-11\'><div class="card-body">' +
-                            '<h6 id="'+cardid+'_uname">'+item.username+'</h6><p id="'+cardid+'_content">' + item.postcontent + '</p><p>'+time+'</p></div></div><div calss=\'col-1\'>'+
-                            '<div class="dropdown show">' +
-                            '  <i class="btn material-icons" style="font-size:1.5em;padding-top: 10px" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
-                            '    dehaze' +
-                            '  </i>' +
-                            '  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">' +
-                            '    <a class="dropdown-item" data-toggle="modal" data-target="#myModal" onclick="createmodal(this.parentElement.parentElement.parentElement.parentElement.parentElement.id)">Edit</a>\n' +
-                            '    <a class="dropdown-item" onclick="deletepost(this.parentElement.parentElement.parentElement.parentElement.parentElement.id)">Delete</a>\n' +
-                            '    <a class="dropdown-item" href="#">Comment</a>' +
-                            '  </div>' +
-                            '</div></div></div></div>';
+                            '<h6 id="'+cardid+'_uname">'+item.username+'</h6><p id="'+cardid+'_content">' + item.postcontent + '</p><p>'+time+'</p></div></div>'+ dropdown
+                            '</div></div>';
+
                 }); %>
             <%- card %>
             <% } %>
@@ -122,8 +79,8 @@
                     <div class="modal-content">
                         <!-- Modal body -->
                         <label for="myModal_body"></label>
-                        <textarea id = "myModal_body" class="form-control" aria-label="With textarea"></textarea>
-
+                        <textarea id = "myModal_body" name = "myModal_body" class="form-control" aria-label="With textarea"></textarea>
+                        <input id = 'modal_id' name="modal_id" hidden>
                         <!-- Modal footer -->
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary" >Update</button>
@@ -151,10 +108,10 @@
 
                     var address = item["address"] +', ' +item["city"] + ' ' +item["state"];
                     var ranId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-                    card += '<div class="card" id="'+ranId+'"><div class="card-body">' +
+                    card += '<div class="card" id="'+ranId+'"><a href="/restaurant_info?id='+ item.restaurantid +'" style="color:black"><div class="card-body">' +
                             '<img class="card-img-left" src="'+img+'"' +
                             'alt="Card image" width="200px"><div class="details">' +
-                            '<h5>' + restaurantname + '</h5><h6>'+item.categoryname+'</h6><p>'+address+'</p></div></div></div>';
+                            '<h5>' + restaurantname + '</h5><h6>'+item.categoryname+'</h6><p>'+address+'</p></div></div></a></div>';
                 }); %>
             <%- card %>
             <% } %>
@@ -164,17 +121,19 @@
 </div>
 </body>
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 </html>
 
 <script>
-    function createmodal(elementid){
-        var card = document.getElementById(elementid+'_content');
+    function createmodal(elementid,username){
+        var card = document.getElementById(elementid + '_content');
         console.log(card)
         var modal = document.getElementById("myModal_body");
         console.log(modal)
+        document.getElementById("modal_id").setAttribute('value',elementid);
         modal.innerHTML = card.innerText;
-        modal.parentElement.parentElement.parentElement.id='editform-'+elementid
+        modal.parentElement.parentElement.parentElement.id = 'editform-' + elementid
 
     }
 
@@ -191,9 +150,15 @@
     function validatePost() {
         var x = document.forms["PostForm"]["message"].value;
         console.log(x)
+        console.log(document.cookie)
+        if(document.cookie ==="" || document.cookie.split(';')[1].split('=')[1]==='false'){
+            alert("User must be logged in");
+            return false;
+        }
         if (x === "" || x === null) {
             alert("The Post must be filled out");
             return false;
         }
     }
+
 </script>

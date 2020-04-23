@@ -34,7 +34,7 @@ function log_in_variables(req, res, next){
         {
             res.clearCookie("logged_in");
             res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
-            res.cookie("User", req.cookies.User);
+            res.cookie("User", req.cookies.User,{maxAge:60000*app.locals.log_in_length});
             var query = 'select * from customer where username = \''+req.cookies.User+'\'';
             db.any(query).then(function(rows){
                 res.locals.user = rows[0];
@@ -59,7 +59,6 @@ function log_in_variables(req, res, next){
     var query = 'select * from customer where username = '${username}'';
     console.log(query);
     db.any(query).then(function(rows){
-
     })
 */
 
@@ -111,32 +110,33 @@ app.get("/verifyEmail", function (req,res) {
 app.get("/community", function(req,res) {
     var query = 'SELECT * from restaurant as r JOIN restaurantcategory as c ON r.categoryid = c.categoryid LIMIT 5';
     var query2 = 'SELECT *,TO_CHAR(posttime, \'yyyy-mm-dd hh:mm:ss\') as time from post as p JOIN customer as c ON p.customerid = c.customerid order by posttime DESC' ;
+    // console.log(req.cookie)
     db.task('get-everything', task => {
         return task.batch([
             task.any(query),
             task.any(query2)
         ]);
-})
-.then(info => {
-        res.render('../view/pages/community',{
-            my_title: 'Community',
-            data: info[0],
-            post: info[1],
+    })
+        .then(info => {
+            res.render('../view/pages/community',{
+                my_title: 'Community',
+                data: info[0],
+                post: info[1],
+            })
         })
-    })
-.catch(err => {
-        // display error message in case an error
-        console.log('error', err);
-    response.render('../view/pages/community', {
-        my_title: 'Community',
-        data: '',
-        post: ''
-    })
-});
+        .catch(err => {
+            // display error message in case an error
+            console.log('error', err);
+            response.render('../view/pages/community', {
+                my_title: 'Community',
+                data: '',
+                post: ''
+            })
+        });
 
 })
 
-app.post("/insertpost", function(req,res) {
+app.post("/deletepost", function(req,res) {
     var message = req.body.message;
     var username = req.cookies.User; // user name itself
     var query = 'SELECT * from restaurant as r JOIN restaurantcategory as c ON r.categoryid = c.categoryid LIMIT 5';
@@ -150,25 +150,80 @@ app.post("/insertpost", function(req,res) {
             task.any(insert),
             task.any(query2)
         ]);
-})
-.then(info => {
-        res.render('../view/pages/community',{
-            my_title: 'Community',
-            data: info[0],
-            post: info[2],
+    })
+        .then(info => {
+            res.render('../view/pages/community',{
+                my_title: 'Community',
+                data: info[0],
+                post: info[2],
+            })
         })
-    })
-.catch(err => {
-        // display error message in case an error
-        console.log('error', err);
-    response.render('../view/pages/community', {
-        my_title: 'Community',
-        data: '',
-        post: ''
-    })
-});
+        .catch(err => {
+            // display error message in case an error
+            console.log('error', err);
+            response.render('../view/pages/community', {
+                my_title: 'Community',
+                data: '',
+                post: ''
+            })
+        });
+    // res.redirect('/community')
 
 })
+
+app.post("/editpost", function(req,res,next) {
+    var post = req.body.myModal_body;
+    var id = req.body.modal_id;
+    console.log(req.body);
+    var username = req.cookies.User; // user name itself
+    var query = 'UPDATE post SET postcontent = \''+post+'\' WHERE postid = '+id;
+    console.log(query)
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(query)
+        ]);
+    })
+        .then(info => {
+            res.redirect('/community');
+        })
+        .catch(err => {
+            // display error message in case an error
+            console.log('error', err);
+            response.render('../view/pages/community', {
+                my_title: 'Community',
+                data: '',
+                post: ''
+            })
+        });
+})
+
+
+app.post("/delete", function(req,res,next) {
+    var post = req.body.myModal_body;
+    var id = req.body.modal_id;
+    console.log(req.body);
+    var username = req.cookies.User; // user name itself
+    var query = 'UPDATE post SET postcontent = \''+post+'\' WHERE postid = '+id;
+    console.log(query)
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(query)
+        ]);
+    })
+        .then(info => {
+            res.redirect('/community');
+        })
+        .catch(err => {
+            // display error message in case an error
+            console.log('error', err);
+            response.render('../view/pages/community', {
+                my_title: 'Community',
+                data: '',
+                post: ''
+            })
+        });
+})
+
 app.get('/', function(req, res){
     // console.log("rendering homepage");
     res.redirect('/home')
@@ -214,7 +269,7 @@ app.get('/home', function(req, res){
 });
 app.get('/profilePage', function(req, res){
     // console.log("rendering");
-  res.render('../view/pages/profilePage',{ root: __dirname});
+    res.render('../view/pages/profilePage',{ root: __dirname});
 });
 
 app.post('/login', function(req, res){
@@ -269,8 +324,8 @@ app.post('/signup', function(req, res){
 });
 
 app.get("/logout",function (req,res) {
+    res.cookie("User","None");
     res.cookie("logged_in","false");
-    res.clearCookie("user");
     res.redirect('/');
 });
 
@@ -303,7 +358,7 @@ app.get("/results", function (req,res) {
 
 app.get('/restaurant_info', function(req,res) {
     var id = req.query.id;
-    var query = "select * from restaurant where \'restaurantid\' =" + id;
+    var query = "select * from restaurant where restaurantid =" + id;
 
     db.any(query)
         .then(data=> {
@@ -320,6 +375,7 @@ app.get('/restaurant_info', function(req,res) {
             })
         });
 });
+
 
 
 app.listen(5678);
