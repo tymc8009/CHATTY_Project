@@ -163,6 +163,8 @@ app.get("/logout",function (req,res) {
     res.redirect('/');
 });
 
+//
+
 app.get("/results", function (req,res) {
     console.log("rendering");
     var temp = req.query.search_query;
@@ -187,6 +189,29 @@ app.get("/results", function (req,res) {
                 data: ''
             })
         })
+});
+
+//restaurant_info page
+
+
+app.get('/restaurant_info', function(req,res) {
+    var id = req.query.id;
+    var query = "select * from restaurant where restaurantid =" + id;
+
+    db.any(query)
+        .then(data=> {
+            res.render('../view/restaurantpage', {
+                my_title:"Restaurant information",
+                data:data[0]
+            })
+        })
+        .catch(err=> {
+            console.log('error',err);
+            res.render('../view/restaurantpage', {
+                title:"Restaurant information",
+                data:''
+            })
+        });
 });
 
 app.listen(5678);
