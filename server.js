@@ -170,13 +170,13 @@ app.post("/insertpost", function(req,res) {
 
 })
 app.get('/', function(req, res){
-    console.log("rendering homepage");
+    // console.log("rendering homepage");
     res.render('../view/pages/home'
     );
 });
 
 app.get('/profilePage', function(req, res){
-    console.log("rendering");
+    // console.log("rendering");
   res.render('../view/pages/profilePage',{ root: __dirname});
 });
 
@@ -239,7 +239,7 @@ app.get("/logout",function (req,res) {
 
 
 app.get("/results", function (req,res) {
-    console.log("rendering");
+    // console.log("rendering");
     var temp = req.query.search_query;
     // capitalize the search query
     var search_query = temp.toUpperCase();
@@ -263,48 +263,26 @@ app.get("/results", function (req,res) {
             })
         })
 });
-//
-// app.get('/restaurant_info/post', function(req,res) {
-//     var restaurant_id= //  get restaurant id
-//     var location = // location id select * ;
-//     var reviews = // reviews select* probably
-//     var phonenumber= // phone number select * from table;
-//     var hours = // hours select * from table;
-//         db.task('get-everything', task=>{
-//             return task.batch ([
-//                 task.any(restaurant_id),
-//                 task.any(location),
-//                 task.any(review),
-//                 task.any(phonenumber),
-//                 task.any(hour)
-//             ]);
-// })
-// .then(data=> {
-//         res.render('pages/restaurant_info', {
-//             my_title:"Restaurant information",
-//             data: data[0],
-//             restaurant:// data
-//             Location: //data
-//     Reviews: //data
-//         Phonenumbers: //data
-//             hours: // data
-//                 })
-// })
-// .catch(err=> {
-//         console.log('error',err);
-//     res.render('pages/restaurant_info/select_restaurant', {
-//         title:"Restaurant information",
-//         data: '',
-//         singleplayer:'',
-//         games_played:''
-//         restaurant:'',
-//         Location: '',
-//         Reviews: '',
-//         Phonenumbers: '',
-//         hours: '',
-//     })
-// });
-// });
+
+app.get('/restaurant_info', function(req,res) {
+    var id = req.query.id;
+    var query = "select * from restaurant where restaurantid =" + id;
+
+    db.any(query)
+        .then(data=> {
+            res.render('../view/pages/restaurantpage', {
+                my_title:"Restaurant information",
+                data:data[0]
+            })
+        })
+        .catch(err=> {
+            console.log('error',err);
+            res.render('../view/pages/restaurantpage', {
+                title:"Restaurant information",
+                data:''
+            })
+        });
+});
 
 
 app.listen(5678);

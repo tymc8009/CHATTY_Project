@@ -16,7 +16,7 @@
     <script crossorigin="anonymous"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="../resources/js/template.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <style>
         .container{
@@ -26,9 +26,12 @@
             width: 100%;
             margin-top: 30px
         }
+
         .card-img-left {
             float: left;
+            margin-bottom: 20px
         }
+
         .details {
             float: right;
             width: 75%;
@@ -44,6 +47,7 @@
         <%
         if (data) {
             var card = '';
+
             data.forEach(function(item){
                 var ranId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
                 var default_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
@@ -53,13 +57,14 @@
                 else if (item.category_img != null) {
                     default_img = item.category_img;
                 }
-                card += '<div class="card" id="'+ranId+'"><div class="card-body">' +
+                card += '<div class="card" id="'+ranId+'"><a href="/restaurant_info?id='+ item.restaurantid +'"><div class="card-body">' +
                         '<img class="card-img-left" src=' + default_img +
-                        ' alt="Card image" height="200px" width="250px"><div class="details">' +
+                        ' alt="Card image" height="190px" width="240px"><div class="details">' +
                         '<h4>' + item.restaurantName + '</h4>' +
                         '<h6>Phone number: ' + item.phonenumber + '</h6>' +
                         '<h6>Address: ' + item.address + '</h6>' +
-                        '<h6>' + item.description + '</h6>' + '</div></div></div>';
+                        '<h6>' + item.description + '</h6>' +
+                        '</div></div></a></div>';
             }); %>
         <%- card %>
         <% } %>
