@@ -237,7 +237,6 @@ app.get("/results", function (req,res) {
         })
 });
 
-});
 
 app.listen(5678);
 console.log('5678 is the magic port');
