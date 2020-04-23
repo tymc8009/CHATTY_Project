@@ -62,6 +62,10 @@
                 margin-bottom: 20px;
             }
         }
+
+        .section1 {
+            /*this class is for setting the style of each card row*/
+        }
     </style>
 </head>
 <body>
@@ -80,8 +84,9 @@
 </div>
 
 
-<div class="container" style="padding-top: 66px; padding-left: 15%">
+<div class="container" style="padding-top: 66px; padding-left: 5%">
     <a id="american_jump">
+    <div class="section1">
         <h2 id="fav_header"> American </h2>
         <div class="carousel slide" data-ride="carousel" id="demo">
             <ul class="carousel-indicators">
@@ -95,11 +100,12 @@
                         <div class="card" >
                             <% if(result_5) {
                                 var american_id = result_5[0].restaurantid;
-                                if(result_5[0].logo_img == null){
-                                    var american_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                var american_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                if(result_5[0].logo_img != null){
+                                    american_img = result_5[0].logo_img;
                                 }
-                                else{
-                                    var american_img = result_5[0].logo_img;
+                                else if(result_5[0].category_img != null){
+                                    american_img = result_5[0].category_img;
                                 }
                                 var american_restaurant = result_5[0].restaurantName;
                                 var american_description = result_5[0].description;
@@ -120,11 +126,12 @@
                         <div class="card" >
                             <% if(result_5) {
                                 var american_id1 = result_5[1].restaurantid;
-                                if(result_5[1].logo_img == null){
-                                    var american_img1 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                var american_img1 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                if(result_5[1].logo_img != null){
+                                    american_img1 = result_5[1].logo_img;
                                 }
-                                else{
-                                    var american_img1 = result_5[1].logo_img;
+                                else if(result_5[1].category_img != null){
+                                    american_img1 = result_5[1].category_img;
                                 }
                                 var american_restaurant1 = result_5[1].restaurantName;
                                 var american_description1 = result_5[1].description;
@@ -145,11 +152,12 @@
                         <div class="card" >
                             <% if(result_5) {
                                 var american_id2 = result_5[2].restaurantid;
-                                if(result_5[2].logo_img == null){
-                                    var american_img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                var american_img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                if(result_5[2].logo_img != null){
+                                    american_img2 = result_5[2].logo_img;
                                 }
-                                else{
-                                    var american_img2 = result_5[2].logo_img;
+                                else if(result_5[2].category_img != null){
+                                    american_img2 = result_5[2].category_img;
                                 }
                                 var american_restaurant2 = result_5[2].restaurantName;
                                 var american_description2 = result_5[2].description;
@@ -174,11 +182,12 @@
                         <div class="card" >
                             <% if(result_5) {
                                 var american_id3 = result_5[3].restaurantid;
-                                if(result_5[3].logo_img == null){
-                                    var american_img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                var american_img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                if(result_5[3].logo_img != null){
+                                    american_img3 = result_5[3].logo_img;
                                 }
-                                else{
-                                    var american_img3 = result_5[3].logo_img;
+                                else if(result_5[3].category_img != null){
+                                    american_img3 = result_5[3].category_img;
                                 }
                                 var american_restaurant3 = result_5[3].restaurantName;
                                 var american_description3 = result_5[3].description;
@@ -199,11 +208,12 @@
                         <div class="card" >
                             <% if(result_5) {
                                 var american_id4 = result_5[4].restaurantid;
-                                if(result_5[4].logo_img == null){
-                                    var american_img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                var american_img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                if(result_5[4].logo_img != null){
+                                    american_img4 = result_5[4].logo_img;
                                 }
-                                else{
-                                    var american_img4 = result_5[4].logo_img;
+                                else if(result_5[4].category_img != null){
+                                    american_img4 = result_5[4].category_img;
                                 }
                                 var american_restaurant4 = result_5[4].restaurantName;
                                 var american_description4 = result_5[4].description;
@@ -224,11 +234,12 @@
                         <div class="card" >
                             <% if(result_5) {
                                 var american_id5 = result_5[5].restaurantid;
-                                if(result_5[5].logo_img == null){
-                                    var american_img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                var american_img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                if(result_5[5].logo_img != null){
+                                    american_img5 = result_5[5].logo_img;
                                 }
-                                else{
-                                    var american_img5 = result_5[5].logo_img;
+                                else if(result_5[5].category_img != null){
+                                    american_img5 = result_5[5].category_img;
                                 }
                                 var american_restaurant5 = result_5[5].restaurantName;
                                 var american_description5 = result_5[5].description;
@@ -256,8 +267,10 @@
                 <span class="carousel-control-next-icon"></span>
             </a>
         </div>
+    </div>
         <br>
         <a id="mex_jump">
+        <div class="section1">
             <h2 id=" Mex_header"> Mexican </h2>
             <div class="carousel slide" data-ride="carousel" id="mexican">
                 <ul class="carousel-indicators">
@@ -271,11 +284,12 @@
                             <div class="card" >
                                 <% if(result_1) {
                                     var mexican_id = result_1[0].restaurantid;
-                                    if(result_1[0].logo_img == null){
-                                        var img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    var img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    if(result_1[0].logo_img != null){
+                                        img = result_1[0].logo_img;
                                     }
-                                    else{
-                                        var img = result_1[0].logo_img;
+                                    else if(result_1[0].category_img != null){
+                                        img = result_1[0].category_img;
                                     }
                                     var restaurant_name = result_1[0].restaurantName;
                                     var description = result_1[0].description;
@@ -296,11 +310,12 @@
                             <div class="card" >
                                 <% if(result_1) {
                                     var mexican_id1 = result_1[1].restaurantid;
-                                    if(result_1[1].logo_img == null){
-                                        var img1 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    var img1 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    if(result_1[1].logo_img != null){
+                                        img1 = result_1[1].logo_img;
                                     }
-                                    else{
-                                        var img1 = result_1[1].logo_img;
+                                    else if(result_1[1].category_img != null){
+                                        img1 = result_1[1].category_img;
                                     }
                                     var restaurant_name1 = result_1[1].restaurantName;
                                     var description1 = result_1[1].description;
@@ -321,11 +336,12 @@
                             <div class="card" >
                                 <% if(result_1) {
                                     var mexican_id2 = result_1[2].restaurantid;
-                                    if(result_1[2].logo_img == null){
-                                        var img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    var img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    if(result_1[2].logo_img != null){
+                                        img2 = result_1[2].logo_img;
                                     }
-                                    else{
-                                        var img2 = result_1[2].logo_img;
+                                    else if(result_1[2].category_img != null){
+                                        img2 = result_1[2].category_img;
                                     }
                                     var restaurant_name2 = result_1[2].restaurantName;
                                     var description2 = result_1[2].description;
@@ -349,11 +365,12 @@
                         <div class="card-group">
                             <% if(result_1) {
                                 var mexican_id3 = result_1[3].restaurantid;
-                                if(result_1[3].logo_img == null){
-                                    var img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                var img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                if(result_1[3].logo_img != null){
+                                    img3 = result_1[3].logo_img;
                                 }
-                                else{
-                                    var img3 = result_1[3].logo_img;
+                                else if(result_1[3].category_img != null){
+                                    img3 = result_1[3].category_img;
                                 }
                                 var restaurant_name3 = result_1[3].restaurantName;
                                 var description3 = result_1[3].description;
@@ -375,11 +392,12 @@
                             <div class="card" >
                                 <% if(result_1) {
                                     var mexican_id4 = result_1[4].restaurantid;
-                                    if(result_1[4].logo_img == null){
-                                        var img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    var img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    if(result_1[4].logo_img != null){
+                                        img4 = result_1[4].logo_img;
                                     }
-                                    else{
-                                        var img4 = result_1[4].logo_img;
+                                    else if(result_1[4].category_img != null){
+                                        img4 = result_1[4].category_img;
                                     }
                                     var restaurant_name4 = result_1[4].restaurantName;
                                     var description4 = result_1[4].description;
@@ -400,11 +418,12 @@
                             <div class="card" >
                                 <% if(result_1) {
                                     var mexican_id5 = result_1[5].restaurantid;
-                                    if(result_1[5].logo_img == null){
-                                        var img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    var img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                    if(result_1[5].logo_img != null){
+                                        img5 = result_1[5].logo_img;
                                     }
-                                    else{
-                                        var img5 = result_1[5].logo_img;
+                                    else if(result_1[5].category_img != null){
+                                        img5 = result_1[5].category_img;
                                     }
                                     var restaurant_name5 = result_1[5].restaurantName;
                                     var description5 = result_1[5].description;
@@ -432,8 +451,10 @@
                     <span class="carousel-control-next-icon"></span>
                 </a>
             </div>
+        </div>
             <br>
             <a id="italian_jump">
+            <div class="section1">
                 <h2 id=" italian_header"> Italian </h2>
                 <div class="carousel slide" data-ride="carousel" id="italian">
                     <ul class="carousel-indicators">
@@ -447,11 +468,12 @@
                                 <div class="card" >
                                     <% if(result_2) {
                                         var italian_id = result_2[0].restaurantid;
-                                        if(result_2[0].logo_img == null){
-                                            var ital_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        var ital_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        if(result_2[0].logo_img != null){
+                                             ital_img = result_2[0].logo_img;
                                         }
-                                        else{
-                                            var ital_img = result_2[0].logo_img;
+                                        else if(result_2[0].category_img != null){
+                                             ital_img = result_2[0].category_img;
                                         }
                                         var ital_restaurant_name = result_2[0].restaurantName;
                                         var ital_description = result_2[0].description;
@@ -472,11 +494,12 @@
                                 <div class="card" >
                                     <% if(result_2) {
                                         var italian_id1 = result_2[1].restaurantid;
-                                        if(result_2[1].logo_img == null){
-                                            var ital_img1 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        var ital_img1 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        if(result_2[1].logo_img != null){
+                                             ital_img1 = result_2[1].logo_img;
                                         }
-                                        else{
-                                            var ital_img1 = result_2[1].logo_img;
+                                        else if(result_2[1].category_img != null){
+                                             ital_img1 = result_2[1].category_img;
                                         }
                                         var ital_restaurant_name1 = result_2[1].restaurantName;
                                         var ital_description1 = result_2[1].description;
@@ -497,11 +520,12 @@
                                 <div class="card" >
                                     <% if(result_2) {
                                         var italian_id2 = result_2[2].restaurantid;
-                                        if(result_2[2].logo_img == null){
-                                            var ital_img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        var ital_img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        if(result_2[2].logo_img != null){
+                                             ital_img2 = result_2[2].logo_img;
                                         }
-                                        else{
-                                            var ital_img2 = result_2[2].logo_img;
+                                        else if(result_2[2].category_img != null){
+                                             ital_img2 = result_2[2].category_img;
                                         }
                                         var ital_restaurant_name2 = result_2[2].restaurantName;
                                         var ital_description2 = result_2[2].description;
@@ -526,11 +550,12 @@
                                 <div class="card" >
                                     <% if(result_2) {
                                         var italian_id3 = result_2[3].restaurantid;
-                                        if(result_2[3].logo_img == null){
-                                            var ital_img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        var ital_img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        if(result_2[3].logo_img != null){
+                                             ital_img3 = result_2[3].logo_img;
                                         }
-                                        else{
-                                            var ital_img3 = result_2[3].logo_img;
+                                        else if(result_2[3].category_img != null){
+                                             ital_img3 = result_2[3].category_img;
                                         }
                                         var ital_restaurant_name3 = result_2[3].restaurantName;
                                         var ital_description3 = result_2[3].description;
@@ -551,11 +576,12 @@
                                 <div class="card" >
                                     <% if(result_2) {
                                         var italian_id4 = result_2[4].restaurantid;
-                                        if(result_2[4].logo_img == null){
-                                            var ital_img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        var ital_img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        if(result_2[4].logo_img != null){
+                                             ital_img4 = result_2[4].logo_img;
                                         }
-                                        else{
-                                            var ital_img4 = result_2[4].logo_img;
+                                        else if(result_2[4].category_img != null){
+                                             ital_img4 = result_2[4].category_img;
                                         }
                                         var ital_restaurant_name4 = result_2[4].restaurantName;
                                         var ital_description4 = result_2[4].description;
@@ -576,11 +602,12 @@
                                 <div class="card" >
                                     <% if(result_2) {
                                         var italian_id5 = result_2[5].restaurantid;
-                                        if(result_2[5].logo_img == null){
-                                            var ital_img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        var ital_img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                        if(result_2[5].logo_img != null){
+                                             ital_img5 = result_2[5].logo_img;
                                         }
-                                        else{
-                                            var ital_img5 = result_2[5].logo_img;
+                                        else if(result_2[5].category_img != null){
+                                             ital_img5 = result_2[5].category_img;
                                         }
                                         var ital_restaurant_name5 = result_2[5].restaurantName;
                                         var ital_description5 = result_2[5].description;
@@ -608,8 +635,10 @@
                         <span class="carousel-control-next-icon"></span>
                     </a>
                 </div>
+            </div>
                 <br>
                 <a id="asian_jump">
+                <div class="section1">
                     <h2 id=" chinese_header"> Asian </h2>
                     <div class="carousel slide" data-ride="carousel" id="chinese">
                         <ul class="carousel-indicators">
@@ -623,11 +652,12 @@
                                     <div class="card" >
                                         <% if(result_3) {
                                             var chinese_id = result_3[0].restaurantid;
-                                            if(result_3[0].logo_img == null){
-                                                var chinese_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            var chinese_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            if(result_3[0].logo_img != null){
+                                                chinese_img = result_3[0].logo_img;
                                             }
-                                            else{
-                                                var chinese_img = result_3[0].logo_img;
+                                            else if(result_3[0].category_img != null){
+                                                chinese_img = result_3[0].category_img;
                                             }
                                             var chinese_restaurant_name = result_3[0].restaurantName;
                                             var chinese_description = result_3[0].description;
@@ -648,11 +678,12 @@
                                     <div class="card" >
                                         <% if(result_3) {
                                             var chinese_id1 = result_3[1].restaurantid;
-                                            if(result_3[1].logo_img == null){
-                                                var chinese_img1 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            var chinese_img1 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            if(result_3[1].logo_img != null){
+                                                chinese_img1 = result_3[1].logo_img;
                                             }
-                                            else{
-                                                var chinese_img1 = result_3[1].logo_img;
+                                            else if(result_3[1].category_img != null){
+                                                chinese_img1 = result_3[1].category_img;
                                             }
                                             var chinese_restaurant_name1 = result_3[1].restaurantName;
                                             var chinese_description1 = result_3[1].description;
@@ -673,11 +704,12 @@
                                     <div class="card" >
                                         <% if(result_3) {
                                             var chinese_id2 = result_3[2].restaurantid;
-                                            if(result_3[2].logo_img == null){
-                                                var chinese_img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            var chinese_img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            if(result_3[2].logo_img != null){
+                                                chinese_img2 = result_3[2].logo_img;
                                             }
-                                            else{
-                                                var chinese_img2 = result_3[2].logo_img;
+                                            else if(result_3[2].category_img != null){
+                                                chinese_img2 = result_3[2].category_img;
                                             }
                                             var chinese_restaurant_name2 = result_3[2].restaurantName;
                                             var chinese_description2 = result_3[2].description;
@@ -702,11 +734,12 @@
                                     <div class="card" >
                                         <% if(result_3) {
                                             var chinese_id3 = result_3[3].restaurantid;
-                                            if(result_3[3].logo_img == null){
-                                                var chinese_img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            var chinese_img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            if(result_3[3].logo_img != null){
+                                                chinese_img3 = result_3[3].logo_img;
                                             }
-                                            else{
-                                                var chinese_img3 = result_3[3].logo_img;
+                                            else if(result_3[3].category_img != null){
+                                                chinese_img3 = result_3[3].category_img;
                                             }
                                             var chinese_restaurant_name3 = result_3[3].restaurantName;
                                             var chinese_description3 = result_3[3].description;
@@ -727,11 +760,12 @@
                                     <div class="card" >
                                         <% if(result_3) {
                                             var chinese_id4 = result_3[4].restaurantid;
-                                            if(result_3[4].logo_img == null){
-                                                var chinese_img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            var chinese_img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            if(result_3[4].logo_img != null){
+                                                chinese_img4 = result_3[4].logo_img;
                                             }
-                                            else{
-                                                var chinese_img4 = result_3[4].logo_img;
+                                            else if(result_3[4].category_img != null){
+                                                chinese_img4 = result_3[4].category_img;
                                             }
                                             var chinese_restaurant_name4 = result_3[4].restaurantName;
                                             var chinese_description4 = result_3[4].description;
@@ -752,11 +786,12 @@
                                     <div class="card" >
                                         <% if(result_3) {
                                             var chinese_id5 = result_3[5].restaurantid;
-                                            if(result_3[5].logo_img == null){
-                                                var chinese_img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            var chinese_img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                            if(result_3[5].logo_img != null){
+                                                chinese_img5 = result_3[5].logo_img;
                                             }
-                                            else{
-                                                var chinese_img5 = result_3[5].logo_img;
+                                            else if(result_3[5].category_img != null){
+                                                chinese_img5 = result_3[5].category_img;
                                             }
                                             var chinese_restaurant_name5 = result_3[5].restaurantName;
                                             var chinese_description5 = result_3[5].description;
@@ -786,8 +821,10 @@
                             <span class="carousel-control-next-icon"></span>
                         </a>
                     </div>
+                </div>
                     <br>
                     <a id="breakfast_jump">
+                    <div class="section1">
                         <h2 id=" breakfast_header"> Breakfast </h2>
                         <div class="carousel slide" data-ride="carousel" id="breakfast">
                             <ul class="carousel-indicators">
@@ -801,11 +838,12 @@
                                         <div class="card" >
                                             <% if(result_4) {
                                                 var break_id = result_4[0].restaurantid;
-                                                if(result_4[0].logo_img == null){
-                                                    var break_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                var break_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                if(result_4[0].logo_img != null){
+                                                    break_img = result_4[0].logo_img;
                                                 }
-                                                else{
-                                                    var break_img = result_4[0].logo_img;
+                                                else if(result_4[0].category_img != null){
+                                                    break_img = result_4[0].category_img;
                                                 }
                                                 var break_rest = result_4[0].restaurantName;
                                                 var break_desc = result_4[0].description;
@@ -826,12 +864,13 @@
                                         <div class="card" >
                                             <% if(result_4) {
                                                 var break_id1 = result_4[1].restaurantid;
-                                            }
-                                            if(result_4[1].logo_img == null){
                                                 var break_img1 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
-                                            }
-                                            else{
-                                                var break_img1 = result_4[1].logo_img;
+                                                if(result_4[1].logo_img != null){
+                                                    break_img1 = result_4[1].logo_img;
+                                                }
+                                                else if(result_4[1].category_img != null){
+                                                    break_img1 = result_4[1].category_img;
+                                                }
                                                 var break_rest1 = result_4[1].restaurantName;
                                                 var break_desc1 = result_4[1].description;
                                             }
@@ -851,11 +890,12 @@
                                         <div class="card" >
                                             <% if(result_4) {
                                                 var break_id2 = result_4[2].restaurantid;
-                                                if(result_4[2].logo_img == null){
-                                                    var break_img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                var break_img2 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                if(result_4[2].logo_img != null){
+                                                    break_img2 = result_4[2].logo_img;
                                                 }
-                                                else{
-                                                    var break_img2 = result_4[2].logo_img;
+                                                else if(result_4[2].category_img != null){
+                                                    break_img2 = result_4[2].category_img;
                                                 }
                                                 var break_rest2 = result_4[2].restaurantName;
                                                 var break_desc2 = result_4[2].description;
@@ -880,11 +920,12 @@
                                         <div class="card" >
                                             <% if(result_4) {
                                                 var break_id3 = result_4[3].restaurantid;
-                                                if(result_4[3].logo_img == null){
-                                                    var break_img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                var break_img3 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                if(result_4[3].logo_img != null){
+                                                    break_img3 = result_4[3].logo_img;
                                                 }
-                                                else{
-                                                    var break_img3 = result_4[3].logo_img;
+                                                else if(result_4[3].category_img != null){
+                                                    break_img3 = result_4[3].category_img;
                                                 }
                                                 var break_rest3 = result_4[3].restaurantName;
                                                 var break_desc3 = result_4[3].description;
@@ -905,11 +946,12 @@
                                         <div class="card" >
                                             <% if(result_4) {
                                                 var break_id4 = result_4[4].restaurantid;
-                                                if(result_4[4].logo_img == null){
-                                                    var break_img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                var break_img4 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                if(result_4[4].logo_img != null){
+                                                    break_img4 = result_4[4].logo_img;
                                                 }
-                                                else{
-                                                    var break_img4 = result_4[4].logo_img;
+                                                else if(result_4[4].category_img != null){
+                                                    break_img4 = result_4[4].category_img;
                                                 }
                                                 var break_rest4 = result_4[4].restaurantName;
                                                 var break_desc4 = result_4[4].description;
@@ -930,11 +972,12 @@
                                         <div class="card" >
                                             <% if(result_4) {
                                                 var break_id5 = result_4[5].restaurantid;
-                                                if(result_4[5].logo_img == null){
-                                                    var break_img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                var break_img5 = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                                                if(result_4[5].logo_img != null){
+                                                    break_img5 = result_4[5].logo_img;
                                                 }
-                                                else{
-                                                    var break_img5 = result_4[5].logo_img;
+                                                else if(result_4[5].category_img != null){
+                                                    break_img5 = result_4[5].category_img;
                                                 }
                                                 var break_rest5 = result_4[5].restaurantName;
                                                 var break_desc5 = result_4[5].description;
@@ -964,6 +1007,7 @@
                                 <span class="carousel-control-next-icon"></span>
                             </a>
                         </div>
+                    </div>
                     </a>
                 </a>
             </a>

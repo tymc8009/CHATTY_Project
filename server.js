@@ -176,11 +176,11 @@ app.get('/', function(req, res){
 });
 app.get('/home', function(req, res){
     console.log("rendering homepage");
-    var query1 = 'select * from restaurant where categoryid = 9';
-    var query2 = 'select * from restaurant where categoryid = 10';
-    var query3 = 'select * from restaurant where categoryid = 2';
-    var query4 = 'select * from restaurant where categoryid = 13';
-    var query5 = 'select * from restaurant where categoryid = 1';
+    var query1 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 9';
+    var query2 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 10';
+    var query3 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 2';
+    var query4 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 13';
+    var query5 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 1';
     db.task('get-everything', task => {
         return task.batch([
             task.any(query1),
@@ -229,7 +229,7 @@ app.post('/login', function(req, res){
         .then(function (rows) {
             if(rows.length>0){
                 res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
-                // res.cookie("User", rows[0].username, {maxAge:60000*app.locals.log_in_length});
+                res.cookie("User", rows[0].username, {maxAge:60000*app.locals.log_in_length});
             }
             res.send(rows[0]);
         })
