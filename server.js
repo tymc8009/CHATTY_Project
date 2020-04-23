@@ -21,6 +21,8 @@ var db = pgp(dbConfig);
 ///////////////////////////////////////////
 //  log in stuff
 
+
+
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/'));
 app.locals.log_in_length = 10; // specifies how long the server keeps you logged in (measured in minutes)
@@ -65,11 +67,11 @@ function log_in_variables(req, res, next){
 
 app.use(log_in_variables);
 app.get("/getUser", function(req,res){
-    console.log(req.query)
-    if(req.query == null){
+    console.log(req.query == undefined);
+    if(req.query.username == undefined){
         res.redirect("/");
     } else {
-        var query = `select * from customer where username = '${req.query.username}'`;
+        var query = `select username from customer where username = '${req.query.username}'`;
         console.log(query);
         db.any(query).then(function(rows){
             res.send(rows);
@@ -82,7 +84,7 @@ app.get("/getEmail", function(req,res){
     if(req.query == null){
         res.redirect("/");
     } else {
-        var query = "SELECT * FROM customer WHERE emailAddress='"+req.query.email+"'";
+        var query = "SELECT emailAddress FROM customer WHERE emailAddress='"+req.query.email+"'";
         console.log(query);
         db.any(query).then(function(rows){
             console.log("rows",rows);
@@ -155,7 +157,9 @@ app.post('/signup', function(req, res){
     var email = req.body.email;
     var password = req.body.password;
     var zip = req.body.zip;
-    query1 = "INSERT INTO customer (\"username\", \"emailaddress\",\"zip\") VALUES ('"+username+"','"+email+"','"+zip+"');";
+    var first = req.body.first_name;
+    var lastName = req.body.last_name;
+    query1 = "INSERT INTO customer (\"username\", \"emailaddress\",\"zip\",\"firstname\",\"lastname\") VALUES ('"+username+"','"+email+"','"+zip+"','"+first+"','"+lastName+"');";
     query2 = "INSERT INTO account(\"username\", \"password\") VALUES ('"+username+"','"+password+"');";
     console.log(query1);
     console.log(query2);

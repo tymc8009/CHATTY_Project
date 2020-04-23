@@ -11,7 +11,20 @@
                    <form action='/signup' method='post' id="signup_form_form">
                 <div class='modal-body' >
                     <div class='form-group' id='signup_form'>
-                         <label for='Username' id="testerThing">User Name: </label>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="first_name">First name:</label>
+                                <input type='text' class='form-control' style="width:95%" name="first_name" placeholder='First Name' required='required'>
+                            </div>
+                            <div class="col-sm">
+                                <label for="last_name">Last name:</label>
+                                <input type="text" class='form-control' style="width:95%" name="last_name" placeholder="last name" required="required">
+
+                            </div>
+
+                        </div>
+                        <br>
+                                                                       <label for='Username' id="testerThing">UserName: </label>
                         <input type='text' class='form-control' name='username' id="signup-username" placeholder='Name' required='required' onfocusout="testUsername()">
                         <p id='user-warning' style='color:Red'></p>
                         <label for='email'>Email address</label>
