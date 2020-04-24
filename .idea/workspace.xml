@@ -20,14 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="834d1d3f-a49d-4158-9830-c07b8c19d619" name="Default Changelist" comment="Merge remote-tracking branch 'origin/Tiancheng' into Yibo&#10;&#10;# Conflicts:&#10;#&#9;partials/navbar.ejs&#10;#&#9;partials/sign_up_modal.ejs&#10;#&#9;resources/js/accountFunctions.js&#10;#&#9;server.js">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHATTY_Project.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/search_result.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/search_result.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurantpage.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurantpage.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/pages/community.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/pages/community.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/pages/home.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/pages/home.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userInfo.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/pages/profilePage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/pages/profilePage.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/pages/restaurantpage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/pages/restaurantpage.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/pages/searchResult.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/pages/searchResult.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/partials/navbar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/partials/navbar.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -179,6 +179,26 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@93c39185" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@93c39185" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@3dd8d55" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -197,7 +217,7 @@
       <workItem from="1587618222296" duration="117000" />
       <workItem from="1587619319459" duration="127000" />
       <workItem from="1587620513410" duration="285000" />
-      <workItem from="1587673761198" duration="11822000" />
+      <workItem from="1587673761198" duration="16436000" />
     </task>
     <servers />
   </component>
@@ -278,5 +298,17 @@
     <state x="716" y="669" key="jetbrains.nodejs.interpreters-dialog/0.0.2560.1400@0.0.2560.1400" timestamp="1587613808945" />
     <state x="841" y="439" width="672" height="493" key="run.anything.popup" timestamp="1587613808945" />
     <state x="841" y="439" width="672" height="493" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587613808945" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/resources/js/search_result.js</url>
+          <line>16</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

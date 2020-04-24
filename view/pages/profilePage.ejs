@@ -15,7 +15,6 @@
     <script crossorigin="anonymous"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="../resources/js/template.js" type="text/javascript"></script>
     <style>
         .sidenav {
             position: fixed;
@@ -99,17 +98,33 @@
     <div class="row">
         <div class="col-3" style="text-align: center">
             <div class="card-body">
-                <img class="rounded-circle" height="200" id="profilePic" src="../resources/img/anonymous-user.png"
-                     width="200"/>
+                <%
+                    var profilepic = "../resources/img/anonymous-user.png";
+                    if(user.profileimg != null){
+                        profilepic = user.profileimg;
+                    }
+                %>
+                <img class="rounded-circle" height="200" id="display-pic" src= <%- profilepic %>
+                     width="200">
                 <br>
-                <button class="btn btn-secondary" id="setting" type="button">Settings</button>
+                <a href = "#setting_modal" class="btn btn-secondary" id="setting" data-toggle="modal">Settings</a>
             </div>
         </div>
         <div class="col-9" style="top:0">
             <div class="jumbotron" style="background-color:transparent !important;">
                 <div class="container">
-                    <h1 class="display-8">Bio</h1>
-                    <p class="lead">This is a sample description for this user</p>
+                    <% if(user.firstname == null){
+                        var firstname = "Bio";
+                        var lastname = " ";
+                    }
+                    else{
+                        var firstname = user.firstname;
+                        var lastname = user.lastname;
+                    }
+                    var name = firstname +" " + lastname;
+                    %>
+                    <h1 class="display-8"><%- name %></h1>
+                    <p class="lead" id = "display-bio">User has no bio yet</p>
                 </div>
             </div>
         </div>
@@ -117,55 +132,78 @@
     <div id="saved">
         <h3>Saved List</h3>
         <div class="card-group">
-            <div class="card text-white mb-3; card text-center">
-                <div class="card-header">Time Stamp</div>
-                <div class="card-body">
-                    <h5 class="card-title">Restauraunt Name</h5>
-                    <p class="card-text">Description</p>
-                </div>
-            </div>
-            <div class="card text-white mb-3; card text-center">
-                <div class="card-header">Time Stamp</div>
-                <div class="card-body">
-                    <h5 class="card-title">Restauraunt Name</h5>
-                    <p class="card-text">Description</p>
-                </div>
-            </div>
-            <div class="card text-white mb-3; card text-center">
-                <div class="card-header">Time Stamp</div>
-                <div class="card-body">
-                    <h5 class="card-title">Restauraunt Name</h5>
-                    <p class="card-text">Description</p>
-                </div>
-            </div>
+            <%
+            var card = '';
+                if(data){
+                    console.log(data);
+                    data.forEach(function(customer){
+                        var time = customer[0].lasttimevisited;
+                        if(customer[0].lasttimevisited == null){
+                            var time = "Last Time Visited Unknown";
+                        }
+                        card += '<div class="card text-white mb-3; card text-center">' + 
+                                '<div class="card-header">' + time + '</div>' +
+                                '<div class="card-body">' + 
+                                '<h5 class="card-title">' + customer[0].restaurantName + '</h5>' +
+                                '<p class="card-text">' + customer[0].description + '</p>' +
+                                '</div></div>';
+
+                    }); }%>
+            <%- card %>
         </div>
     </div>
+            <!-- <div class="card text-white mb-3; card text-center">
+                <div class="card-header">Time Stamp</div>
+                <div class="card-body">
+                    <h5 class="card-title">Restauraunt Name</h5>
+                    <p class="card-text">Description</p>
+                </div>
+            </div> -->
+</div>
     <div id="reviews" style="padding-top: 5%">
         <h3>Your Reviews</h3>
-        <div class="card text-center" style="width: 50rem;">
+
+
+
+
+        <!-- <div class="card text-center" style="width: 50rem;">
             <div class="card-body">
                 <h5 class="card-title">Restauraunt Name</h5>
                 <p class="card-text">Your Review</p>
                 <a class="btn btn-danger" href="#">Link to Restauraunt</a>
             </div>
-        </div>
+        </div> -->
 
-        <div class="card text-center" style="width: 50rem">
-            <div class="card-body">
-                <h5 class="card-title">Restauraunt Name</h5>
-                <p class="card-text">Your Review</p>
-                <a class="btn btn-danger" href="#">Link to Restauraunt</a>
+    </div>
+
+<div class="modal" tabindex="-1" role="dialog" id = "setting_modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Settings</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        </div>
-
-        <div class="card text-center" style="width: 50rem">
-            <div class="card-body">
-                <h5 class="card-title">Restauraunt Name</h5>
-                <p class="card-text">Your Review</p>
-                <a class="btn btn-danger" href="#">Link to Restauraunt</a>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Profile Picture:</label>
+                        <input type="file" class="form-control-file" id="profilePicture">
+                    </div>
+                    <div class="form-group">
+                        <label>Bio:</label>
+                        <textarea class="form-control" id="bio" rows="3" placeholder="Enter your bio here"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="saveChanges()">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
+<script src="/resources/js/settings.js"></script>
 </body>
 </html>
