@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="'en">
+
+<head>
+    <title>Chatty Search </title>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper  .min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="../resources/js/search_result.js" type="text/javascript"></script>
+
+    <style>
+        .container{
+            margin-top: 30px;
+        }
+        .card {
+            width: 100%;
+            margin-top: 30px
+        }
+
+        .card-img-left {
+            float: left;
+            margin-bottom: 20px
+        }
+
+        .details {
+            float: right;
+            width: 75%;
+        }
+
+        .btn-group button{
+            margin-top: 20px;
+            background-color: #db4d2a; /* Green background */
+            border: 1px solid white; /* Green border */
+            color: white; /* White text */
+            padding: 10px 24px; /* Some padding */
+            cursor: pointer; /* Pointer/hand icon */
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<%- include('../partials/navbar'); -%>
+<div class="container">
+    <br>
+    <div class="btn-group">
+        <button onclick="filter(0)">All</button>
+        <button onclick="filter(1)">American</button>
+        <button onclick="filter(9)">Mexican</button>
+        <button onclick="filter(10)">Italian</button>
+        <button onclick="filter(2)">Asian</button>
+        <button onclick="filter(13)">Breakfast</button>
+    </div>
+    <div id="resultlist">
+        <%
+        if (data) {
+            var card = '';
+
+            data.forEach(function(item){
+                var ranId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                var default_img = "https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg";
+                if (item.logo_img != null) {
+                    default_img = item.logo_img;
+                }
+                else if (item.category_img != null) {
+                    default_img = item.category_img;
+                }
+                card += '<div class="card" id="'+ranId+'" tag="' + item.categoryid + '"><a href="/restaurant_info?id='+ item.restaurantid +'" style="color:black"><div class="card-body">' +
+                        '<img class="card-img-left" src=' + default_img +
+                        ' alt="Card image" height="190px" width="240px"><div class="details">' +
+                        '<h4>' + item.restaurantName + '</h4>' +
+                        '<h6>Phone number: ' + item.phonenumber + '</h6>' +
+                        '<h6>Address: ' + item.address + '</h6>' +
+                        '<h6>' + item.description + '</h6>' +
+                        '</div></div></a></div>';
+            }); %>
+        <%- card %>
+        <% } %>
+
+
+
+        <!--<div class="card" id="01">
+            <div class="card-body">
+                <img alt="Card image"
+                     class="card-img-left"
+                     height="200px" src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg">
+                <div class="details">
+                    <h4>Sample Restaurant name</h4>
+                    <h6>Rating
+                    </h6>
+                    <h6>Phone number: </h6>
+                    <h6>Address: </h6>
+                    <h6>Description: </h6>
+                    <p><span style="display:inline-block; width: 20px;"></span>...............</p>
+                </div>
+            </div>
+        </div>-->
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="'en">
+
+<head>
+    <title>Chatty FoodFinder </title>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper  .min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="../resources/js/template.js" type="text/javascript"></script>
+    <link href = "https://fonts.googleapis.com/icon?family=Material+Icons" rel = "stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+    <style>
+        .message {
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 1px;
+            text-decoration: none;
+            display: block;
+        }
+
+        textarea:focus {
+            height: 10em;
+        }
+
+        .dropdown a:hover {
+            background-color: #ddd
+        }
+
+        .show {
+            display: block;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+<%- include('../partials/navbar'); -%>
+
+<div class="container" style="padding-top: 80px">
+
+    <div class="row" >
+        <div class="col-9">
+            <form action="insertpost" method="post" name="PostForm" onsubmit="return validatePost()" required>
+                <div style="background-color: white" class="panel-body">
+                    <div class="form-group">
+                <textarea placeholder="How's your day?" class="form-control"
+                          id="message" name="message"></textarea>
+                    </div>
+                    <div style="float: right;">
+                        <button type="submit" class="btn btn-primary btn-md" style="background-color: #E84B0E">Send</button>
+                    </div>
+                </div>
+            </form>
+            <br><br>
+            <%
+            if (post) {
+                console.log(post)
+                var card = '';
+                post.forEach(function(item){
+                    var time =item.time
+                    var cardid = item.postid
+                    card += '<div class="card" id="'+cardid+'"><div class=\'row\'><div class=\'col-11\'><div class="card-body">' +
+                            '<h6 id="'+cardid+'_uname">'+item.username+'</h6><p id="'+cardid+'_content">' + item.postcontent + '</p><p>'+time+'</p></div></div><div calss=\'col-1\'>'+
+                            '<div class="dropdown show">' +
+                            '  <i class="btn material-icons" style="font-size:1.5em;padding-top: 10px" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
+                            '    dehaze' +
+                            '  </i>' +
+                            '  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">' +
+                            '    <a class="dropdown-item" data-toggle="modal" data-target="#myModal" onclick="createmodal(this.parentElement.parentElement.parentElement.parentElement.parentElement.id)">Edit</a>\n' +
+                            '    <a class="dropdown-item" onclick="deletepost(this.parentElement.parentElement.parentElement.parentElement.parentElement.id)">Delete</a>\n' +
+                            '    <a class="dropdown-item" href="#">Comment</a>' +
+                            '  </div>' +
+                            '</div></div></div></div>';
+                }); %>
+            <%- card %>
+            <% } %>
+        </div>
+
+        <div class="modal fade" id="myModal">
+            <form action="editpost" method="post">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Modal body -->
+                        <label for="myModal_body"></label>
+                        <textarea id = "myModal_body" class="form-control" aria-label="With textarea"></textarea>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" >Update</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-3">
+            <h4 style="text-align: center">Today's Special</h4>
+            <%
+            if (data) {
+                var card = '';
+                data.forEach(function(item){
+                    var restaurantname = item["restaurantName"];
+                    var category = item["categoryname"];
+                    var img;
+                    if(item["logo_img"] != '<null>'){
+                        img = item["logo_img"];
+                    }else{
+                        img = item["category_img"];
+                    }
+
+                    var address = item["address"] +', ' +item["city"] + ' ' +item["state"];
+                    var ranId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                    card += '<div class="card" id="'+ranId+'"><div class="card-body">' +
+                            '<img class="card-img-left" src="'+img+'"' +
+                            'alt="Card image" width="200px"><div class="details">' +
+                            '<h5>' + restaurantname + '</h5><h6>'+item.categoryname+'</h6><p>'+address+'</p></div></div></div>';
+                }); %>
+            <%- card %>
+            <% } %>
+        </div>
+
+    </div>
+</div>
+</body>
+
+
+</html>
+
+<script>
+    function createmodal(elementid){
+        var card = document.getElementById(elementid+'_content');
+        console.log(card)
+        var modal = document.getElementById("myModal_body");
+        console.log(modal)
+        modal.innerHTML = card.innerText;
+        modal.parentElement.parentElement.parentElement.id='editform-'+elementid
+
+    }
+
+    function deletepost(card){
+        console.log(card)
+        $app.delete('/post/' + id)
+            .success(function(data) {
+                console.log('Success: ' + data);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+    }
+    function validatePost() {
+        var x = document.forms["PostForm"]["message"].value;
+        console.log(x)
+        if (x === "" || x === null) {
+            alert("The Post must be filled out");
+            return false;
+        }
+    }
+</script>
