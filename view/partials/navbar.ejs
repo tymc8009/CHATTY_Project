@@ -4,11 +4,18 @@ var current = ["nav-item","nav-item","nav-item"];
 if(current_site) //sets the associated nav item active
 {
 
-    if(current_site=="/") {
+    if(current_site=="/home") {
         current[0] = "\"nav-item active\"";
-        current[2] = "nav-item"
+        current[1] = "nav-item"
+        current[2] = "\"nav-item\"";
+
     } else if(current_site=="/view/profilePage"){
         current[0] = "nav-item"
+        current[1] = "\"nav-item active\"";
+        current[2] = "\"nav-item\"";
+    } else if(current_site=="/community") {
+        current[0] = "\"nav-item\"";
+        current[1] = "\"nav-item\"";
         current[2] = "\"nav-item active\"";
     }
 }
@@ -23,14 +30,11 @@ if(current_site) //sets the associated nav item active
             <li class=<%- current[0] %>>
                 <a class="nav-link" href="/">Home </a>
             </li>
-            <li class=<%- current[1] %>>
-                <a class="nav-link" href="#">Suggestions</a>
-            </li>
             <%
             var profile_link = "";
             if(logged_in){
-                if(logged_in=="true"){
-                    profile_link += "<li class= "+ current[2] + "><a class=\"nav-link\" href=\"../../view/profilePage\">Profile</a></li>";
+                if(logged_in==="true"){
+                    profile_link += "<li class= "+ current[1] + "><a class=\"nav-link\" href=\"profilePage\">Profile</a></li>";
 
                 }
             } %>
@@ -45,14 +49,14 @@ if(current_site) //sets the associated nav item active
         <input id="search" name="search_query" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
     </form>
-    <div class="dropdown" id="log_in_dropdown" style="margin-left: 6px">
+    <div class="dropdown" style="margin-left: 6px">
         <%
         var element = '';
         if(logged_in){
             if(logged_in=='false')
             {
-                element += '<button type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown">log in</button>'
-                        + "<div class=\"dropdown-menu dropdown-menu-right px-1\" style=\"background-color:#E84B0E;color:white\">"
+                element += '<button id = \"login_dropdown_btn\" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">log in</button>'
+                        + "<div class=\"dropdown-menu dropdown-menu-right px-1\" style=\"background-color:#E84B0E;color:white\" aria-labelledby=\"login_dropdown_btn\">"
                         + " <form id=\"log-in-form\"><div class=\"form-group\">"
                         +"     <label for=\"loginUsername\">User Name: </label>"
                         +"                 <input type=\"text\" class=\"form-control\" id=\"loginUsername\" name=\"loginUsername\" placeholder=\"Name\" "

@@ -26,17 +26,17 @@ app.use(express.static(__dirname + '/'));
 app.locals.log_in_length = 10; // specifies how long the server keeps you logged in (measured in minutes)
 // middleware function that sets the value of logged_in to the cookie
 // will run ANYTIME a request is made
-function log_in_variables(req, res, next){
+function log_in_variables(req, res, next) {
     //onsole.log("log in variables middleware",req.cookies);
-    if(req.cookies.logged_in){
+    if (req.cookies.logged_in) {
         res.locals.logged_in = req.cookies.logged_in;
-        if(req.cookies.logged_in=="true") // resets logged in timer
+        if (req.cookies.logged_in == "true") // resets logged in timer
         {
             res.clearCookie("logged_in");
-            res.cookie("logged_in","true", {maxAge:60000*app.locals.log_in_length});
-            res.cookie("User", req.cookies.User);
-            var query = 'select * from customer where username = \''+req.cookies.User+'\'';
-            db.any(query).then(function(rows){
+            res.cookie("logged_in", "true", {maxAge: 60000 * app.locals.log_in_length});
+            res.cookie("User", req.cookies.User, {maxAge: 60000 * app.locals.log_in_length});
+            var query = 'select * from customer where username = \'' + req.cookies.User + '\'';
+            db.any(query).then(function (rows) {
                 res.locals.user = rows[0];
                 res.locals.current_site = req.originalUrl;
                 next();
@@ -47,19 +47,18 @@ function log_in_variables(req, res, next){
         }
     } else {
         res.locals.logged_in = "false";
-        res.cookie("logged_in","false");
+        res.cookie("logged_in", "false");
         res.locals.current_site = req.originalUrl;
         next();
     }
-
-
 }
+
+
 
 /* inputs a username and returns a json object of the values stored in the database
     var query = 'select * from customer where username = '${username}'';
     console.log(query);
     db.any(query).then(function(rows){
-
     })
 */
 
@@ -111,32 +110,34 @@ app.get("/verifyEmail", function (req,res) {
 app.get("/community", function(req,res) {
     var query = 'SELECT * from restaurant as r JOIN restaurantcategory as c ON r.categoryid = c.categoryid LIMIT 5';
     var query2 = 'SELECT *,TO_CHAR(posttime, \'yyyy-mm-dd hh:mm:ss\') as time from post as p JOIN customer as c ON p.customerid = c.customerid order by posttime DESC' ;
+    // console.log(req.cookie)
+
     db.task('get-everything', task => {
         return task.batch([
             task.any(query),
             task.any(query2)
         ]);
-})
-.then(info => {
-        res.render('../view/pages/community',{
-            my_title: 'Community',
-            data: info[0],
-            post: info[1],
+    })
+        .then(info => {
+            res.render('../view/pages/community',{
+                my_title: 'Community',
+                data: info[0],
+                post: info[1],
+            })
         })
-    })
-.catch(err => {
-        // display error message in case an error
-        console.log('error', err);
-    response.render('../view/pages/community', {
-        my_title: 'Community',
-        data: '',
-        post: ''
-    })
-});
+        .catch(err => {
+            // display error message in case an error
+            console.log('error', err);
+            response.render('../view/pages/community', {
+                my_title: 'Community',
+                data: '',
+                post: ''
+            })
+        });
 
 })
 
-app.post("/insertpost", function(req,res) {
+app.post("/deletepost", function(req,res) {
     var message = req.body.message;
     var username = req.cookies.User; // user name itself
     var query = 'SELECT * from restaurant as r JOIN restaurantcategory as c ON r.categoryid = c.categoryid LIMIT 5';
@@ -150,25 +151,80 @@ app.post("/insertpost", function(req,res) {
             task.any(insert),
             task.any(query2)
         ]);
-})
-.then(info => {
-        res.render('../view/pages/community',{
-            my_title: 'Community',
-            data: info[0],
-            post: info[2],
+    })
+        .then(info => {
+            res.render('../view/pages/community',{
+                my_title: 'Community',
+                data: info[0],
+                post: info[2],
+            })
         })
-    })
-.catch(err => {
-        // display error message in case an error
-        console.log('error', err);
-    response.render('../view/pages/community', {
-        my_title: 'Community',
-        data: '',
-        post: ''
-    })
-});
+        .catch(err => {
+            // display error message in case an error
+            console.log('error', err);
+            response.render('../view/pages/community', {
+                my_title: 'Community',
+                data: '',
+                post: ''
+            })
+        });
+    // res.redirect('/community')
 
 })
+
+app.post("/editpost", function(req,res,next) {
+    var post = req.body.myModal_body;
+    var id = req.body.modal_id;
+    console.log(req.body);
+    var username = req.cookies.User; // user name itself
+    var query = 'UPDATE post SET postcontent = \''+post+'\' WHERE postid = '+id;
+    console.log(query)
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(query)
+        ]);
+    })
+        .then(info => {
+            res.redirect('/community');
+        })
+        .catch(err => {
+            // display error message in case an error
+            console.log('error', err);
+            response.render('../view/pages/community', {
+                my_title: 'Community',
+                data: '',
+                post: ''
+            })
+        });
+})
+
+
+app.post("/delete", function(req,res,next) {
+    var post = req.body.myModal_body;
+    var id = req.body.modal_id;
+    console.log(req.body);
+    var username = req.cookies.User; // user name itself
+    var query = 'UPDATE post SET postcontent = \''+post+'\' WHERE postid = '+id;
+    console.log(query)
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(query)
+        ]);
+    })
+        .then(info => {
+            res.redirect('/community');
+        })
+        .catch(err => {
+            // display error message in case an error
+            console.log('error', err);
+            response.render('../view/pages/community', {
+                my_title: 'Community',
+                data: '',
+                post: ''
+            })
+        });
+})
+
 app.get('/', function(req, res){
     // console.log("rendering homepage");
     res.redirect('/home')
@@ -176,11 +232,11 @@ app.get('/', function(req, res){
 });
 app.get('/home', function(req, res){
     console.log("rendering homepage");
-    var query1 = 'select * from restaurant where categoryid = 9';
-    var query2 = 'select * from restaurant where categoryid = 10';
-    var query3 = 'select * from restaurant where categoryid = 2';
-    var query4 = 'select * from restaurant where categoryid = 13';
-    var query5 = 'select * from restaurant where categoryid = 1';
+    var query1 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 9';
+    var query2 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 10';
+    var query3 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 2';
+    var query4 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 13';
+    var query5 = 'select restaurant.*, restaurantcategory.categoryname, restaurantcategory.category_img from restaurant left join restaurantcategory on restaurant.categoryid=restaurantcategory.categoryid where restaurant.categoryid = 1';
     db.task('get-everything', task => {
         return task.batch([
             task.any(query1),
@@ -212,40 +268,38 @@ app.get('/home', function(req, res){
             })
         });
 });
-
-//profile page
-app.get('/view/profilePage', function(req, res){
-    // console.log("rendering");
-  res.redirect('/profilePage');
-});
-
-app.get('/profilePage', function(req,res) {
-
-    var customer = 'Select restaurant."restaurantName", restaurant.restaurantid, restaurant.description, savelist.lasttimevisited, review.comment from savelist inner join review on review.reviewid = savelist.reviewid inner join restaurant on restaurant.restaurantid = savelist.restaurantid inner join customer on customer.customerid = savelist.customerid where customer.username = ' + '\''+ req.cookies.User+ '\'';
-
-
-db.task('get-everything', task=>{
-    return task.batch ([
-      task.any(customer)
-    ]);
-  })
-  .then(data=> {
-    res.render('../view/pages/profilePage', {
-      data: data
-    })
-  })
-});
-app.post('/profilePage', function(req,res){
-    var pic = req.customer.profilePic;
-    var bio = req.customer.bio;
-    //query = UPDATE customer SET profileimg = pic WHERE req.cookies.User;
-
+app.post("/insertpost", function(req,res) {
+    var message = req.body.message;
+    var username = req.cookies.User; // user name itself
+    var query = 'SELECT * from restaurant as r JOIN restaurantcategory as c ON r.categoryid = c.categoryid LIMIT 5';
+    var insert = "INSERT INTO post(customerid, postcontent)\n" +
+        "SELECT customerid as id,'" + message + "'\n" +
+        "from customer where username = '" + username + "';";
+    var query2 = 'SELECT *,TO_CHAR(posttime, \'yyyy-mm-dd hh:mm:ss\') as time from post as p JOIN customer as c ON p.customerid = c.customerid order by posttime DESC';
     db.task('get-everything', task => {
         return task.batch([
-            task.any(query)
+            task.any(query),
+            task.any(insert),
+            task.any(query2)
         ]);
-});
-
+    })
+        .then(info => {
+            res.render('../view/pages/community', {
+                my_title: 'Community',
+                data: info[0],
+                post: info[2],
+            })
+        })
+        .catch(err => {
+            // display error message in case an error
+            console.log('error', err);
+            response.render('../view/pages/community', {
+                my_title: 'Community',
+                data: '',
+                post: ''
+            })
+        });
+})
 
 app.post('/login', function(req, res){
     console.log("logging in");
@@ -299,8 +353,8 @@ app.post('/signup', function(req, res){
 });
 
 app.get("/logout",function (req,res) {
+    res.cookie("User","None");
     res.cookie("logged_in","false");
-    res.clearCookie("user");
     res.redirect('/');
 });
 
@@ -334,9 +388,10 @@ app.get("/results", function (req,res) {
 app.get('/restaurant_info', function(req,res) {
     var id = req.query.id;
     var query = "select * from restaurant where restaurantid =" + id;
-
+    console.log(query)
     db.any(query)
         .then(data=> {
+            console.log(data)
             res.render('../view/pages/restaurantpage', {
                 my_title:"Restaurant information",
                 data:data[0]
@@ -350,6 +405,35 @@ app.get('/restaurant_info', function(req,res) {
             })
         });
 });
+
+app.get('/profilePage', function(req,res) {
+
+    var customer = 'Select restaurant."restaurantName", restaurant.restaurantid, restaurant.description, savelist.lasttimevisited from savelist inner join restaurant on restaurant.restaurantid = savelist.restaurantid inner join customer on customer.customerid = savelist.customerid where customer.username = ' + '\''+ req.cookies.User+ '\'';
+
+    console.log(customer)
+    db.task('get-everything', task=>{
+        return task.batch ([
+            task.any(customer)
+        ]);
+    })
+        .then(data=> {
+            res.render('../view/pages/profilePage', {
+                data: data
+            })
+        })
+});
+// app.post('/profilePage', function(req,res) {
+//     var pic = req.customer.profilePic;
+//     var bio = req.customer.bio;
+//     //query = UPDATE customer SET profileimg = pic WHERE req.cookies.User;
+//
+//     db.task('get-everything', task => {
+//         return task.batch([
+//             task.any(query)
+//         ]);
+//     });
+// })
+
 
 
 app.listen(5678);
