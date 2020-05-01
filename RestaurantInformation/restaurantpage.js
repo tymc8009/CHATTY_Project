@@ -1,35 +1,28 @@
-app.get('/restaurant_info/post', function(req,res) {
-  var restaurant_id= select restaurantName from restaurant ;
-  var location = select address  from restaurant ;
-  var reviews = select comment from review;
-  var phonenumber= select phonenumber from restaurant ;
-  db.task('get-everything', task=>{
-    return task.batch ([
-      task.any(restaurant_id),
-      task.any(location),
-      task.any(review),
-      task.any(phonenumber)
-    ]);
-  })
-  .then(data=> {
-    res.render('pages/restaurant_info', {
-      my_title:"Restaurant information",
-      data: data[0],
-      restaurant: restaurant_id,
-      Location: location,
-      Reviews: review,
-      Phonenumbers: phonenumber,
+app.get('/restaurant_info', function(req,res) {
+    var id = req.query.id;
+    var query = "select * from restaurant where restaurantid =" + id;
+    var reviewquery = "select * from review INNER JOIN customer on review.customerid = customer.customerid where review.restaurantid= " + id;
+    console.log(query)
+    db.task('get-everything', task=>{
+        return task.batch ([
+            task.any(query),
+            task.any(reviewquery),
+        ]);
     })
-  })
-  .catch(err=> {
-    console.log('error',err);
-    res.render('pages/restaurant_info/select_restaurant', {
-      title:"Restaurant information",
-      data: '',
-      restaurant:'',
-      Location: '',
-      Reviews: '',
-      Phonenumbers: '',
-    })
-  });
+        .then(data=> {
+            console.log(data[0])
+            res.render('../view/pages/restaurantpage', {
+                my_title:"Restaurant information",
+                data:data[0],
+                reviewdata:data[1],
+            })
+        })
+        .catch(err=> {
+            console.log('error',err);
+            res.render('../view/pages/restaurantpage', {
+                title:"Restaurant information",
+                data:'',
+                reviewdata: ""
+            })
+        });
 });
