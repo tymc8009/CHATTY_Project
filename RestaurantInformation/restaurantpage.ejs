@@ -29,8 +29,10 @@
 <body>
 <%- include('../partials/navbar'); -%>
 <div class="container-fluid" style="padding-top: 66px">
+
     <h1> Restaurant Information </h1>
     <button type="button" class="btn btn-outline-secondary"><a href="https://github.com/">Add to Saved List</a></button> <p></p>
+    <img src="https://www.ihop.com/-/media/ihop/images/logos/logo-ihop.svg?la=en&hash=F6E97C9056998237EAE44818DC5EE92B93877238">
     <div class="card">
         <div class="card-body"> Below is information about the Restaurant.</div>
     </div>
@@ -41,15 +43,16 @@
             <th scope="col">Location</th>
             <th scope="col">Phone Number</th>
         </tr>
-        <% var restaurant='';
-           var Location='';
-           var Phonenumber='';
+        <%
+           var restaurant ='';
+           var Location ='';
+           var Phonenumber ='';
         if(data)
         {
             console.log( "123", data[0]);
-            restaurant=data[0].restaurantName;
-            Location=data[0].address +  data[0].city +  data[0].state;
-            Phonenumber=data[0].phonenumber;
+            restaurant += data[0].restaurantName;
+            Location += data[0].address + " " + data[0].city + " " + data[0].state;
+            Phonenumber += data[0].phonenumber;
         }
         %>
 
@@ -63,10 +66,10 @@
     <table class= "table table-bordered">
         <%
         var rows='';
-
-        if(reviews)
+        if(reviewdata)
         {
-            reviews.forEach(function(item)
+            console.log(reviewdata)
+            reviewdata.forEach(function(item)
             {
                 rows += '<tr> <th> ' + item.comment + '</tr> </th>' ;
 
@@ -80,7 +83,7 @@
 
         </tr>
         <tr>
-            <th scope="row"> <%-rows%> </th>
+<!--            <th scope="row">  </th>-->
 
         </tr>
 
