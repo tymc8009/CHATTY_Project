@@ -47,6 +47,7 @@ function log_in_variables(req, res, next) {
         }
     } else {
         res.locals.logged_in = "false";
+        res.locals.user = 'null';
         res.cookie("logged_in", "false");
         res.locals.current_site = req.originalUrl;
         next();
@@ -82,7 +83,7 @@ app.get("/test", function(req,res) {
     res.send( "boom");
 })
 app.get("/getEmail", function(req,res){
-    console.log(req.query)
+    // console.log(req.query)
     if(req.query == null){
         res.redirect("/");
     } else {
@@ -110,7 +111,7 @@ app.get("/verifyEmail", function (req,res) {
 app.get("/community", function(req,res) {
     var query = 'SELECT * from restaurant as r JOIN restaurantcategory as c ON r.categoryid = c.categoryid LIMIT 5';
     var query2 = 'SELECT *,TO_CHAR(posttime, \'yyyy-mm-dd hh:mm:ss\') as time from post as p JOIN customer as c ON p.customerid = c.customerid order by posttime DESC' ;
-    // console.log(req.cookie)
+    // console.log(req.cookies)
 
     db.task('get-everything', task => {
         return task.batch([
@@ -122,7 +123,7 @@ app.get("/community", function(req,res) {
             res.render('../view/pages/community',{
                 my_title: 'Community',
                 data: info[0],
-                post: info[1],
+                post: info[1]
             })
         })
         .catch(err => {
@@ -175,10 +176,8 @@ app.post("/deletepost", function(req,res) {
 app.post("/editpost", function(req,res,next) {
     var post = req.body.myModal_body;
     var id = req.body.modal_id;
-    console.log(req.body);
     var username = req.cookies.User; // user name itself
     var query = 'UPDATE post SET postcontent = \''+post+'\' WHERE postid = '+id;
-    console.log(query)
     db.task('get-everything', task => {
         return task.batch([
             task.any(query)
@@ -202,10 +201,8 @@ app.post("/editpost", function(req,res,next) {
 app.post("/delete", function(req,res,next) {
     var post = req.body.myModal_body;
     var id = req.body.modal_id;
-    console.log(req.body);
     var username = req.cookies.User; // user name itself
     var query = 'UPDATE post SET postcontent = \''+post+'\' WHERE postid = '+id;
-    console.log(query)
     db.task('get-everything', task => {
         return task.batch([
             task.any(query)
@@ -389,7 +386,6 @@ app.get('/restaurant_info', function(req,res) {
     var id = req.query.id;
     var query = "select * from restaurant where restaurantid =" + id;
     var reviewquery = "select * from review INNER JOIN customer on review.customerid = customer.customerid where review.restaurantid= " + id;
-    console.log(query)
     db.task('get-everything', task=>{
         return task.batch ([
             task.any(query),
@@ -397,7 +393,6 @@ app.get('/restaurant_info', function(req,res) {
         ]);
     })
         .then(data=> {
-            console.log(data[0])
             res.render('../view/pages/restaurantpage', {
                 my_title:"Restaurant information",
                 data:data[0],
@@ -417,18 +412,11 @@ app.post("/postReview", function(req,res) {
     var message = req.body.message;
     var username = res.locals.user.customerid;
     var querynumber= req.body.reviews;
-    console.log(message);
-    console.log(username);
-    console.log(querynumber);
     var restaurantid= req.body.Bob;
-    console.log( "hello",restaurantid);
     var query = "INSERT INTO review (restaurantid,customerid,star,comment) VALUES ("+restaurantid+","+username+","+querynumber+",'"+message+"');";
-    console.log(query);
     db.any(query)
         .then(info => {
-            console.log("before link");
             var link= '/restaurant_info?id='+ req.body.Bob;
-            console.log(link);
             res.redirect(link);
         })
         .catch(err => {
@@ -446,7 +434,7 @@ app.get('/profilePage', function(req,res) {
 
     var customer = 'Select restaurant."restaurantName", restaurant.restaurantid, restaurant.description, savelist.lasttimevisited from savelist inner join restaurant on restaurant.restaurantid = savelist.restaurantid inner join customer on customer.customerid = savelist.customerid where customer.username = ' + '\''+ req.cookies.User+ '\'';
 
-    console.log(customer)
+    // console.log(customer)
     db.task('get-everything', task=>{
         return task.batch ([
             task.any(customer)

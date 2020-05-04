@@ -50,7 +50,8 @@
                     var time =item.time
                     var cardid = item.postid
                     var dropdown = '</div></div>';
-                    if(user.customerid === item.customerid){
+
+                    if(logged_in ==='true' && user.customerid === item.customerid){
                         dropdown =  '<div calss=\'col-1\'><div class="dropdown" id = '+cardid +'"_dropdown">' +
                                 '  <i type="button" class="btn material-icons dropdown" style="font-size:1.5em;padding-top: 10px" id = '+cardid +'"_dropdown_Post" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
                                 '    dehaze' +
@@ -62,8 +63,6 @@
                                 '  </div>' +
                                 '</div></div></div></div>'
                     }
-
-
                     card += '<div class="card" id="'+cardid+'"><div class=\'row\'><div class=\'col-11\'><div class="card-body">' +
                             '<h6 id="'+cardid+'_uname">'+item.username+'</h6><p id="'+cardid+'_content">' + item.postcontent + '</p><p>'+time+'</p></div></div>'+ dropdown
                             '</div></div>';
@@ -128,9 +127,9 @@
 <script>
     function createmodal(elementid,username){
         var card = document.getElementById(elementid + '_content');
-        console.log(card)
+        // console.log(card)
         var modal = document.getElementById("myModal_body");
-        console.log(modal)
+        // console.log(modal)
         document.getElementById("modal_id").setAttribute('value',elementid);
         modal.innerHTML = card.innerText;
         modal.parentElement.parentElement.parentElement.id = 'editform-' + elementid
@@ -138,7 +137,6 @@
     }
 
     function deletepost(card){
-        console.log(card)
         $app.delete('/post/' + id)
             .success(function(data) {
                 console.log('Success: ' + data);
@@ -149,8 +147,7 @@
     }
     function validatePost() {
         var x = document.forms["PostForm"]["message"].value;
-        console.log(x)
-        console.log(document.cookie)
+        // console.log(document.cookie)
         if(document.cookie ==="" || document.cookie.split(';')[1].split('=')[1]==='false'){
             alert("User must be logged in");
             return false;
