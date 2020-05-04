@@ -1,5 +1,5 @@
 # CHATTY_Project - Foodfinder
-Welcome to Foodfinder, a brand new website application offering information for the best local restaurants.
+Welcome to Foodfinder, a brand new website application offering information of the best local restaurants.
 
 ## What you can do here
 - Join our community. Sign up to be a member of Foodfinder, write down reviews for restaurant, and share your experiences!
@@ -13,4 +13,5 @@ Welcome to Foodfinder, a brand new website application offering information for 
 ## How to run the code:
 - once downloaded all the files to the local machine, we can start the project by start the nodeJS server.js by using node server.js
  command.
+
 Develope by CHATTY group 2020
