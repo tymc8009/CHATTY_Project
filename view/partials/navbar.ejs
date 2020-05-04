@@ -21,7 +21,7 @@ if(current_site) //sets the associated nav item active
 }
 %>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #E84B0E;" id="navigation">
-    <a class="navbar-brand" href="#">FoodFinder</a>
+    <a class="navbar-brand" href='\home'>FoodFinder</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -78,7 +78,7 @@ if(current_site) //sets the associated nav item active
                 element  += "<img src=\""+profilephoto+"\" class=\"rounded-circle\" id=\"profile_photo\" width=\"38px\" height=\"38px\" data-toggle=\"dropdown\" height=\"50\" style=\"margin:0px 20px\">"
                         + "<div class=\"dropdown-menu dropdown-menu-right px-1\" style=\"background-color:#E84B0E;color:white\">"
                         + "<b class=\"dropdown-header font-weight-bold\" style='color:#cccccc' id=\"navbar_username_text\"> <img src=\""+profilephoto+"\" id=\"profile_photo_small\" width=\"25\" height=\"25\"> "+ user.username+"</b>" //replace text with username from database
-                        + "<a class='nav-link' style='color:#eeeeee' href="/*link to profile settings page*/ + "#" + " id='profile_settings_link'> profile settings </a>"
+                        + "<a class='nav-link' style='color:#eeeeee' href='\profilePage' id='profile_settings_link'> profile settings </a>"
                         + "<div class='dropdown-divider'></div> <form action='/logout'><button type=\"submit\" class=\"btn btn-outline-light\" id=\"log_Out_Button\"> log out </button> </form>"
                         + "</div>";
             }

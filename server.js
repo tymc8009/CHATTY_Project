@@ -432,19 +432,22 @@ app.post("/postReview", function(req,res) {
 
 app.get('/profilePage', function(req,res) {
 
-    var customer = 'Select restaurant."restaurantName", restaurant.restaurantid, restaurant.description, savelist.lasttimevisited from savelist inner join restaurant on restaurant.restaurantid = savelist.restaurantid inner join customer on customer.customerid = savelist.customerid where customer.username = ' + '\''+ req.cookies.User+ '\'';
-
+    var savelist = 'Select restaurant."restaurantName", restaurant.restaurantid, restaurant.description, savelist.lasttimevisited from savelist inner join restaurant on restaurant.restaurantid = savelist.restaurantid inner join customer on customer.customerid = savelist.customerid where customer.username = ' + '\''+ req.cookies.User+ '\'';
     // console.log(customer)
-    db.task('get-everything', task=>{
-        return task.batch ([
-            task.any(customer)
-        ]);
-    })
-        .then(data=> {
+    db.any(savelist)
+        .then(info => {
             res.render('../view/pages/profilePage', {
-                data: data
+                my_title: 'Profile',
+                data: info
+            })        })
+        .catch(err => {
+            // display error message in case an error
+            console.log('error', err);
+            req.render('../view/pages/profilePage', {
+                my_title: 'Profile',
+                data: ''
             })
-        })
+        });
 });
 // app.post('/profilePage', function(req,res) {
 //     var pic = req.customer.profilePic;

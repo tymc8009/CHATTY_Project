@@ -134,8 +134,8 @@
         <div class="card-group">
             <%
             var card = '';
-                if(data){
-                    console.log(data);
+            console.log('test1',data,'test');
+            if(data.length !==0){
                     data.forEach(function(customer){
                         var time = customer[0].lasttimevisited;
                         if(customer[0].lasttimevisited == null){
