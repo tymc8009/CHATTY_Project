@@ -21,14 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="834d1d3f-a49d-4158-9830-c07b8c19d619" name="Default Changelist" comment="Merge remote-tracking branch 'origin/Tiancheng' into Yibo&#10;&#10;# Conflicts:&#10;#&#9;partials/navbar.ejs&#10;#&#9;partials/sign_up_modal.ejs&#10;#&#9;resources/js/accountFunctions.js&#10;#&#9;server.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/search_result.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/search_result.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurantpage.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurantpage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userInfo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/pages/profilePage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/pages/profilePage.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/pages/restaurantpage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/pages/restaurantpage.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/partials/navbar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/view/partials/navbar.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,17 +43,6 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
-        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="chatty_2020" type="feb32156:DbDataSourceImpl" />
-        <item name="chatty_2020: database" type="162271b6:PgImplModel$Database" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
       </path>
     </expand>
     <select />
@@ -305,7 +286,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/resources/js/search_result.js</url>
           <line>16</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
