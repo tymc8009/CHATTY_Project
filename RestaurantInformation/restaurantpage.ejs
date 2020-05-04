@@ -17,78 +17,142 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <title>About Me</title>
-</head>>
+
+
+</head>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    label {
+        margin-right: 15px;
+        line-height: 32px;
+    }
+    column {
+        flex: 50%;
+        padding: 0 4px;
+    }
+
+</style>
 
 <body>
 <%- include('../partials/navbar'); -%>
-<div class="container-fluid" style="padding-top: 66px">
 
-    <h1> Restaurant Information </h1>
-    <button type="button" class="btn btn-outline-secondary"><a href="https://github.com/">Add to Saved List</a></button> <p></p>
-    <img src="https://www.ihop.com/-/media/ihop/images/logos/logo-ihop.svg?la=en&hash=F6E97C9056998237EAE44818DC5EE92B93877238">
-    <div class="card">
-        <div class="card-body"> Below is information about the Restaurant.</div>
+
+<div class="jumbotron">
+    <h1> Restaurant Info </h1>
+    <div class="column">
+    <img src="https://www.ihop.com/-/media/ihop/images/logos/logo-ihop.svg?la=en&hash=F6E97C9056998237EAE44818DC5EE92B93877238", class="img-rounded" alt="IHOP" align="Right">
+    <img src="https://upserve.com/media/sites/2/kaboompics_Bar-in-the-eclectically-designed-interior-1-e1515709265222.jpg", height="100px" width="100px" class="img-rounded" alt="American" align="Right">
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic-ssl.businessinsider.com%2Fimage%2F53b579166da811b136c10d7b-891-667%2Fburger-american-flag.jpg%3FmaxX%3D480&f=1&nofb=1", height="100px" width="100px" class="img-rounded" alt="American" align="Right">
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.verywellfit.com%2Fthmb%2FkqQgpCClb_9YHVvlvYhKqAbN85k%3D%2F2121x1414%2Ffilters%3Afill(FFDB5D%2C1)%2FGettyImages-5381529421-58cc46ff5f9b581d721d15dd.jpg&f=1&nofb=1" height="100px" width="100px" class="img-rounded" alt="IHOP" align="Right">
+    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.hakkachinesefood.com%2Fwp-content%2Fuploads%2F2016%2F04%2Fcropped-Logo-1.png&f=1&nofb=1", class="img-rounded" height="100px" width="100px" alt="IHOP" align="Right">
     </div>
-    <table class= "table table-bordered">
-        <thead>
-        <tr>
-            <th scope="col">Restaurant</th>
-            <th scope="col">Location</th>
-            <th scope="col">Phone Number</th>
-        </tr>
-        <%
-           var restaurant ='';
-           var Location ='';
-           var Phonenumber ='';
-        if(data)
-        {
-            console.log( "123", data[0]);
-            restaurant += data[0].restaurantName;
-            Location += data[0].address + " " + data[0].city + " " + data[0].state;
-            Phonenumber += data[0].phonenumber;
-        }
-        %>
-
-        <tr>
-            <th scope="row"><%-restaurant%> </th>
-            <td> <%-Location%> </td>
-            <td> <%-Phonenumber%> </td>
-        </tr>
-        </thead>
-    </table>
-    <table class= "table table-bordered">
-        <%
-        var rows='';
-        if(reviewdata)
-        {
-            console.log(reviewdata)
-            reviewdata.forEach(function(item)
-            {
-                rows += '<tr> <th> ' + item.comment + '</tr> </th>' ;
-
-            });
-
-        }
-        %>
-        <thead>
-        <tr>
-            <th scope="col">Reviews</th>
-
-        </tr>
-        <tr>
-<!--            <th scope="row">  </th>-->
-
-        </tr>
-
-    </table>
-
+    <p> Below is the information about the restaurant &#9786;</p>
 </div>
+
+<table>
+    <tr>
+        <th>Restaurant</th>
+        <th>Location</th>
+        <th>Phone Number</th>
+    </tr>
+    <%
+    var restaurant ='';
+    var Location ='';
+    var Phonenumber ='';
+    if(data)
+    {
+        console.log( "123", data[0]);
+        restaurant += data[0].restaurantName;
+        Location += data[0].address + " " + data[0].city + " " + data[0].state;
+        Phonenumber += data[0].phonenumber;
+    }
+    %>
+    <tr>
+        <td><%-restaurant%></td>
+        <td><%-Location%></td>
+        <td><%-Phonenumber%></td>
+    </tr>
+    <tr>
+
+</table>
+<p></p>
+<table class="table table-bordered">
+    <%
+    var rows='';
+    var stars='';
+    if(reviewdata)
+    {
+        console.log(reviewdata)
+        reviewdata.forEach(function(item)
+        {
+             //  rows += '<tr> item.comment  + item.star +</tr> '  ;
+             // rows+= '<tr> <th> ' + items.star +  '</tr> </th>' ;
+            rows += '<tr> <th>  ' + item.comment + ' - ' + item.username + ' </th>';
+            rows += ' <th> ' + item.star+ '</th>';
+
+        });
+
+    }
+    %>
+    <thead>
+    <tr>
+        <th>Reviews</th>
+        <th>Stars ( Out of 5) 1-worst 5-best</th>
+
+    </tr>
+    </thead>
+    <tr>
+        <%-rows%>
+    </tr>
+</table>
+    <div class="container" style="padding-top: 80px">
+     <%
+         var reviewform= '';
+         if(logged_in =="true")
+        reviewform+=`
+        <div class="row" >
+            <div class="col-9">
+                <form action="/postReview" method="post" name="PostForm"  required>
+                    <div style="background-color: white" class="panel-body">
+                        <div class="form-group">
+                <textarea placeholder="Post Review" class="form-control"
+                          id="message" name="message"></textarea>
+                            <input name="Bob" value=${data[0].restaurantid} hidden >
+                        </div>
+                      <form>
+                     <h3> Review </h3>
+                    <input type="radio"  name="reviews" value="1" >
+                        <label for="">1 </label>
+                <input type="radio"  name="reviews" value="2">
+                        <label for="">2</label>
+                    <input type="radio"  name="reviews" value="3">
+                        <label for="">3</label>
+                        <input type="radio"  name="reviews" value="4">
+                        <label for="">4</label>
+                         <input type="radio"  name="reviews" value="5">
+                        <label for="">5</label>
+                    </form>
+                        <div style="float: right;">
+                            <button type="submit" class="btn btn-primary btn-md" style="background-color: #E84B0E">Submit</button>
+                        </div>
+                    </div>
+                </form>`;
+       %>
+        <%-reviewform%>
+
 </body>
 </html>
